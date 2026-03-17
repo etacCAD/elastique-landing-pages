@@ -433,16 +433,17 @@ h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
   margin-bottom: 6px;
 }
 .anchor-row__time {
-  font-size: 12px;
-  color: rgba(255,255,255,0.25);
-  letter-spacing: 0.02em;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding-top: 6px;
-  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.01em;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 8px;
+  margin-top: 4px;
 }
 .anchor-row__time--free {
-  color: rgba(196,149,106,0.7);
-  border-top-color: rgba(196,149,106,0.15);
+  color: var(--accent-light);
+  border-top-color: rgba(196,149,106,0.2);
 }
 .anchor-note { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; line-height: 1.6; }
 
