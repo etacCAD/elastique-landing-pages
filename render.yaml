@@ -37,3 +37,42 @@ services:
       - type: rewrite
         source: /*
         destination: /index.html
+
+  - type: web
+    name: elastique-last-leggings
+    env: static
+    staticPublishPath: ./last-leggings
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: elastique-lymphatic-health
+    env: static
+    staticPublishPath: ./lymphatic-health
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: elastique-social-proof-skin
+    env: static
+    staticPublishPath: ./social-proof-skin
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
