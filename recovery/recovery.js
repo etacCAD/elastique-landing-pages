@@ -66,4 +66,77 @@
     });
   });
 
+  /* --- HSA/FSA Toggle --- */
+  var hsaToggle     = document.getElementById('hsa-toggle');
+  var taxBracket    = document.getElementById('tax-bracket');
+  var bracketRow    = document.getElementById('hsa-bracket-row');
+  var hsaSavingsEl  = document.getElementById('hsa-savings');
+  var hsaEffective  = document.getElementById('hsa-effective');
+  var hsaSaved      = document.getElementById('hsa-saved');
+  var hsaTotalSaved = document.getElementById('hsa-total-saved');
+  var anchorPrice   = document.getElementById('anchor-price');
+  var anchorMath    = document.getElementById('anchor-math');
+  var anchorCard    = document.getElementById('anchor-elastique');
+
+  // Product card prices
+  var PRODUCTS = [
+    { id: 'price-classic',  base: 235 },
+    { id: 'price-stirrup',  base: 275 },
+    { id: 'price-lisse',    base: 150 }
+  ];
+
+  function updateHSA() {
+    var isActive = hsaToggle && hsaToggle.checked;
+    var rate = parseFloat(taxBracket.value) || 0.30;
+
+    if (isActive) {
+      bracketRow.classList.add('is-active');
+    } else {
+      bracketRow.classList.remove('is-active');
+      hsaSavingsEl.classList.remove('is-active');
+      if (anchorCard) anchorCard.classList.remove('hsa-active');
+
+      // Reset anchor price
+      anchorPrice.innerHTML = '$235<span> once</span>';
+      anchorMath.textContent = 'Continuous lymphatic stimulation · every day · all day';
+
+      // Reset product card prices
+      PRODUCTS.forEach(function(p) {
+        var el = document.getElementById(p.id);
+        if (el) el.innerHTML = '$' + p.base + ' <span class="product-card__price-note">· HSA/FSA eligible</span>';
+      });
+      return;
+    }
+
+    var saved = Math.round(235 * rate);
+    var effective = 235 - saved;
+    var mldSaving = 1440 - effective;
+
+    // Update anchor price card
+    anchorPrice.innerHTML = '$' + effective + '<span> effective</span>';
+    anchorMath.innerHTML = 'Effective price with HSA/FSA <span class="hsa-badge">HSA/FSA</span>';
+    if (anchorCard) anchorCard.classList.add('hsa-active');
+
+    // Update savings callout
+    hsaEffective.textContent = '$' + effective;
+    hsaSaved.textContent = '$' + saved;
+    hsaTotalSaved.textContent = '$' + mldSaving;
+    hsaSavingsEl.classList.add('is-active');
+
+    // Update all product card prices
+    PRODUCTS.forEach(function(p) {
+      var el = document.getElementById(p.id);
+      if (!el) return;
+      var pSaved = Math.round(p.base * rate);
+      var pEffective = p.base - pSaved;
+      el.innerHTML = '<s style="opacity:0.4;font-size:0.75em">$' + p.base + '</s> $' + pEffective +
+        ' <span class="product-card__price-note">· save $' + pSaved + ' with HSA/FSA</span>';
+    });
+  }
+
+  if (hsaToggle) {
+    hsaToggle.addEventListener('change', updateHSA);
+    taxBracket.addEventListener('change', updateHSA);
+  }
+
 })();

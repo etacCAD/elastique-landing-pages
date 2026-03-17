@@ -1,0 +1,1184 @@
+{% layout none %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elastique — Finally, Legs That Don't Feel Like Lead</title>
+  <meta name="description" content="15,000+ people discovered leggings that actually move lymph fluid, reduce swelling, and help your body recover. 30-day guarantee.">
+  <style>
+/* ============================================
+   ELASTIQUE — COLD TRAFFIC CSS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+:root {
+  --black: #231B1E;
+  --deep: #1a1318;
+  --charcoal: #2d2530;
+  --white: #ffffff;
+  --cream: #EFEAE6;
+  --warm-gray: #DDD8D4;
+  --text: #2d2530;
+  --text-light: #6b6470;
+  --accent: #E4F685;
+  --accent-dark: #c8da60;
+  --accent-light: #eef8a0;
+  --accent-purple: #9784F6;
+  --success: #4a7a5a;
+  --r: 10px;
+  --rl: 18px;
+  --t: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max: 520px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* --- Typography --- */
+h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 6vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+
+/* --- Layout --- */
+.section { padding: 56px 20px; }
+.section--alt { background: var(--cream); }
+.section--dark { background: var(--deep); color: var(--white); }
+.inner { max-width: var(--max); margin: 0 auto; }
+.label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #839618;
+  margin-bottom: 10px;
+}
+
+/* ============================================
+   TRUST BAR (sticky top)
+   ============================================ */
+.trust-bar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--black);
+  padding: 10px 16px;
+  text-align: center;
+}
+.trust-bar p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.07em;
+}
+.trust-bar span { color: var(--accent-light); font-weight: 600; }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__img-wrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 300px;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  opacity: 0.75;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(17,17,16,0) 30%,
+    rgba(17,17,16,0.9) 75%,
+    rgba(17,17,16,1) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px 48px;
+  background: var(--black);
+}
+
+.hero__proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+.hero__proof-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+
+.hero h1 {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.hero__sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 420px;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 17px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--t);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+.btn--primary {
+  background: var(--accent);
+  color: var(--black);
+  box-shadow: 0 4px 20px rgba(228,246,133,0.35);
+}
+.btn--primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(228,246,133,0.45);
+}
+.btn--ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  margin-top: 12px;
+}
+.btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn--dark {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.btn--dark:hover {
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   IDENTITY MIRROR
+   ============================================ */
+.mirror { background: var(--deep); }
+.mirror__intro {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.mirror__item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.mirror__item:last-child { border-bottom: none; }
+.mirror__lead {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.mirror__detail {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.55;
+}
+
+/* ============================================
+   SOCIAL PROOF WALL
+   ============================================ */
+.proof-wall .section-header {
+  margin-bottom: 24px;
+}
+.proof-wall h2 { margin-bottom: 6px; }
+.proof-wall .sh-sub {
+  font-size: 14px;
+  color: var(--text-light);
+}
+.review-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.review-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: var(--rl);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: var(--t);
+}
+.review-card:hover { transform: translateY(-2px); box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+.review-card__stars { color: var(--accent-dark); font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
+.review-card__quote {
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.review-card__author { font-size: 12px; font-weight: 700; color: var(--text-light); }
+.review-card__tag {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--charcoal);
+  background: rgba(228,246,133,0.25);
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+
+/* ============================================
+   COMPARISON HOOK
+   ============================================ */
+.comparison h2 { margin-bottom: 10px; }
+.comparison__intro {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.comp-img {
+  width: 100%;
+  border-radius: var(--r);
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+.comp-table {
+  border-radius: var(--rl);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+}
+.comp-table__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.comp-header-cell {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+.comp-header-cell--regular { background: #f0ece7; color: var(--text-light); }
+.comp-header-cell--mp { background: var(--accent); color: var(--black); }
+.comp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.comp-cell {
+  padding: 10px 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.comp-cell--regular { background: #faf8f5; color: var(--text-light); }
+.comp-cell--mp { background: #fff; color: var(--text); font-weight: 500; }
+.comp-check { color: var(--success); flex-shrink: 0; }
+.comp-x { color: #b07070; flex-shrink: 0; }
+
+/* ============================================
+   PRODUCT REVEAL
+   ============================================ */
+.product { background: var(--cream); }
+.product h2 { margin-bottom: 8px; }
+.product__sub {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+.product-card {
+  background: var(--white);
+  border-radius: var(--rl);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.product-card__img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center top;
+}
+.product-card__body { padding: 24px 20px; }
+.product-card__name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 18px;
+}
+.product-card__rating .stars { color: var(--accent); letter-spacing: 1px; }
+.benefits {
+  list-style: none;
+  margin-bottom: 22px;
+}
+.benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  line-height: 1.4;
+}
+.benefits li:last-child { border-bottom: none; }
+.benefits .check { color: var(--success); flex-shrink: 0; font-size: 16px; }
+
+/* ============================================
+   PRICE ANCHOR
+   ============================================ */
+.anchor { background: var(--deep); }
+.anchor h2 { color: var(--white); margin-bottom: 10px; }
+.anchor__intro { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 28px; line-height: 1.6; }
+.anchor-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.anchor-row {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r);
+  padding: 20px 22px;
+}
+.anchor-row--highlight {
+  background: rgba(228,246,133,0.1);
+  border-color: var(--accent);
+}
+.anchor-row__annual {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.anchor-row__annual span {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.3);
+}
+.anchor-row--highlight .anchor-row__annual { color: var(--accent); }
+.anchor-row--highlight .anchor-row__annual span { color: rgba(228,246,133,0.6); }
+.anchor-row__label {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 4px;
+}
+.anchor-row--highlight .anchor-row__label { color: var(--white); }
+.anchor-row__math {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+.anchor-row__time {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.01em;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 8px;
+  margin-top: 4px;
+}
+.anchor-row__time--free {
+  color: var(--accent);
+  border-top-color: rgba(228,246,133,0.2);
+}
+.anchor-note { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; line-height: 1.6; }
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item {
+  background: var(--white);
+  border-radius: var(--r);
+  border: 1px solid rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.faq-item.is-open { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+}
+.faq-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--accent);
+  font-weight: 700;
+  transition: var(--t);
+}
+.faq-item.is-open .faq-icon { background: var(--accent); color: var(--black); transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-a__inner { padding: 0 18px 18px; font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+/* ============================================
+   FINAL CTA
+   ============================================ */
+.final { background: var(--black); text-align: center; }
+.final h2 { color: var(--white); margin-bottom: 12px; }
+.final h2 em { font-style: italic; color: var(--accent); }
+.final__sub { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 28px; max-width: 380px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+.final__guarantee {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+.final__guarantee span { display: flex; align-items: center; gap: 5px; }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: #0d0c0b;
+  color: rgba(255,255,255,0.25);
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 12px;
+}
+/* ============================================
+   STICKY CTA (MOBILE)
+   ============================================ */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  justify-content: center;
+}
+.sticky-cta.is-visible {
+  transform: translateY(0);
+}
+.sticky-cta__inner {
+  width: 100%;
+  max-width: var(--max);
+}
+.sticky-cta .btn {
+  padding: 14px 24px;
+  font-size: 15px;
+}
+@media (min-width: 768px) {
+  .sticky-cta { display: none; }
+}
+
+/* ============================================
+   EXIT INTENT POPUP
+   ============================================ */
+.exit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.exit-popup.is-visible {
+  pointer-events: auto;
+  opacity: 1;
+}
+.exit-popup__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+}
+.exit-popup__content {
+  position: relative;
+  background: var(--white);
+  padding: 40px;
+  border-radius: var(--rl);
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.exit-popup.is-visible .exit-popup__content {
+  transform: translateY(0);
+}
+.exit-popup__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--text-light);
+  cursor: pointer;
+  line-height: 1;
+}
+.exit-popup h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 12px;
+  color: var(--black);
+}
+.exit-popup p {
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+.exit-popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.exit-popup__form input {
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+.exit-popup__form input:focus {
+  border-color: var(--accent-dark);
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+footer a:hover { color: var(--accent-dark); }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================
+   DESKTOP (768px+)
+   ============================================ */
+@media (min-width: 768px) {
+  .section { padding: 80px 32px; }
+  :root { --max: 660px; }
+
+  .hero { min-height: 100svh; flex-direction: row; }
+  .hero__img-wrap { flex: 1; min-height: auto; }
+  .hero__overlay {
+    background: linear-gradient(to right,
+      rgba(17,17,16,0) 20%,
+      rgba(17,17,16,0.7) 60%,
+      rgba(17,17,16,1) 100%
+    );
+  }
+  .hero__content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 48px 48px 56px;
+    background: transparent;
+  }
+
+  .btn { width: auto; min-width: 240px; }
+  .hero__ctas { display: flex; flex-direction: column; align-items: flex-start; }
+  .btn--ghost { width: auto; }
+
+  .review-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .anchor-compare { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     TRUST BAR (sticky)
+     ============================================ -->
+<div class="trust-bar">
+  <p>
+    <span>15,847 customers</span>
+    &nbsp;·&nbsp;
+    <span>Recommended by 500+ therapists</span>
+    &nbsp;·&nbsp;
+    <span>30-Day Guarantee</span>
+  </p>
+</div>
+
+<!-- ============================================
+     SECTION 1 — HERO
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="hero__img-wrap">
+    <img
+      src="assets/hero.png"
+      alt="Woman seated, hands on shins, expression of quiet relief"
+      class="hero__img"
+      width="800"
+      height="800"
+      loading="eager"
+    >
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__proof">
+      <span class="hero__proof-num">15,847</span>
+      <span>people changed how their body feels</span>
+    </div>
+    <h1>Legs That Don't Feel Like <em>Lead</em> Anymore</h1>
+    <p class="hero__sub">
+      Finally — legs that feel normal again. No compression sleeves, no daily massage appointments.
+    </p>
+    <div class="hero__ctas">
+      <a href="#shop" class="btn btn--primary" data-cta="hero-primary">Find Your Fit →</a>
+      <a href="#proof" class="btn btn--ghost" data-cta="hero-reviews">See Why People Love These</a>
+    </div>
+    <div class="hero__logos" style="margin-top: 24px; font-size: 11px; color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: flex-start; gap: 16px; letter-spacing: 0.05em; text-transform: uppercase;">
+      <span>As seen in Travel + Leisure</span>
+      <span>Recommended by 500+ therapists</span>
+      <span>OEKO-TEX Certified</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 2 — IDENTITY MIRROR
+     ============================================ -->
+<section class="section mirror" id="mirror">
+  <div class="inner fade-up">
+    <p class="mirror__intro">Sound familiar?</p>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"My legs are swollen and heavy by 3pm."</p>
+      <p class="mirror__detail">Whether you're at a desk, on your feet all day, or just sitting longer than you'd like — sluggish lymphatic flow is why this keeps happening.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"I fly and land feeling like I'm 20 years older."</p>
+      <p class="mirror__detail">Prolonged sitting stops your lymphatic system from doing its job. The result: puffiness, fatigue, and shoes that won't go back on.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"I've tried compression. It didn't do much."</p>
+      <p class="mirror__detail">Standard compression just squeezes. It doesn't move anything. MicroPerle® is engineered to actually guide fluid — just like a lymphatic massage would.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 3 — SOCIAL PROOF WALL (early)
+     ============================================ -->
+<section class="section section--alt proof-wall" id="proof">
+  <div class="inner fade-up">
+    <div class="section-header">
+      <span class="label">Real Reviews</span>
+      <h2>What 15,847 Customers Said</h2>
+      <p class="sh-sub">280+ verified 5-star reviews. Here are the ones that say it best.</p>
+    </div>
+
+    <div class="review-stack">
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"My physical therapist confirmed these provide the correct gradient compression. Not only are they medically correct — they look like normal leggings and are very comfy. I can't say enough about how much these have improved my life."</p>
+        <p class="review-card__author">Kathleen S. <span class="review-card__tag">Lymphedema · 2yr verified wear</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I fly a lot for work and I love wearing these on long-haul flights. I arrive feeling refreshed and NOT swollen. First time in years I could put my shoes back on at landing."</p>
+        <p class="review-card__author">Patricia T. <span class="review-card__tag">Frequent flyer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"Over 20 years doing hair, I've tried compression socks, expensive shoes, everything. Nothing comes close. 8 hours on my feet and my legs are no longer throbbing. These are an investment in my health."</p>
+        <p class="review-card__author">Cindy R. <span class="review-card__tag">Hairdresser · 20+ years</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I have seen a stark difference in the cellulite on the back of my legs — that alone is enough to make me want another pair. Every time I put these on I know I'm doing something positive for my health."</p>
+        <p class="review-card__author">Kelly T. <span class="review-card__tag">Skin + recovery results</span></p>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="proof-cta">Try Them Risk Free →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4 — COMPARISON HOOK
+     ============================================ -->
+<section class="section comparison" id="comparison">
+  <div class="inner fade-up">
+    <span class="label">The Difference</span>
+    <h2>Not compression. Something smarter.</h2>
+    <p class="comparison__intro">
+      Most compression garments just squeeze. MicroPerle® technology does something fundamentally different — it moves. Each bead is mapped along your lymphatic vessels to simulate professional lymphatic drainage while you go about your day.
+    </p>
+
+    <img
+      src="assets/microperle-texture.png"
+      alt="Macro view of MicroPerle bead technology mapped on dark charcoal fabric"
+      class="comp-img"
+      width="680"
+      height="480"
+      loading="lazy"
+    >
+
+    <div class="comp-table">
+      <div class="comp-table__header">
+        <div class="comp-header-cell comp-header-cell--regular">Regular Compression</div>
+        <div class="comp-header-cell comp-header-cell--mp">MicroPerle®</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Uniform squeeze, no flow</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Guides fluid along lymph pathways</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> No therapeutic benefit</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Simulates lymphatic massage</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Feels tight, restrictive</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Feels like support, not restriction</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Loses effectiveness fast</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> 3–5x longer lasting compression</div>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="comparison-cta">Experience MicroPerle® →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5 — PRODUCT REVEAL
+     ============================================ -->
+<section class="section product" id="shop">
+  <div class="inner fade-up">
+    <span class="label">Shop</span>
+    <h2>L'Original Leggings</h2>
+    <p class="product__sub">The one that started it all. MicroPerle® technology in everyday-wear leggings.</p>
+
+    <div class="product-card">
+      <img
+        src="../assets/product-leggings.png"
+        alt="L'Original compression leggings — on model, full length view"
+        class="product-card__img"
+        width="520"
+        height="390"
+        loading="lazy"
+      >
+      <div class="product-card__body">
+        <h3 class="product-card__name">L'Original — MicroPerle® Leggings</h3>
+        <div class="product-card__rating">
+          <span class="stars">★★★★★</span>
+          <span>4.9 · 280+ verified reviews</span>
+        </div>
+        <ul class="benefits">
+          <li><span class="check">✓</span> Daily lymphatic drainage without appointments</li>
+          <li><span class="check">✓</span> 8–13 mmHg gradient compression (Laplace-engineered)</li>
+          <li><span class="check">✓</span> Reduces swelling, heaviness &amp; leg fatigue</li>
+          <li><span class="check">✓</span> Clinically proven circulation improvement in 8–10 days</li>
+          <li><span class="check">✓</span> Looks and moves like premium activewear</li>
+        </ul>
+        <a href="#" class="btn btn--primary" data-cta="product-primary">Find Your Fit →</a>
+      </div>
+    </div>
+
+    <!-- Secondary Product -->
+    <div class="product-card" style="margin-top: 20px;">
+      <div class="product-card__body">
+        <h3 class="product-card__name">Lisse — For First-Timers</h3>
+        <p class="product-card__price" style="margin-bottom: 8px; font-weight: 600;">$150 <span style="font-weight: 400; color: var(--text-light); font-size: 14px;">· Designed for first-timers</span></p>
+        <p style="font-size: 15px; color: var(--text-light); margin-bottom: 20px;">New to Elastique? Start with Lisse for comfortable, light compression.</p>
+        <a href="#" class="btn btn--ghost" style="color: var(--black); border-color: rgba(0,0,0,0.2); width: 100%; display: block;" data-cta="product-lisse">Shop Lisse →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 6 — PRICE ANCHOR
+     ============================================ -->
+<section class="section anchor" id="value">
+  <div class="inner fade-up">
+    <span class="label">The Value</span>
+    <h2>What does lymphatic drainage actually cost you per year?</h2>
+    <p class="anchor__intro">
+      Most people paying for ongoing treatments don't do the annual math. Here it is.
+    </p>
+
+    <div class="anchor-compare">
+      <div class="anchor-row">
+        <div class="anchor-row__annual">$1,920<span>/yr</span></div>
+        <div class="anchor-row__label">Lymphatic massage</div>
+        <div class="anchor-row__math">$160/session × 12 sessions</div>
+        <div class="anchor-row__time">⏱ ~18 hrs/yr in appointments &amp; travel</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-row__annual">$1,380<span>/yr</span></div>
+        <div class="anchor-row__label">Compression therapy clinic</div>
+        <div class="anchor-row__math">$115/visit × 12 visits</div>
+        <div class="anchor-row__time">⏱ ~12 hrs/yr scheduling &amp; waiting</div>
+      </div>
+      <div class="anchor-row anchor-row--highlight">
+        <div class="anchor-row__annual">$220<span> once</span></div>
+        <div class="anchor-row__label">Elastique MicroPerle®</div>
+        <div class="anchor-row__math">One pair · wear every day · no appointments</div>
+        <div class="anchor-row__time anchor-row__time--free">⏱ 0 hrs — works while you live your life</div>
+      </div>
+    </div>
+    <p class="anchor-note">92% of customers report noticeable relief. Backed by a 30-day guarantee — if it doesn't work, you don't pay.</p>
+
+    <br>
+    <a href="#shop" class="btn btn--dark" data-cta="anchor-cta">Shop Now — Free Shipping →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7 — FAQ (objection crushers)
+     ============================================ -->
+<section class="section section--alt" id="faq">
+  <div class="inner fade-up">
+    <span class="label">Questions</span>
+    <h2>The ones people actually ask</h2>
+
+    <br>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>I've never heard of Elastique — is this legit?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Yes. We've been featured in Travel + Leisure, Vogue, and Healthline. Over 15,847 customers rely on our garments, and they are recommended by 500+ therapists. Our products are clinically proven and OEKO-TEX certified.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>I'm not sure if this is for me — who is this actually for?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">It's designed for anyone experiencing daily leg heaviness, swelling, or fatigue. Frequent flyers, nurses, stylists, teachers, and anyone sitting at a desk all day see incredible results.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Is this just regular compression in disguise?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">No. Standard compression applies uniform squeeze — the same pressure everywhere. MicroPerle® uses patented bead technology mapped along your lymphatic vessels, paired with gradient compression engineered using the Laplace formula. It simulates professional Manual Lymphatic Drainage (Vodder Method) continuously, while you wear it.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Will I actually notice a difference?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Most customers notice reduced heaviness and swelling within the first day or two. For chronic issues, significant improvement typically appears within 5–7 days of consistent wear. 92% of customers report noticeable relief — and it's backed by a 30-day guarantee if you don't.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Are these comfortable to wear all day?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Yes — most customers forget they're wearing them. They feel like premium activewear, not medical garments. You'd only notice the MicroPerle® beads when you take them off — they leave gentle impressions on the skin, like tiny massage kisses.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What if they don't work for me?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">We back every pair with a 30-day satisfaction guarantee. If you don't feel a real difference, send them back for a full refund — no questions, no hassle. We're confident enough to offer that because 92% of customers stay.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 8 — FINAL CTA
+     ============================================ -->
+<section class="section final" id="final">
+  <div class="inner fade-up">
+    <h2>Your legs deserve better. <em>And a 30-day guarantee means zero risk trying.</em></h2>
+    <p class="final__sub">
+      15,847 people chose to stop settling.
+      Join them — with a 30-day guarantee protecting every order.
+    </p>
+    <a href="#shop" class="btn btn--primary" style="min-width: 280px;" data-cta="final-cta">Find Your Fit →</a>
+    <div class="final__guarantee">
+      <span>🛡 30-Day Guarantee</span>
+      <span>🚚 Free Shipping</span>
+      <span>↩ Easy Returns</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STICKY CTA (MOBILE)
+     ============================================ -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta__inner">
+    <a href="#shop" class="btn btn--primary" data-cta="sticky-cta">Find Your Fit → Free Shipping + 30-Day Guarantee</a>
+  </div>
+</div>
+
+<!-- ============================================
+     EXIT INTENT POPUP
+     ============================================ -->
+<div class="exit-popup" id="exit-popup">
+  <div class="exit-popup__overlay" id="exit-overlay"></div>
+  <div class="exit-popup__content">
+    <button class="exit-popup__close" id="exit-close">&times;</button>
+    <h2>Not ready yet?</h2>
+    <p>Get 10% off your first order + our free lymphatic wellness guide.</p>
+    <form class="exit-popup__form" id="exit-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn--primary">Get 10% Off</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Elastique Athletics. All rights reserved. &nbsp;<a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a href="#">Contact</a></p>
+</footer>
+
+<script>
+/* ============================================
+   ELASTIQUE — COLD TRAFFIC JS
+   ============================================ */
+(function() {
+
+  /* --- UTM passthrough --- */
+  var utmParams = {};
+  var searchParams = new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','ref','aff'].forEach(function(k) {
+    var v = searchParams.get(k);
+    if (v) utmParams[k] = v;
+  });
+
+  /* --- FAQ Accordion --- */
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-a');
+    btn.addEventListener('click', function() {
+      var isOpen = item.classList.contains('is-open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(function(other) {
+        other.classList.remove('is-open');
+        other.querySelector('.faq-a').style.maxHeight = '0';
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('is-open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* --- Dynamic Headline --- */
+  var source = searchParams.get('utm_source');
+  var heroHead = document.querySelector('.hero h1');
+  if (heroHead && source) {
+    var s = source.toLowerCase();
+    if (s === 'instagram' || s === 'ig') {
+      heroHead.innerHTML = 'The Travel Hack Going Viral on Instagram';
+    } else if (s === 'tiktok') {
+      heroHead.innerHTML = 'The Legging TikTok Can\'t Stop Talking About';
+    } else if (s === 'blog') {
+      heroHead.innerHTML = 'Why Wellness Bloggers Pack These Every Trip';
+    }
+  }
+
+  /* --- Sticky CTA Visibility --- */
+  var stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta && 'IntersectionObserver' in window) {
+    var hero = document.getElementById('hero');
+    var observerSticky = new IntersectionObserver(function(entries) {
+      if (!entries[0].isIntersecting) {
+        stickyCta.classList.add('is-visible');
+      } else {
+        stickyCta.classList.remove('is-visible');
+      }
+    }, { threshold: 0 });
+    if (hero) observerSticky.observe(hero);
+  }
+
+  /* --- Exit Intent Popup --- */
+  var exitPopup = document.getElementById('exit-popup');
+  var exitClose = document.getElementById('exit-close');
+  var exitOverlay = document.getElementById('exit-overlay');
+  var hasTriggeredExit = false;
+
+  if (exitPopup) {
+    var closePopup = function() {
+      exitPopup.classList.remove('is-visible');
+    };
+    if (exitClose) exitClose.addEventListener('click', closePopup);
+    if (exitOverlay) exitOverlay.addEventListener('click', closePopup);
+
+    var exitForm = document.getElementById('exit-form');
+    if (exitForm) {
+      exitForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        closePopup();
+      });
+    }
+
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY < 5 && !hasTriggeredExit && window.scrollY > 300) {
+        exitPopup.classList.add('is-visible');
+        hasTriggeredExit = true;
+      }
+    });
+  }
+
+  /* --- Scroll Fade-in --- */
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('is-visible'); });
+  }
+
+  /* --- CTA tracking --- */
+  document.querySelectorAll('[data-cta]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var qs = new URLSearchParams(utmParams).toString();
+      var dest = 'https://elastiqueathletics.com/shop' + (qs ? '?' + qs : '');
+      console.log('[Elastique CTA]', el.dataset.cta, '→', dest);
+    });
+  });
+
+})();
+
+</script>
+</body>
+</html>

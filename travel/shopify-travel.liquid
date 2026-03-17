@@ -1,0 +1,1310 @@
+{% layout none %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elastique — Step Off the Plane Feeling Light</title>
+  <meta name="description" content="Stop travel swelling before it starts. Elastique's MicroPerle® technology keeps circulation moving at 35,000 feet so you land refreshed and ready. 30-day guarantee.">
+  <style>
+/* ============================================
+   ELASTIQUE — TRAVEL LANDING PAGE CSS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+:root {
+  --black: #231B1E;
+  --deep: #1a1318;
+  --charcoal: #2d2530;
+  --white: #ffffff;
+  --cream: #EFEAE6;
+  --warm-gray: #DDD8D4;
+  --text: #2d2530;
+  --text-light: #6b6470;
+  --accent: #E4F685;
+  --accent-dark: #c8da60;
+  --accent-light: #eef8a0;
+  --accent-purple: #9784F6;
+  --success: #4a7a5a;
+  --danger: #904040;
+  --r: 10px;
+  --rl: 18px;
+  --t: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max: 520px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* --- Typography --- */
+h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 6vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+
+/* --- Layout --- */
+.section { padding: 56px 20px; }
+.section--alt { background: var(--cream); }
+.inner { max-width: var(--max); margin: 0 auto; }
+.label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #839618;
+  margin-bottom: 10px;
+}
+
+/* ============================================
+   TRUST BAR (sticky top)
+   ============================================ */
+.trust-bar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--black);
+  padding: 10px 16px;
+  text-align: center;
+  overflow: hidden;
+}
+.trust-bar p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+.trust-bar span { color: var(--accent-light); font-weight: 600; }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__img-wrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 300px;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  opacity: 0.8;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(17,17,16,0) 30%,
+    rgba(17,17,16,0.9) 75%,
+    rgba(17,17,16,1) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px 48px;
+  background: var(--black);
+}
+
+.hero__proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+.hero__proof-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+
+.hero h1 {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.hero__sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 420px;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 17px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--t);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+.btn--primary {
+  background: var(--accent);
+  color: var(--black);
+  box-shadow: 0 4px 20px rgba(228,246,133,0.35);
+}
+.btn--primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(228,246,133,0.45);
+}
+.btn--ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  margin-top: 12px;
+}
+.btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn--dark {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.btn--dark:hover {
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+.btn--outline {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid rgba(0,0,0,0.2);
+}
+.btn--outline:hover {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+  background: rgba(228,246,133,0.08);
+}
+
+/* ============================================
+   IDENTITY MIRROR
+   ============================================ */
+.mirror { background: var(--deep); }
+.mirror__intro {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.mirror__item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.mirror__item:last-child { border-bottom: none; }
+.mirror__lead {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.mirror__detail {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.55;
+}
+
+/* ============================================
+   SOCIAL PROOF WALL
+   ============================================ */
+.proof-wall .section-header { margin-bottom: 24px; }
+.proof-wall h2 { margin-bottom: 6px; }
+.proof-wall .sh-sub { font-size: 14px; color: var(--text-light); }
+.review-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.review-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: var(--rl);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: var(--t);
+}
+.review-card:hover { transform: translateY(-2px); box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+.review-card__stars { color: var(--accent-purple); font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
+.review-card__quote {
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.review-card__author { font-size: 12px; font-weight: 700; color: var(--text-light); }
+.review-card__tag {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--charcoal);
+  background: rgba(228,246,133,0.25);
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+
+/* ============================================
+   SCIENCE / BEFORE-AFTER
+   ============================================ */
+.science h2 { margin-bottom: 10px; }
+.science__intro {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.before-after {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.ba-col {
+  border-radius: var(--rl);
+  padding: 22px 20px;
+}
+.ba-col--before {
+  background: var(--cream);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.ba-col--after {
+  background: rgba(228,246,133,0.08);
+  border: 1.5px solid var(--accent);
+}
+.ba-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+.ba-col--before .ba-label { color: var(--text-light); }
+.ba-col--after .ba-label { color: var(--charcoal); }
+.ba-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ba-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.ba-x { color: var(--danger); flex-shrink: 0; font-weight: 700; }
+.ba-check { color: var(--success); flex-shrink: 0; font-weight: 700; }
+
+/* ============================================
+   PRODUCT REVEAL — GRID
+   ============================================ */
+.product h2 { margin-bottom: 8px; }
+.product__sub {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.product-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.product-card {
+  background: var(--white);
+  border-radius: var(--rl);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+}
+.product-card--featured {
+  border-color: var(--accent);
+  box-shadow: 0 6px 32px rgba(228,246,133,0.2);
+}
+.product-card__badge {
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 7px 16px;
+  text-align: center;
+}
+.product-card__body { padding: 22px 20px; }
+.product-card__name { font-size: 19px; font-weight: 700; margin-bottom: 6px; font-family: 'Playfair Display', serif; }
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+.product-card__rating .stars { color: var(--accent); letter-spacing: 1px; }
+.product-card__price {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.product-card__price-note {
+  font-size: 13px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  color: var(--success);
+}
+.benefits {
+  list-style: none;
+  margin-bottom: 22px;
+}
+.benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  line-height: 1.4;
+}
+.benefits li:last-child { border-bottom: none; }
+.benefits .check { color: var(--success); flex-shrink: 0; font-size: 16px; }
+
+/* ============================================
+   COMPARISON HOOK
+   ============================================ */
+.comparison h2 { margin-bottom: 10px; }
+.comparison__intro {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.comp-img {
+  width: 100%;
+  border-radius: var(--r);
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+.comp-table {
+  border-radius: var(--rl);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+}
+.comp-table__header { display: grid; grid-template-columns: 1fr 1fr; }
+.comp-header-cell {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+.comp-header-cell--regular { background: #f0ece7; color: var(--text-light); }
+.comp-header-cell--mp { background: var(--accent); color: var(--black); }
+.comp-row { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(0,0,0,0.06); }
+.comp-cell {
+  padding: 10px 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.comp-cell--regular { background: #faf8f5; color: var(--text-light); }
+.comp-cell--mp { background: #fff; color: var(--text); font-weight: 500; }
+.comp-check { color: var(--success); flex-shrink: 0; }
+.comp-x { color: #b07070; flex-shrink: 0; }
+
+/* ============================================
+   PRICE ANCHOR
+   ============================================ */
+.anchor { background: var(--deep); }
+.anchor h2 { color: var(--white); margin-bottom: 10px; }
+.anchor__intro { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 28px; line-height: 1.6; }
+.anchor-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.anchor-row {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r);
+  padding: 20px 22px;
+}
+.anchor-row--highlight {
+  background: rgba(228,246,133,0.1);
+  border-color: var(--accent);
+}
+.anchor-row__annual {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.anchor-row__annual span {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.3);
+}
+.anchor-row--highlight .anchor-row__annual { color: var(--accent); }
+.anchor-row--highlight .anchor-row__annual span { color: rgba(228,246,133,0.6); }
+.anchor-row__label {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 4px;
+}
+.anchor-row--highlight .anchor-row__label { color: var(--white); }
+.anchor-row__math {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+.anchor-row__time {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.01em;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 8px;
+  margin-top: 4px;
+}
+.anchor-row__time--free {
+  color: var(--accent);
+  border-top-color: rgba(228,246,133,0.2);
+}
+.anchor-note { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; line-height: 1.6; }
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item {
+  background: var(--white);
+  border-radius: var(--r);
+  border: 1px solid rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.faq-item.is-open { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+}
+.faq-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--accent);
+  font-weight: 700;
+  transition: var(--t);
+}
+.faq-item.is-open .faq-icon { background: var(--accent); color: var(--black); transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-a__inner { padding: 0 18px 18px; font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+/* ============================================
+   FINAL CTA
+   ============================================ */
+.final { background: var(--black); text-align: center; }
+.final h2 { color: var(--white); margin-bottom: 12px; }
+.final h2 em { font-style: italic; color: var(--accent); }
+.final__sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+.final__guarantee {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+.final__guarantee span { display: flex; align-items: center; gap: 5px; }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: #0d0c0b;
+  color: rgba(255,255,255,0.25);
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 12px;
+}
+/* ============================================
+   STICKY CTA (MOBILE)
+   ============================================ */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  justify-content: center;
+}
+.sticky-cta.is-visible {
+  transform: translateY(0);
+}
+.sticky-cta__inner {
+  width: 100%;
+  max-width: var(--max);
+}
+.sticky-cta .btn {
+  padding: 14px 24px;
+  font-size: 15px;
+}
+@media (min-width: 768px) {
+  .sticky-cta { display: none; }
+}
+
+/* ============================================
+   EXIT INTENT POPUP
+   ============================================ */
+.exit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.exit-popup.is-visible {
+  pointer-events: auto;
+  opacity: 1;
+}
+.exit-popup__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+}
+.exit-popup__content {
+  position: relative;
+  background: var(--white);
+  padding: 40px;
+  border-radius: var(--rl);
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.exit-popup.is-visible .exit-popup__content {
+  transform: translateY(0);
+}
+.exit-popup__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--text-light);
+  cursor: pointer;
+  line-height: 1;
+}
+.exit-popup h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 12px;
+  color: var(--black);
+}
+.exit-popup p {
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+.exit-popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.exit-popup__form input {
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+.exit-popup__form input:focus {
+  border-color: var(--accent-dark);
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+footer a:hover { color: var(--accent-dark); }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================
+   DESKTOP (768px+)
+   ============================================ */
+@media (min-width: 768px) {
+  .section { padding: 80px 32px; }
+  :root { --max: 700px; }
+
+  .hero { min-height: 100svh; flex-direction: row; }
+  .hero__img-wrap { flex: 1; min-height: auto; }
+  .hero__overlay {
+    background: linear-gradient(to right,
+      rgba(17,17,16,0) 20%,
+      rgba(17,17,16,0.7) 60%,
+      rgba(17,17,16,1) 100%
+    );
+  }
+  .hero__content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 48px 48px 56px;
+    background: transparent;
+  }
+
+  .btn { width: auto; min-width: 240px; }
+  .hero__ctas { display: flex; flex-direction: column; align-items: flex-start; }
+  .btn--ghost { width: auto; }
+
+  .review-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .before-after { flex-direction: row; gap: 16px; }
+  .ba-col { flex: 1; }
+
+  .product-grid { gap: 20px; }
+
+  .anchor-compare { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     TRUST BAR (sticky)
+     ============================================ -->
+<div class="trust-bar">
+  <p>
+    <span>Featured in Travel + Leisure</span>
+    &nbsp;·&nbsp;
+    <span>Recommended by Podiatrists</span>
+    &nbsp;·&nbsp;
+    <span>HSA / FSA Eligible</span>
+    &nbsp;·&nbsp;
+    <span>30-Day Guarantee</span>
+  </p>
+</div>
+
+<!-- ============================================
+     SECTION 1 — HERO
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="hero__img-wrap">
+    <img
+      src="assets/hero.png"
+      alt="Woman seated calmly in airplane window seat wearing Elastique compression leggings"
+      class="hero__img"
+      width="800"
+      height="800"
+      loading="eager"
+    >
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__proof">
+      <span class="hero__proof-num">15,847</span>
+      <span>travelers changed how they land</span>
+    </div>
+    <h1>Step Off the Plane <em>Feeling Light</em></h1>
+    <p class="hero__sub">
+      The legging that replaces $300 in-flight compression upgrades — and fits in your carry-on.
+    </p>
+    <div class="hero__ctas">
+      <a href="#shop" class="btn btn--primary" data-cta="hero-primary">Shop Travel Collection →</a>
+      <a href="#proof" class="btn btn--ghost" data-cta="hero-reviews">See What Travelers Say</a>
+    </div>
+    <div class="hero__logos" style="margin-top: 24px; font-size: 11px; color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: flex-start; gap: 16px; letter-spacing: 0.05em; text-transform: uppercase;">
+      <span>As seen in Travel + Leisure</span>
+      <span>Recommended by Podiatrists</span>
+      <span>OEKO-TEX Certified</span>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar" style="background: var(--accent); color: var(--black); text-align: center; padding: 12px; font-weight: 600; font-size: 14px;">
+  Spring &amp; Summer inventory selling fast — order within 3 days for guaranteed pre-trip delivery.
+</div>
+
+<!-- ============================================
+     SECTION 2 — IDENTITY MIRROR
+     ============================================ -->
+<section class="section mirror" id="mirror">
+  <div class="inner fade-up">
+    <p class="mirror__intro">Sound familiar?</p>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"I fly and land feeling 20 years older."</p>
+      <p class="mirror__detail">When you sit for hours, circulation slows and fluid settles in your legs. That's why your ankles swell and your shoes won't go back on at landing.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"The first two days of every trip are ruined."</p>
+      <p class="mirror__detail">Heavy legs, puffy ankles, and fatigue that doesn't lift until day three. You're on vacation — you deserve to arrive ready to explore.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"I've tried compression socks. They don't do much."</p>
+      <p class="mirror__detail">Standard compression just squeezes — and only to the knee. MicroPerle® actively guides fluid from foot to waist, like a continuous lymphatic massage at 35,000 feet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 3 — SOCIAL PROOF WALL (early)
+     ============================================ -->
+<section class="section section--alt proof-wall" id="proof">
+  <div class="inner fade-up">
+    <div class="section-header">
+      <span class="label">Real Travelers</span>
+      <h2>What They Said After Landing</h2>
+      <p class="sh-sub">Verified reviews from frequent flyers, world travelers, and medical professionals.</p>
+    </div>
+
+    <div class="review-stack">
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I wore these on my 14-hour London flight and I love them. I arrive feeling refreshed and NOT swollen. First time in years I could put my shoes back on at landing."</p>
+        <p class="review-card__author">Patricia T. <span class="review-card__tag">Frequent flyer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"As a physician, I routinely counsel patients on the risks of prolonged travel. My Elastique stirrup leggings are my non-negotiable travel essential — my legs feel light and I step off the plane refreshed."</p>
+        <p class="review-card__author">Dr. Anne Sharkey <span class="review-card__tag">Double Board Certified Podiatrist</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"Every glam squad pro I ran into at Cannes was either wearing Elastique or buzzing about it. Celebrity hairstylists and makeup artists clock almost as many air miles as flight attendants — and this is their secret."</p>
+        <p class="review-card__author">Gwen Flamberg <span class="review-card__tag">Travel Writer, Grazia</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"If you're seeking versatile, high performance compression leggings with various health benefits, Elastique Athletics L'Original leggings are the best overall."</p>
+        <p class="review-card__author">Donna Kim <span class="review-card__tag">Travel + Leisure</span></p>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="proof-cta">Try Them Risk Free →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4 — THE SCIENCE (problem/solution)
+     ============================================ -->
+<section class="section science" id="science">
+  <div class="inner fade-up">
+    <span class="label">Why It Happens</span>
+    <h2>Don't let 12 hours of sitting ruin the first 2 days of your trip.</h2>
+    <p class="science__intro">
+      At 35,000 feet, cabin pressure drops and prolonged sitting slows circulation. Fluid builds in the lower legs — causing swelling, heaviness, and the infamous "shoe struggle" at landing.
+    </p>
+
+    <div class="before-after">
+      <div class="ba-col ba-col--before">
+        <p class="ba-label">Without Support</p>
+        <ul class="ba-list">
+          <li><span class="ba-x">✕</span> Swollen ankles from fluid pooling</li>
+          <li><span class="ba-x">✕</span> Heavy legs from stalled circulation</li>
+          <li><span class="ba-x">✕</span> Shoes won't go back on at landing</li>
+          <li><span class="ba-x">✕</span> First two days of travel lost to recovery</li>
+        </ul>
+      </div>
+      <div class="ba-col ba-col--after">
+        <p class="ba-label">With Elastique</p>
+        <ul class="ba-list">
+          <li><span class="ba-check">✓</span> Visible debloating — fluid moved instantly</li>
+          <li><span class="ba-check">✓</span> Energized arrival via gradient compression</li>
+          <li><span class="ba-check">✓</span> All-day style — chic enough for dinner</li>
+          <li><span class="ba-check">✓</span> Step off the plane feeling light</li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="science-cta">Explore Travel Wellness →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5 — PRODUCT REVEAL
+     ============================================ -->
+<section class="section product section--alt" id="shop">
+  <div class="inner fade-up">
+    <span class="label">Curated For Your Journey</span>
+    <h2>Every Piece, Carry-On Friendly</h2>
+    <p class="product__sub">All-day comfortable. Does the work of compression — without looking like compression.</p>
+
+    <div class="product-grid" style="grid-template-columns: 1fr; max-width: 500px; margin: 0 auto;">
+
+      <div class="product-card product-card--featured">
+        <div class="product-card__badge">Most Popular For Travel</div>
+        <div class="product-card__body">
+          <h3 class="product-card__name">L'Original — Classic Leggings</h3>
+          <div class="product-card__rating">
+            <span class="stars">★★★★★</span>
+            <span>4.9 · Available in 4 colors</span>
+          </div>
+          <p class="product-card__price">$235 <span class="product-card__price-note">· HSA/FSA eligible</span></p>
+          <ul class="benefits">
+            <li><span class="check">✓</span> Patented MicroPerle® technology actively stimulates lymphatic drainage</li>
+            <li><span class="check">✓</span> Medical-grade 8–18 mmHg graduated compression (foot to waist)</li>
+            <li><span class="check">✓</span> Engineered to increase microcirculation and flush cabin-pressure fluid</li>
+            <li><span class="check">✓</span> Disguised as premium activewear — versatile for flight to city streets</li>
+          </ul>
+          <a href="https://www.elastiqueathletics.com/products/loriginal-leggings" class="btn btn--primary" data-cta="product-classic" target="_blank" rel="noopener">Shop Classic Leggings →</a>
+          <div style="text-align: center; margin-top: 16px;">
+            <a href="https://www.elastiqueathletics.com/collections/all" target="_blank" style="color: var(--text-light); text-decoration: underline; font-size: 14px;">See all styles (Stirrup, Lisse)</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="#faq" style="color: var(--text-light); font-size: 15px; text-decoration: underline;">Have questions? → Jump to FAQ</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 6 — HOW IT WORKS
+     ============================================ -->
+<section class="section comparison" id="how">
+  <div class="inner fade-up">
+    <span class="label">The Technology</span>
+    <h2>Not compression. Something smarter.</h2>
+    <p class="comparison__intro">
+      Hundreds of MicroPerle® micro-massage beads are woven into the fabric along natural lymphatic pathways. As you make small movements — even just shifting in your seat — the beads gently stimulate the skin to keep fluid moving upward instead of settling in your legs.
+    </p>
+
+    <img
+      src="assets/microperle-texture.png"
+      alt="Macro view of MicroPerle bead technology woven into dark compression fabric"
+      class="comp-img"
+      width="680"
+      height="480"
+      loading="lazy"
+    >
+
+    <div class="comp-table">
+      <div class="comp-table__header">
+        <div class="comp-header-cell comp-header-cell--regular">Compression Socks</div>
+        <div class="comp-header-cell comp-header-cell--mp">Elastique MicroPerle®</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Only covers calf &amp; foot</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Full-leg coverage foot to waist</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Uniform squeeze, no flow</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Guides fluid along lymph pathways</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Tight, restrictive, clinical</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Feels like premium leggings</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Off at security, awkward</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Wear from takeoff to dinner</div>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="comparison-cta">Travel Smarter →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7 — PRICE ANCHOR
+     ============================================ -->
+<section class="section anchor" id="value">
+  <div class="inner fade-up">
+    <span class="label">The Value</span>
+    <h2>What travel discomfort really costs you.</h2>
+    <p class="anchor__intro">
+      The first two vacation days lost to heavy legs and swelling aren't free. Neither are the remedies people reach for.
+    </p>
+
+    <div class="anchor-compare">
+      <div class="anchor-row">
+        <div class="anchor-row__annual">$320<span>/trip</span></div>
+        <div class="anchor-row__label">Travel massage &amp; recovery</div>
+        <div class="anchor-row__math">Airport spa + hotel recovery massage</div>
+        <div class="anchor-row__time">⏱ Still loses day 1 to swelling</div>
+      </div>
+      <div class="anchor-row anchor-row--highlight">
+        <div class="anchor-row__annual">$235<span> once</span></div>
+        <div class="anchor-row__label">Elastique MicroPerle®</div>
+        <div class="anchor-row__math">One pair · every flight forever · full-leg coverage</div>
+        <div class="anchor-row__time anchor-row__time--free">⏱ Step off every plane feeling light</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-row__annual">$180<span>/yr</span></div>
+        <div class="anchor-row__label">Compression socks (annual)</div>
+        <div class="anchor-row__math">$15 × 12 pairs (they wear out fast)</div>
+        <div class="anchor-row__time">⏱ Only covers knee-down</div>
+      </div>
+    </div>
+    <p class="anchor-note">HSA &amp; FSA eligible. 92% of customers report noticeable relief. 30-day guarantee — if it doesn't work, you don't pay.</p>
+
+    <br>
+    <a href="#shop" class="btn btn--dark" data-cta="anchor-cta">Shop Now — Free Shipping →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 8 — FAQ (travel-specific objections)
+     ============================================ -->
+<section class="section section--alt" id="faq">
+  <div class="inner fade-up">
+    <span class="label">Questions</span>
+    <h2>The ones travelers actually ask</h2>
+
+    <br>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>How is this different from compression socks?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Compression socks typically stop just below the knee. Elastique garments provide light graduated compression from the foot all the way to the waist — supporting the entire leg. Many styles also include MicroPerle® micro-massage beads mapped along natural lymphatic pathways, actively encouraging fluid flow upward as you move. The result is full-leg support designed specifically for long periods of sitting.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What if it's my first time wearing compression?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">We recommend starting with the Lisse Compression Leggings if it's your first experience with compression garments. You'll still get the benefit of graduated compression to support circulation during long flights. Once you're familiar with the feel, many customers choose to upgrade to MicroPerle® styles for the additional lymphatic benefit.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Will I feel the MicroPerle® beads during a flight?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Most customers forget they're wearing them. The beads are subtle — you notice them most after you take the leggings off. They leave gentle temporary impressions on the skin, which we call the MicroPerle Kiss: visible proof that while you were 35,000 feet up, your clothing was working for you. These marks are painless and fade within 15–30 minutes.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Can I use HSA or FSA funds?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Yes. Elastique has partnered with Truemed to make our garments eligible for purchase using HSA or FSA funds. At checkout, you'll complete a short health survey reviewed by a licensed provider. If eligible, you can use your HSA/FSA card — or submit your receipt for reimbursement.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What if they don't work for me?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Every pair is backed by a 30-day satisfaction guarantee. If you don't feel a real difference, send them back for a full refund — no questions, no hassle. We're confident enough to offer that because 92% of customers stay.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 9 — FINAL CTA
+     ============================================ -->
+<section class="section final" id="final">
+  <div class="inner fade-up">
+    <h2>From Takeoff to Touchdown — <em>Your Body, Supported.</em></h2>
+    <p class="final__sub">
+      15,847 travelers chose to stop wasting the first days of their trips.
+      Join them — with a 30-day guarantee protecting every order.
+    </p>
+    <a href="#shop" class="btn btn--primary" style="min-width: 280px;" data-cta="final-cta">Shop Travel Collection →</a>
+    <div class="final__guarantee">
+      <span>🛡 30-Day Guarantee</span>
+      <span>🚚 Free Shipping</span>
+      <span>💳 HSA / FSA Eligible</span>
+      <span>↩ Easy Returns</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     EXIT INTENT POPUP
+     ============================================ -->
+<div class="exit-popup" id="exit-popup">
+  <div class="exit-popup__overlay"></div>
+  <div class="exit-popup__content">
+    <button class="exit-popup__close" id="exit-popup-close" aria-label="Close">×</button>
+    <h2>Don't leave empty-handed.</h2>
+    <p>Take $50 off your first Travel Collection piece. Limited time offer.</p>
+    <form class="exit-popup__form" id="exit-popup-form">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit" class="btn btn--primary">Get $50 Off</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================
+     STICKY CTA (MOBILE)
+     ============================================ -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta__inner">
+    <a href="#shop" class="btn btn--primary" data-cta="sticky-cta">Shop Now → Free Shipping</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Elastique Athletics. All rights reserved. &nbsp;<a href="https://www.elastiqueathletics.com/pages/privacy-policy">Privacy</a> &nbsp;·&nbsp; <a href="https://www.elastiqueathletics.com/policies/terms-of-service">Terms</a> &nbsp;·&nbsp; <a href="https://www.elastiqueathletics.com/pages/contact">Contact</a></p>
+</footer>
+
+<script>
+/* ============================================
+   ELASTIQUE — TRAVEL LANDING PAGE JS
+   ============================================ */
+(function() {
+
+  /* --- UTM passthrough --- */
+  var utmParams = {};
+  var searchParams = new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','ref','aff'].forEach(function(k) {
+    var v = searchParams.get(k);
+    if (v) utmParams[k] = v;
+  });
+
+  /* --- FAQ Accordion --- */
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-a');
+    btn.addEventListener('click', function() {
+      var isOpen = item.classList.contains('is-open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(function(other) {
+        other.classList.remove('is-open');
+        other.querySelector('.faq-a').style.maxHeight = '0';
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('is-open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* --- Scroll Fade-in --- */
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('is-visible'); });
+  }
+
+  /* --- CTA tracking + UTM passthrough --- */
+  document.querySelectorAll('[data-cta]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      var qs = new URLSearchParams(utmParams).toString();
+      // If anchor link, just log
+      if (el.getAttribute('href') && el.getAttribute('href').charAt(0) === '#') {
+        console.log('[Elastique Travel CTA]', el.dataset.cta, '→ anchor');
+        return;
+      }
+      // If external link with UTMs, append them
+      if (el.getAttribute('href') && Object.keys(utmParams).length > 0) {
+        e.preventDefault();
+        var base = el.getAttribute('href');
+        var separator = base.indexOf('?') !== -1 ? '&' : '?';
+        window.open(base + separator + qs, el.getAttribute('target') || '_self');
+      }
+      console.log('[Elastique Travel CTA]', el.dataset.cta);
+    });
+  });
+
+  /* --- Sticky CTA Visibility --- */
+  var stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > window.innerHeight * 0.8) {
+        stickyCta.classList.add('is-visible');
+      } else {
+        stickyCta.classList.remove('is-visible');
+      }
+    });
+  }
+
+  /* --- Exit Intent Popup --- */
+  var exitPopup = document.getElementById('exit-popup');
+  var exitClose = document.getElementById('exit-popup-close');
+  var exitForm = document.getElementById('exit-popup-form');
+  var exitTriggered = false;
+
+  if (exitPopup) {
+    document.addEventListener('mouseout', function(e) {
+      if (!exitTriggered && e.clientY < 50 && e.relatedTarget === null) {
+        exitPopup.classList.add('is-visible');
+        exitTriggered = true;
+      }
+    });
+
+    if (exitClose) {
+      exitClose.addEventListener('click', function() {
+        exitPopup.classList.remove('is-visible');
+      });
+    }
+
+    exitPopup.addEventListener('click', function(e) {
+      if (e.target.classList.contains('exit-popup__overlay')) {
+        exitPopup.classList.remove('is-visible');
+      }
+    });
+
+    if (exitForm) {
+      exitForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        exitPopup.innerHTML = '<div class="exit-popup__content"><h2>Offer Sent!</h2><p>Check your email for your $50 code.</p></div>';
+        setTimeout(function() {
+          exitPopup.classList.remove('is-visible');
+        }, 3000);
+      });
+    }
+  }
+
+})();
+
+</script>
+</body>
+</html>

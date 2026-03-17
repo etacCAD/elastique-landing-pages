@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elastique — Why She Just Bought Her Third Pair</title>
+  <meta name="description" content="This is my third pair of L'Original Leggings. I have not purchased another brand since trying them. Find out why thousands of women commit — and never go back.">
+  <link rel="stylesheet" href="last-leggings.css">
+</head>
+<body>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <p>
+    <span>Thousands of Repeat Customers</span>
+    &nbsp;·&nbsp;
+    <span>3–5x Longer Lasting Compression</span>
+    &nbsp;·&nbsp;
+    <span>30-Day Guarantee</span>
+  </p>
+</div>
+
+<!-- ============================================
+     SECTION 1 — HERO (FEATURED TESTIMONIAL)
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="hero__img-wrap">
+    <img
+      src="assets/hero.png"
+      alt="Woman running on coastal trail wearing Elastique leggings"
+      class="hero__img"
+      width="800"
+      height="800"
+      loading="eager"
+    >
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__pull-quote">
+      <div class="hero__quote-mark">"</div>
+      <p>This is my third pair of L'Original Leggings. I wear them constantly and have not purchased another brand since trying them. The long term effects, particularly how smooth my upper legs have become, is testimony in itself.</p>
+      <div class="hero__quote-attr">— Sandra P., Verified Customer</div>
+    </div>
+    <h1>Why She Just Bought Her <em>Third Pair.</em></h1>
+    <p class="hero__sub">
+      Most leggings disappoint by month two. These get better. Customers don't just return — they replace every pair they own.
+    </p>
+    <div class="hero__ctas">
+      <a href="#shop" class="btn btn--primary" data-cta="hero-primary">Find Your First Pair →</a>
+      <a href="#proof" class="btn btn--ghost" data-cta="hero-reviews">Read Their Stories</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 2 — IDENTITY MIRROR
+     ============================================ -->
+<section class="section mirror" id="mirror">
+  <div class="inner fade-up">
+    <p class="mirror__intro">We've heard this before.</p>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"I've bought expensive leggings before and they always disappoint."</p>
+      <p class="mirror__detail">Most premium leggings are priced for style — not engineered for performance. MicroPerle® is patented technology, not a markup on fabric. There is no other legging that does what this does.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"The compression wears out after a few months."</p>
+      <p class="mirror__detail">Standard elastane loses tension fast. Elastique's Laplace-formula gradient compression maintains 3–5x longer than conventional compression wear — because it's engineered to last, not just impress on first wear.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"I don't want to spend $235 on leggings I might not love."</p>
+      <p class="mirror__detail">That's why there's a 30-day guarantee. We know you'll feel the difference — so we remove the risk entirely. Either it works or you get every dollar back.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 3 — COST-PER-WEAR CALCULATOR
+     ============================================ -->
+<section class="section section--alt calculator-section" id="calculator">
+  <div class="inner fade-up">
+    <span class="label">The Math</span>
+    <h2>Calculate your real cost per wear.</h2>
+    <p class="calc__intro">
+      Most people who skip $235 leggings end up spending more on cheap pairs that wear out every 3 months. Here's what 12 months actually costs.
+    </p>
+
+    <div class="calculator">
+      <div class="calc-inputs">
+        <div class="calc-group">
+          <label for="wears-per-week">Days/week you'd wear them</label>
+          <div class="calc-slider-wrap">
+            <input type="range" id="wears-per-week" min="1" max="7" value="5" class="calc-slider">
+            <span class="calc-slider-val" id="wears-per-week-val">5 days</span>
+          </div>
+        </div>
+
+        <!-- HSA/FSA Toggle -->
+        <div class="hsa-toggle-wrap">
+          <div class="hsa-toggle-row">
+            <div class="hsa-toggle-label">
+              <span class="hsa-icon">💳</span>
+              <span>Paying with HSA / FSA?</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="hsa-toggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="hsa-bracket-row" id="hsa-bracket-row">
+            <label for="tax-bracket">Your tax bracket</label>
+            <select id="tax-bracket" class="tax-select">
+              <option value="0.22">22%</option>
+              <option value="0.24">24%</option>
+              <option value="0.30" selected>30% (most common)</option>
+              <option value="0.32">32%</option>
+              <option value="0.35">35%</option>
+              <option value="0.37">37%</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result__row">
+          <div class="calc-result__item calc-result__item--compare">
+            <div class="calc-result__label">Typical $80 leggings</div>
+            <div class="calc-result__value" id="cheap-cost">$0.22</div>
+            <div class="calc-result__sub">/wear (replace every 4 months)</div>
+          </div>
+          <div class="calc-result__divider">vs</div>
+          <div class="calc-result__item calc-result__item--elastique" id="elastique-card">
+            <div class="calc-result__label" id="elastique-label">Elastique L'Original</div>
+            <div class="calc-result__value" id="elastique-cost">$0.45</div>
+            <div class="calc-result__sub" id="elastique-sub">/wear · + lymphatic health benefits every day</div>
+          </div>
+        </div>
+        <p class="calc-note" id="calc-note">Over 24 months you'd spend <strong id="cheap-total">$240</strong> replacing cheap leggings vs <strong>$235 once</strong> on Elastique.</p>
+
+        <!-- HSA Savings Callout -->
+        <div class="hsa-savings" id="hsa-savings">
+          <div class="hsa-savings__icon">✦</div>
+          <div class="hsa-savings__text">
+            <strong>With HSA/FSA:</strong> Your effective price is <strong id="hsa-effective">$165</strong> — you save <strong id="hsa-saved">$70</strong> in pre-tax dollars.
+            <span class="hsa-savings__sub">That's just <strong id="hsa-cpw">$0.32</strong>/wear with tax-free health funds.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4 — SOCIAL PROOF (LOYALTY ANGLE)
+     ============================================ -->
+<section class="section proof-wall" id="proof">
+  <div class="inner fade-up">
+    <div class="section-header">
+      <span class="label">Repeat Customers</span>
+      <h2>They Came Back. Here's Why.</h2>
+      <p class="sh-sub">These aren't first-time raves. These are people who own 2, 3, and 4 pairs.</p>
+    </div>
+
+    <div class="review-stack">
+      <div class="review-card review-card--featured">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"This is my third pair of L'Original Leggings. I wear them constantly and have not purchased another brand since trying them. The long term effects, particularly how smooth my upper legs have become, is testimony in itself."</p>
+        <p class="review-card__author">Sandra P. <span class="review-card__tag">3rd pair · repeat customer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I now own four pairs. I rotate them daily. My original pair from two years ago still holds its compression perfectly. I will never buy another brand of legging."</p>
+        <p class="review-card__author">Christine V. <span class="review-card__tag">4 pairs · 2+ years</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I bought my second pair as a backup. Then a third to gift my daughter. These have genuinely changed how my legs feel and look. I would not go back."</p>
+        <p class="review-card__author">Barbara T. <span class="review-card__tag">3 pairs · gifted to family</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"After three months the compression is exactly as strong as day one. Every other compression legging I've owned has stretched out by now. The quality is genuinely different."</p>
+        <p class="review-card__author">Rebecca M. <span class="review-card__tag">3 months in · compression quality</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I was on the fence because of the price. I've now spent $705 on three pairs — and I've saved money vs. replacing cheap leggings every season for three years."</p>
+        <p class="review-card__author">Dana K. <span class="review-card__tag">3 pairs · cost comparison</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"My sister bought a pair after seeing mine. My mom did the same. We have five pairs in the family now. When something works this well you just tell people."</p>
+        <p class="review-card__author">Amanda R. <span class="review-card__tag">Family converts · word of mouth</span></p>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="proof-cta">Join the Repeat Customers →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5 — PRODUCT REVEAL
+     ============================================ -->
+<section class="section product" id="shop">
+  <div class="inner fade-up">
+    <span class="label">Shop</span>
+    <h2>L'Original Leggings</h2>
+    <p class="product__sub">Built to last. Engineered to perform. Worth every penny — as thousands of repeat buyers will confirm.</p>
+
+    <div class="product-card">
+      <img
+        src="../assets/product-leggings.png"
+        alt="L'Original compression leggings — on model, full length view"
+        class="product-card__img"
+        width="520"
+        height="390"
+        loading="lazy"
+      >
+      <div class="product-card__body">
+        <h3 class="product-card__name">L'Original — MicroPerle® Leggings</h3>
+        <div class="product-card__rating">
+          <span class="stars">★★★★★</span>
+          <span>4.84 · 2,400+ verified reviews</span>
+        </div>
+        <ul class="benefits">
+          <li><span class="check">✓</span> 3–5x longer-lasting compression than standard leggings</li>
+          <li><span class="check">✓</span> MicroPerle® bead technology (patented)</li>
+          <li><span class="check">✓</span> Visibly smoother skin with daily wear</li>
+          <li><span class="check">✓</span> Reduces swelling, heaviness &amp; leg fatigue</li>
+          <li><span class="check">✓</span> OEKO-TEX certified — premium materials, premium longevity</li>
+        </ul>
+        <a href="https://elastiqueathletics.com/collections/leggings" class="btn btn--primary" data-cta="product-primary">Find Your First Pair →</a>
+      </div>
+    </div>
+
+    <div class="product-card" style="margin-top: 20px;">
+      <div class="product-card__body">
+        <h3 class="product-card__name">Lisse — For First-Timers</h3>
+        <p class="product-card__price">$150 <span>· Start here if you're new to Elastique</span></p>
+        <p style="font-size: 15px; color: var(--text-light); margin-bottom: 20px;">Lighter compression, same MicroPerle® technology. The perfect entry into your first pair.</p>
+        <a href="https://elastiqueathletics.com/collections/leggings" class="btn btn--ghost" style="color: var(--black); border-color: rgba(0,0,0,0.2); width: 100%; display: block;" data-cta="product-lisse">Shop Lisse →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 6 — FAQ
+     ============================================ -->
+<section class="section section--alt" id="faq">
+  <div class="inner fade-up">
+    <span class="label">Questions</span>
+    <h2>Before you commit to your first pair.</h2>
+    <br>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>How long will the compression actually last?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Elastique uses Laplace-formula gradient compression engineered for longevity. Standard compression fabrics lose elasticity in 3–6 months. Customers regularly report their Elastique leggings maintaining full compression at the 1-year, 18-month, and even 2-year mark. The difference is fabric quality and construction — not marketing.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What makes repeat customers come back for a second or third pair?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Two reasons: First, the accumulative skin and circulation results get better the longer they wear them — so they want more wearing hours. Second, once customers rotate two or three pairs they notice the difference on days they don't wear Elastique. The comparison to other leggings becomes unflattering very quickly.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Are these worth it if I'm already buying expensive leggings?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Premium leggings from other brands are priced for aesthetics and brand equity. Elastique is priced for patented medical-grade technology. No other activewear brand applies MicroPerle® bead mapping over lymphatic anatomy — this isn't a marketing angle, it's a different category of product. The results after 4–8 weeks speak louder than any comparison chart we could show you.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What's your return policy?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">30-day satisfaction guarantee, full stop. Wear them daily for a month. If you're not impressed by the quality, longevity, and how your legs feel — return them for a complete refund. We back this offer confidently because the vast majority of customers become repeat buyers.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7 — FINAL CTA
+     ============================================ -->
+<section class="section final" id="final">
+  <div class="inner fade-up">
+    <h2>The last leggings you'll ever need to buy. <em>Guaranteed.</em></h2>
+    <p class="final__sub">
+      Stop replacing disappointing pairs. One investment. Results that compound with every wear.
+    </p>
+    <a href="#shop" class="btn btn--primary" style="min-width: 280px;" data-cta="final-cta">Find Your First Pair →</a>
+    <div class="final__guarantee">
+      <span>🛡 30-Day Guarantee</span>
+      <span>🚚 Free Shipping</span>
+      <span>↩ Easy Returns</span>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY CTA (MOBILE) -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta__inner">
+    <a href="#shop" class="btn btn--primary" data-cta="sticky-cta">Find Your First Pair → Free Shipping + 30-Day Guarantee</a>
+  </div>
+</div>
+
+<!-- EXIT INTENT POPUP -->
+<div class="exit-popup" id="exit-popup">
+  <div class="exit-popup__overlay" id="exit-overlay"></div>
+  <div class="exit-popup__content">
+    <button class="exit-popup__close" id="exit-close">&times;</button>
+    <h2>Still deciding?</h2>
+    <p>Get 10% off your first pair + see the real cost-per-wear breakdown that convinced thousands of skeptics.</p>
+    <form class="exit-popup__form" id="exit-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn--primary">Get 10% Off</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Elastique Athletics. All rights reserved. &nbsp;<a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a href="#">Contact</a></p>
+</footer>
+
+<script src="last-leggings.js"></script>
+</body>
+</html>
