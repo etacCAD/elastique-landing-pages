@@ -24,3 +24,16 @@ services:
       - type: rewrite
         source: /*
         destination: /index.html
+
+  - type: web
+    name: elastique-recovery
+    env: static
+    staticPublishPath: ./recovery
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
