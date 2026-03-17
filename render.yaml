@@ -11,3 +11,16 @@ services:
       - type: rewrite
         source: /*
         destination: /index.html
+
+  - type: web
+    name: elastique-travel
+    env: static
+    staticPublishPath: ./travel
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
