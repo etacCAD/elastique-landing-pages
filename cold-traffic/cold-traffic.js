@@ -30,6 +30,63 @@
     });
   });
 
+  /* --- Dynamic Headline --- */
+  var source = searchParams.get('utm_source');
+  var heroHead = document.querySelector('.hero h1');
+  if (heroHead && source) {
+    var s = source.toLowerCase();
+    if (s === 'instagram' || s === 'ig') {
+      heroHead.innerHTML = 'The Travel Hack Going Viral on Instagram';
+    } else if (s === 'tiktok') {
+      heroHead.innerHTML = 'The Legging TikTok Can\'t Stop Talking About';
+    } else if (s === 'blog') {
+      heroHead.innerHTML = 'Why Wellness Bloggers Pack These Every Trip';
+    }
+  }
+
+  /* --- Sticky CTA Visibility --- */
+  var stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta && 'IntersectionObserver' in window) {
+    var hero = document.getElementById('hero');
+    var observerSticky = new IntersectionObserver(function(entries) {
+      if (!entries[0].isIntersecting) {
+        stickyCta.classList.add('is-visible');
+      } else {
+        stickyCta.classList.remove('is-visible');
+      }
+    }, { threshold: 0 });
+    if (hero) observerSticky.observe(hero);
+  }
+
+  /* --- Exit Intent Popup --- */
+  var exitPopup = document.getElementById('exit-popup');
+  var exitClose = document.getElementById('exit-close');
+  var exitOverlay = document.getElementById('exit-overlay');
+  var hasTriggeredExit = false;
+
+  if (exitPopup) {
+    var closePopup = function() {
+      exitPopup.classList.remove('is-visible');
+    };
+    if (exitClose) exitClose.addEventListener('click', closePopup);
+    if (exitOverlay) exitOverlay.addEventListener('click', closePopup);
+
+    var exitForm = document.getElementById('exit-form');
+    if (exitForm) {
+      exitForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        closePopup();
+      });
+    }
+
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY < 5 && !hasTriggeredExit && window.scrollY > 300) {
+        exitPopup.classList.add('is-visible');
+        hasTriggeredExit = true;
+      }
+    });
+  }
+
   /* --- Scroll Fade-in --- */
   var fadeEls = document.querySelectorAll('.fade-up');
   if ('IntersectionObserver' in window) {
