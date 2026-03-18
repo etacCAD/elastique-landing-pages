@@ -602,6 +602,16 @@ footer a:hover { color: var(--accent-dark); }
 .fade-up.is-visible { opacity: 1; transform: translateY(0); }
 
 /* ============================================
+   MOBILE (≤600px)
+   ============================================ */
+@media (max-width: 600px) {
+  .trust-bar { padding: 8px 12px; }
+  .trust-bar p { font-size: 10px; letter-spacing: 0.03em; white-space: normal; line-height: 1.5; }
+  .comp-cell { font-size: 12px; padding: 8px 10px; }
+  .comp-header-cell { font-size: 10px; padding: 10px 8px; }
+}
+
+/* ============================================
    DESKTOP (768px+)
    ============================================ */
 @media (min-width: 768px) {

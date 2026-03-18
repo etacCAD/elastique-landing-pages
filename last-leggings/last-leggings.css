@@ -320,6 +320,12 @@ footer { background: #0d0c0b; color: rgba(255,255,255,0.25); padding: 24px 20px;
 .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .fade-up.is-visible { opacity: 1; transform: translateY(0); }
 
+/* MOBILE (≤600px) */
+@media (max-width: 600px) {
+  .trust-bar { padding: 8px 12px; }
+  .trust-bar p { font-size: 10px; letter-spacing: 0.03em; white-space: normal; line-height: 1.5; }
+}
+
 @media (min-width: 768px) {
   .section { padding: 80px 32px; }
   :root { --max: 660px; }
