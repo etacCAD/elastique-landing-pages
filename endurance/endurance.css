@@ -569,82 +569,8 @@ footer {
   .sticky-cta { display: none; }
 }
 
-/* ============================================
-   EXIT INTENT POPUP
-   ============================================ */
-.exit-popup {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.exit-popup.is-visible {
-  pointer-events: auto;
-  opacity: 1;
-}
-.exit-popup__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
-}
-.exit-popup__content {
-  position: relative;
-  background: var(--white);
-  padding: 40px;
-  border-radius: var(--rl);
-  max-width: 480px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
-  transform: translateY(20px);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.exit-popup.is-visible .exit-popup__content {
-  transform: translateY(0);
-}
-.exit-popup__close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: var(--text-light);
-  cursor: pointer;
-  line-height: 1;
-}
-.exit-popup h2 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 12px;
-  color: var(--black);
-}
-.exit-popup p {
-  color: var(--text-light);
-  margin-bottom: 24px;
-}
-.exit-popup__form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.exit-popup__form input {
-  padding: 16px;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 50px;
-  font-family: inherit;
-  font-size: 15px;
-  outline: none;
-}
-.exit-popup__form input:focus {
-  border-color: var(--accent-dark);
-}
+
+
 
 /* ============================================
    HOVER EFFECTS

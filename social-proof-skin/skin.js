@@ -44,35 +44,8 @@
     }
   }
 
-  // ── EXIT INTENT (desktop) ─────────────────────────────────────────────────
-  var popup = document.getElementById('exit-popup');
-  var overlay = document.getElementById('exit-overlay');
-  var closeBtn = document.getElementById('exit-close');
-  var shown = false;
 
-  if (popup && window.innerWidth >= 768) {
-    document.addEventListener('mouseleave', function (e) {
-      if (!shown && e.clientY <= 4) {
-        shown = true;
-        popup.classList.add('is-visible');
-      }
-    });
-  }
 
-  function closePopup() {
-    if (popup) popup.classList.remove('is-visible');
-  }
-
-  if (overlay) overlay.addEventListener('click', closePopup);
-  if (closeBtn) closeBtn.addEventListener('click', closePopup);
-
-  var form = document.getElementById('exit-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      closePopup();
-    });
-  }
 
   // ── SCROLL FADE-UPS ────────────────────────────────────────────────────────
   var fadeEls = document.querySelectorAll('.fade-up');

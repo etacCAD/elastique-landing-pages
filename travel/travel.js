@@ -78,41 +78,4 @@
     });
   }
 
-  /* --- Exit Intent Popup --- */
-  var exitPopup = document.getElementById('exit-popup');
-  var exitClose = document.getElementById('exit-popup-close');
-  var exitForm = document.getElementById('exit-popup-form');
-  var exitTriggered = false;
-
-  if (exitPopup) {
-    document.addEventListener('mouseout', function(e) {
-      if (!exitTriggered && e.clientY < 50 && e.relatedTarget === null) {
-        exitPopup.classList.add('is-visible');
-        exitTriggered = true;
-      }
-    });
-
-    if (exitClose) {
-      exitClose.addEventListener('click', function() {
-        exitPopup.classList.remove('is-visible');
-      });
-    }
-
-    exitPopup.addEventListener('click', function(e) {
-      if (e.target.classList.contains('exit-popup__overlay')) {
-        exitPopup.classList.remove('is-visible');
-      }
-    });
-
-    if (exitForm) {
-      exitForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        exitPopup.innerHTML = '<div class="exit-popup__content"><h2>Offer Sent!</h2><p>Check your email for your $50 code.</p></div>';
-        setTimeout(function() {
-          exitPopup.classList.remove('is-visible');
-        }, 3000);
-      });
-    }
-  }
-
 })();
