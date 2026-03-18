@@ -103,12 +103,24 @@
     fadeEls.forEach(function(el) { el.classList.add('is-visible'); });
   }
 
-  /* --- CTA tracking --- */
+  /* --- CTA tracking + redirect --- */
+  var shopifyBase = 'https://www.elastiqueathletics.com/products/loriginal-leggings';
   document.querySelectorAll('[data-cta]').forEach(function(el) {
-    el.addEventListener('click', function() {
+    el.addEventListener('click', function(e) {
       var qs = new URLSearchParams(utmParams).toString();
-      var dest = 'https://elastiqueathletics.com/shop' + (qs ? '?' + qs : '');
-      console.log('[Elastique CTA]', el.dataset.cta, '→', dest);
+      var href = el.getAttribute('href');
+      // If the link already points to Shopify, append UTMs
+      if (href && href.indexOf('elastiqueathletics.com') !== -1) {
+        var separator = href.indexOf('?') !== -1 ? '&' : '?';
+        if (qs) el.setAttribute('href', href + separator + qs);
+        return; // let the native link navigate
+      }
+      // For anchor links (#shop, #proof, etc.), redirect to PDP
+      if (!href || href.charAt(0) === '#') {
+        e.preventDefault();
+        var dest = shopifyBase + (qs ? '?' + qs : '');
+        window.open(dest, '_blank', 'noopener');
+      }
     });
   });
 
