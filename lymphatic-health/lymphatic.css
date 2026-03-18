@@ -93,6 +93,149 @@ h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
 .review-card__author { font-size: 12px; font-weight: 700; color: var(--text-light); }
 .review-card__tag { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 400; background: rgba(123,191,160,0.2); padding: 2px 8px; border-radius: 50px; }
 
+/* 24-HOUR PASSIVE RECOVERY TIMELINE */
+.timeline-module {
+  background: #F2F1EA;
+}
+.timeline-module h2 {
+  margin-bottom: 8px;
+}
+.timeline__intro {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.timeline-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.timeline-grid::before {
+  content: '';
+  position: absolute;
+  left: 42px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(123,191,160,0.2), rgba(123,191,160,0.5));
+}
+.timeline-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 14px 0;
+  position: relative;
+}
+.timeline-block__time {
+  flex-shrink: 0;
+  width: 84px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+  text-align: right;
+  padding-top: 4px;
+  position: relative;
+}
+.timeline-block__time::after {
+  content: '';
+  position: absolute;
+  right: -14px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #F2F1EA;
+  box-shadow: 0 0 0 2px rgba(123,191,160,0.3);
+}
+.timeline-block--highlight .timeline-block__time {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+.timeline-block--highlight .timeline-block__time::after {
+  width: 12px;
+  height: 12px;
+  right: -16px;
+  top: 6px;
+  background: #9784F6;
+  box-shadow: 0 0 0 3px rgba(151,132,246,0.3);
+}
+.timeline-block__body {
+  flex: 1;
+  background: var(--white);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.timeline-block--highlight .timeline-block__body {
+  background: rgba(151,132,246,0.06);
+  border-color: rgba(151,132,246,0.25);
+}
+.timeline-block__body h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.timeline-block__body p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.55;
+}
+
+/* SENSATION GUIDE */
+.sensation-guide {
+  background: var(--white);
+}
+.sensation-guide h2 {
+  margin-bottom: 24px;
+}
+.sensation-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.sensation-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: rgba(151,132,246,0.06);
+  border: 1px solid rgba(151,132,246,0.15);
+  border-radius: var(--rl);
+  padding: 18px 20px;
+}
+.sensation-card__day {
+  flex-shrink: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #9784F6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 2px;
+  width: 48px;
+}
+.sensation-card__body p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.sensation-card__body strong {
+  color: var(--text);
+}
+.sensation__disclaimer {
+  font-size: 11px;
+  color: var(--text-light);
+  opacity: 0.6;
+  text-align: center;
+  line-height: 1.5;
+  font-style: italic;
+}
+
 .product { background: var(--cream); }
 .product h2 { margin-bottom: 8px; }
 .product__sub { font-size: 15px; color: var(--text-light); margin-bottom: 24px; }

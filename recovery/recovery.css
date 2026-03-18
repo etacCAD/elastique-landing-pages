@@ -339,6 +339,81 @@ h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
 .ba-check { color: var(--success); flex-shrink: 0; font-weight: 700; }
 
 /* ============================================
+   HIGH-PERFORMANCE EXOSKELETON MODULE
+   ============================================ */
+.exo-module {
+  background: var(--cream);
+}
+.exo-module h2 {
+  margin-bottom: 8px;
+}
+.exo-module__intro {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.exo-zones {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+.exo-zone {
+  position: relative;
+}
+.exo-zone__bar {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent-purple), rgba(151,132,246,0.4));
+  margin-bottom: 10px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.exo-zone__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.exo-zone__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+.exo-zone__mmhg {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent-purple);
+}
+.exo-zone__desc {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+.exo-expert {
+  background: rgba(151,132,246,0.08);
+  border: 1px solid rgba(151,132,246,0.2);
+  border-radius: var(--rl);
+  padding: 22px 24px;
+}
+.exo-expert__quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.exo-expert__source {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ============================================
    PRODUCT REVEAL — GRID
    ============================================ */
 .product h2 { margin-bottom: 8px; }

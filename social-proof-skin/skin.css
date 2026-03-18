@@ -146,6 +146,116 @@ h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
 .review-card__author { font-size: 12px; font-weight: 700; color: var(--text-light); }
 .review-card__tag { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 400; color: var(--charcoal); background: rgba(242,196,168,0.2); padding: 2px 8px; border-radius: 50px; }
 
+/* BONE REVIEW CARDS */
+.review-card--bone {
+  background: #F2F1EA;
+  border-color: rgba(0,0,0,0.05);
+}
+
+/* 8-WEEK SKIN TEXTURE TRACKER */
+.texture-tracker {
+  background: var(--white);
+}
+.texture-tracker h2 {
+  margin-bottom: 8px;
+}
+.tracker__intro {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.tracker-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  margin-bottom: 24px;
+}
+.tracker-timeline::before {
+  content: '';
+  position: absolute;
+  left: 44px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(242,196,168,0.2), rgba(242,196,168,0.6));
+}
+.tracker-week {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 0;
+  position: relative;
+}
+.tracker-week__marker {
+  flex-shrink: 0;
+  width: 88px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-light);
+  text-align: right;
+  padding-top: 2px;
+  position: relative;
+}
+.tracker-week__marker::after {
+  content: '';
+  position: absolute;
+  right: -14px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-dark);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px rgba(242,196,168,0.3);
+}
+.tracker-week--highlight .tracker-week__marker {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+.tracker-week--highlight .tracker-week__marker::after {
+  background: var(--accent);
+  width: 14px;
+  height: 14px;
+  right: -16px;
+  top: 4px;
+  box-shadow: 0 0 0 3px rgba(242,196,168,0.4);
+}
+.tracker-week__body {
+  flex: 1;
+  background: #F2F1EA;
+  border-radius: var(--r);
+  padding: 16px 18px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.tracker-week--highlight .tracker-week__body {
+  background: rgba(242,196,168,0.12);
+  border-color: rgba(242,196,168,0.4);
+}
+.tracker-week__body h3 {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.tracker-week__body p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+.tracker__disclaimer {
+  font-size: 11px;
+  color: var(--text-light);
+  opacity: 0.6;
+  text-align: center;
+  line-height: 1.5;
+  font-style: italic;
+}
+
 /* HOW IT WORKS */
 .how-it-works h2 { margin-bottom: 10px; }
 .how__intro { font-size: 15px; color: var(--text-light); margin-bottom: 32px; line-height: 1.6; }
