@@ -97,7 +97,7 @@
 
     // Swipe / drag
     carousel.addEventListener('pointerdown', function(e) {
-      if (e.target.closest('.btn') || e.target.closest('a')) return;
+      if (e.target.closest('.btn') || e.target.closest('a') || e.target.closest('.carousel__arrow') || e.target.closest('.carousel__dot') || e.target.closest('.carousel__nav')) return;
       isDragging = true;
       startX = e.clientX;
       track.style.transition = 'none';
