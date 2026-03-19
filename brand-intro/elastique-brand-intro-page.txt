@@ -1,0 +1,808 @@
+<!-- ============================================
+     ELASTIQUE BRAND INTRO LANDING PAGE
+     ============================================ -->
+<style>
+/* ============================================
+   FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+/* =========================================================================
+   ELASTIQUE - BRAND INTRO CSS
+   ========================================================================= */
+
+:root {
+  /* Colors */
+  --chartreuse: #E0F771;
+  --chartreuse-dark: #c8dc5a;
+  --midnight: #1D1E3C;
+  --midnight-light: #2a2b4a;
+  --cream: #F8F6F0;
+  --blush: #F4C7C3;
+  --text-primary: #1D1E3C;
+  --text-light: #F8F6F0;
+  --text-muted: #6b6d8a;
+  
+  /* Layout */
+  --container-max-width: 1200px;
+  --spacing-section: 80px;
+  --transition-default: all 0.3s ease;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--midnight);
+  background-color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .serif {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Layout Classes */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: var(--spacing-section) 0;
+}
+
+.section-dark {
+  background: var(--midnight);
+  color: var(--text-light);
+}
+
+.section-light {
+  background: var(--cream);
+  color: var(--text-primary);
+}
+
+/* Typography Classes */
+.tag {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.section-dark .tag { color: var(--chartreuse); }
+.section-light .tag { color: var(--midnight); font-weight: 600; }
+
+.text-center { text-align: center; }
+
+h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
+h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+p { margin-bottom: 1.5rem; }
+
+/* Buttons & CTAs */
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--chartreuse);
+  color: var(--midnight);
+  padding: 16px 32px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: var(--transition-default);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.cta-primary:hover {
+  background-color: var(--chartreuse-dark);
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(224, 247, 113, 0.3);
+}
+
+.cta-secondary {
+  display: inline-flex;
+  background-color: transparent;
+  color: var(--text-light);
+  padding: 14px 30px;
+  border: 1px solid var(--text-light);
+  border-radius: 4px;
+  transition: var(--transition-default);
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-secondary:hover {
+  background-color: var(--text-light);
+  color: var(--midnight);
+}
+
+/* Animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sticky CTA */
+.sticky-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--midnight);
+  padding: 16px 24px;
+  z-index: 99;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+
+.sticky-cta-bar.visible {
+  transform: translateY(0);
+}
+
+.sticky-cta-bar .cta-primary {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* =========================================================================
+   COMPONENTS
+   ========================================================================= */
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: 120px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.6; /* Darken for text readability */
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+}
+
+.hero-sub {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  color: var(--cream);
+}
+
+.hero-proof {
+  margin-top: 3rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.hero-proof span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Problem Section */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.problem-card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(29, 30, 60, 0.05);
+  transition: var(--transition-default);
+}
+
+.problem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(29, 30, 60, 0.1);
+}
+
+.problem-card .icon {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--midnight);
+}
+
+/* Solution / Science Section */
+.solution-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.solution-visual img {
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.step {
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--midnight-light);
+  position: relative;
+}
+
+.step-num {
+  position: absolute;
+  left: -2px;
+  top: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--chartreuse);
+  background: var(--midnight);
+  padding: 4px 0;
+  transform: translateX(-50%);
+}
+
+/* Feature/Benefit Cards */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-image {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.feature-image img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.feature-card:hover .feature-image img {
+  transform: scale(1.05);
+}
+
+/* Price Anchor */
+.price-comparison {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  align-items: center;
+}
+
+.price-card {
+  background: #fff;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(29, 30, 60, 0.05);
+}
+
+.price-card.featured {
+  background: var(--midnight);
+  color: var(--cream);
+  padding: 4rem 2rem;
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(29, 30, 60, 0.15);
+  position: relative;
+  z-index: 2;
+}
+
+.price-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.price-card .price {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.price-card.featured .price {
+  color: var(--chartreuse);
+}
+
+/* FAQ Accordion */
+.faq-list {
+  max-width: 800px;
+  margin: 3rem auto 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--cream);
+  text-align: left;
+  padding: 1.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  color: var(--text-muted);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding-bottom: 1.5rem;
+}
+
+/* Footer Placeholder */
+.el-footer {
+  background: #000;
+  color: #fff;
+  padding: 40px 24px;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.el-footer nav { margin-bottom: 20px; }
+.el-footer a { color: #fff; margin: 0 10px; }
+.el-footer .disclaimer {
+  max-width: 800px;
+  margin: 20px auto 0;
+  color: #888;
+  font-size: 0.75rem;
+}
+
+/* Typography Overrides for specific themes */
+.hero h1 { font-size: 4rem; }
+
+/* Responsive break points */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 3rem; }
+  .solution-content { gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero-sub { font-size: 1.125rem; }
+  .hero-proof { flex-direction: column; gap: 1rem; align-items: center; text-align: center; }
+  
+  .problem-grid, .showcase-grid { grid-template-columns: 1fr; }
+  .solution-content { grid-template-columns: 1fr; }
+  
+  .price-comparison { grid-template-columns: 1fr; gap: 1rem; }
+  .price-card.featured { transform: scale(1); padding: 3rem 2rem; }
+  
+  .section { padding: 60px 0; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  /* Make sticky CTA consistent on very small phones */
+  .sticky-cta-bar { padding: 12px 16px; }
+}
+
+@media (min-width: 769px) {
+  /* Hide sticky CTA on desktop */
+  .sticky-cta-bar { display: none !important; }
+}
+
+</style>
+
+<!-- HERO SECTION -->
+  <section class="hero section-dark">
+    <!-- Image will fall back to CDN or placeholder -->
+    <img src="https://cdn.shopify.com/s/files/1/1886/2193/files/hero-bg-dark.jpg?v=1710000000" alt="Elastique Wearable Wellness" class="hero-bg" onerror="this.src='https://placehold.co/1920x1080/1D1E3C/E0F771?text=Elastique+Editorial+Hero';">
+    
+    <div class="container fade-up">
+      <img src="https://cdn.shopify.com/s/files/1/1886/2193/files/elastique_logo.svg?v=1756493562" alt="Elastique" width="180" style="margin: 0 auto 2rem; display: block;">
+      
+      <span class="tag">WEARABLE WELLNESS TECHNOLOGY</span>
+      <h1>Wellness that works for you, not the other way around.</h1>
+      <p class="hero-sub">Wearable circulation technology designed to support your body's natural comfort while you live your life.</p>
+      
+      <a href="/collections/all" class="cta-primary" data-cta="hero-shop-all">Shop The Collection</a>
+      
+      <div class="hero-proof">
+        <span><svg width="16" height="16" fill="var(--chartreuse)" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg> 2,400+ 5-Star Reviews</span>
+        <span>Patented MicroPerle® Technology</span>
+        <span>Clinically Validated Experience</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM SECTION -->
+  <section class="problem section-light text-center">
+    <div class="container fade-up">
+      <span class="tag">YOUR BODY RESPONDS</span>
+      <h2>Your legs shouldn't feel heavy by 3pm.</h2>
+      <p style="max-width: 700px; margin: 0 auto;">Whether you are desk-bound, constantly traveling, or simply living a full life, compromised circulation can lead to discomfort. We designed a passive solution that requires zero extra routine.</p>
+      
+      <div class="problem-grid">
+        <div class="problem-card fade-up">
+          <div class="icon">🪑</div>
+          <h3>Desk-Bound Discomfort</h3>
+          <p>Long hours of sitting can lead to a sense of heaviness and fatigue in the legs.</p>
+        </div>
+        <div class="problem-card fade-up" style="transition-delay: 0.1s;">
+          <div class="icon">✈️</div>
+          <h3>Travel Puffiness</h3>
+          <p>Altitude and restricted movement often promote feelings of lower-body puffiness.</p>
+        </div>
+        <div class="problem-card fade-up" style="transition-delay: 0.2s;">
+          <div class="icon">🏃‍♀️</div>
+          <h3>Active Recovery</h3>
+          <p>Rigorous days require supportive recovery for your legs to feel refreshed for tomorrow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION SECTION -->
+  <section class="solution section-dark">
+    <div class="container fade-up">
+      <span class="tag">THE SCIENCE</span>
+      <h2>Technology That Works While You Live</h2>
+      
+      <div class="solution-content">
+        <div class="solution-visual fade-up">
+          <img src="https://cdn.shopify.com/s/files/1/1886/2193/files/microperle-diagram.jpg?v=1710000000" alt="MicroPerle Technology Diagram" onerror="this.src='https://placehold.co/600x800/2a2b4a/E0F771?text=MicroPerle+Diagram';">
+        </div>
+        
+        <div class="solution-text">
+          <div class="step fade-up">
+            <span class="step-num">01</span>
+            <h3>Patented MicroPerle® Beads</h3>
+            <p>Hundreds of precision-placed beads are expertly engineered into luxurious compression fabric.</p>
+          </div>
+          <div class="step fade-up" style="transition-delay: 0.1s;">
+            <span class="step-num">02</span>
+            <h3>Invigorating Micro-Massage</h3>
+            <p>As you move naturally, the beads provide a continuous, gentle micro-massage sensation designed for comfort.</p>
+          </div>
+          <div class="step fade-up" style="transition-delay: 0.2s;">
+            <span class="step-num">03</span>
+            <h3>Passive Wellness</h3>
+            <p>Helps reduce feelings of puffiness, invigorates your legs with active compression, and promotes smoother-looking skin—all without changing your schedule.</p>
+          </div>
+          
+          <div style="margin-top: 2rem;" class="fade-up">
+             <a href="/collections/leggings" class="cta-primary" data-cta="solution-shop-leggings">Explore Leggings</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social-proof section-light text-center">
+    <div class="container fade-up">
+      <span class="tag">COMMUNITY</span>
+      <h2 style="font-size: 2rem;">"The longevity protocol you just put on."</h2>
+      
+      <div class="problem-grid" style="margin-top: 2rem;">
+        <div class="problem-card fade-up" style="text-align: left;">
+          <p style="color: var(--chartreuse-dark); font-size: 1.2rem; margin-bottom: 1rem;">★★★★★</p>
+          <p>"I travel constantly for work. These promote a sense of lightness during long flights that I haven't found with typical compression stockings. Plus, they look so elegant."</p>
+          <p style="font-weight: 600; font-size: 0.875rem;">— Sarah M., Verified Buyer</p>
+        </div>
+        <div class="problem-card fade-up" style="transition-delay: 0.1s; text-align: left;">
+          <p style="color: var(--chartreuse-dark); font-size: 1.2rem; margin-bottom: 1rem;">★★★★★</p>
+          <p>"The micro-massage sensation is incredible. They provide supportive compression for a smoother silhouette, and my legs just feel more refreshed."</p>
+          <p style="font-weight: 600; font-size: 0.875rem;">— Elena R., Verified Buyer</p>
+        </div>
+        <div class="problem-card fade-up" style="transition-delay: 0.2s; text-align: left;">
+          <p style="color: var(--chartreuse-dark); font-size: 1.2rem; margin-bottom: 1rem;">★★★★★</p>
+          <p>"Technology disguised as fashion. I wear them under my work clothes to support my sense of everyday wellness while I'm at my desk."</p>
+          <p style="font-weight: 600; font-size: 0.875rem;">— Jessica T., Verified Buyer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SHOWCASE -->
+  <section class="showcase section-dark">
+    <div class="container fade-up">
+      <div class="text-center">
+        <span class="tag">THE COLLECTION</span>
+        <h2>Engineered for Effortless Rituals</h2>
+      </div>
+      
+      <div class="showcase-grid">
+        <div class="feature-card fade-up">
+          <div class="feature-image">
+            <img src="https://placehold.co/600x450/2a2b4a/E0F771?text=L%27Original+Legging" alt="L'Original Legging">
+          </div>
+          <h3>L'Original Legging</h3>
+          <p style="color: var(--text-muted);">Our iconic foundation. Precision-engineered MicroPerle technology in a premium, opaque knit that supports comfort from morning to night.</p>
+          <div><a href="/products/loriginal-legging" class="cta-secondary" data-cta="showcase-loriginal">Shop L'Original</a></div>
+        </div>
+        
+        <div class="feature-card fade-up" style="transition-delay: 0.1s;">
+          <div class="feature-image">
+            <img src="https://placehold.co/600x450/2a2b4a/E0F771?text=Le+Short" alt="Le Short">
+          </div>
+          <h3>Le Short</h3>
+          <p style="color: var(--text-muted);">Focused micro-massage. Designed to help reduce the sensation of abdominal puffiness and smooth your silhouette underneath any outfit.</p>
+          <div><a href="/products/le-short" class="cta-secondary" data-cta="showcase-short">Shop Le Short</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING / VALUE ANCHOR -->
+  <section class="pricing section-light">
+    <div class="container fade-up">
+      <h2 class="text-center">The Investment in Your Circulation</h2>
+      <p class="text-center" style="max-width: 600px; margin: 0 auto;">Your body is a high-performance machine. It deserves infrastructure that works as hard as you do.</p>
+      
+      <div class="price-comparison">
+        <div class="price-card fade-up">
+          <h3>Manual Massage Therapy</h3>
+          <p class="price">$150/session</p>
+          <p style="font-size: 0.875rem; color: #666;">Time-consuming. Requires appointments. Costs over $7,800 annually for weekly sessions.</p>
+        </div>
+        
+        <div class="price-card featured fade-up" style="transition-delay: 0.1s;">
+          <span class="tag" style="background: var(--chartreuse); color: var(--midnight); padding: 4px 8px; border-radius: 4px;">PATENTED</span>
+          <h3>Elastique L'Original</h3>
+          <p class="price" style="color: var(--chartreuse);">$148</p>
+          <p style="margin-bottom: 2rem;">Continuous, passive micro-massage sensation. Lasts 1+ year. Wear it, forget it, benefit daily.</p>
+          <a href="/products/loriginal-legging" class="cta-primary" style="width: 100%;" data-cta="pricing-shop-loriginal">Invest Once</a>
+        </div>
+        
+        <div class="price-card fade-up" style="transition-delay: 0.2s;">
+          <h3>Standard Activewear</h3>
+          <p class="price">$90-120</p>
+          <p style="font-size: 0.875rem; color: #666;">No MicroPerle beads. No targeted clinical design. Doesn't actively support invigoration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq section-dark">
+    <div class="container fade-up text-center">
+      <span class="tag">COMMON QUESTIONS</span>
+      <h2>You asked, we answered.</h2>
+      
+      <div class="faq-list text-left">
+        <div class="faq-item">
+          <button class="faq-question">What does the MicroPerle technology feel like?</button>
+          <div class="faq-answer">
+            <p>Our patented MicroPerle technology creates a gentle, micro-massage sensation against your skin as you move. It's designed for comfort—it feels like a supportive, active texture that invigorates your legs without being abrasive.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is this shapewear?</button>
+          <div class="faq-answer">
+            <p>No. While Elastique provides supportive compression for a smoother silhouette, we are wearable wellness technology. Our garments are primarily engineered to support a sense of wellness and promote a feeling of lightness, rather than simply cinching the body.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How often should I wear them?</button>
+          <div class="faq-answer">
+            <p>For the best results, we recommend wearing Elastique consistently. Many of our clients wear them daily for travel, desk work, or post-workout recovery. The MicroPerle beads are designed to be comfortable enough to wear from morning until night.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How do I wash them?</button>
+          <div class="faq-answer">
+            <p>To preserve the integrity of the compression and MicroPerle beads, wash in cold water on a gentle cycle, preferably inside a delicates bag. Always lay flat or hang to air dry. Never put them in the dryer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER PLACEHOLDER -->
+  <div class="el-footer">
+    <img src="https://cdn.shopify.com/s/files/1/1886/2193/files/elastique_logo.svg?v=1756493562" alt="Elastique" width="120" style="margin: 0 auto 1rem; display: block; opacity: 0.5;">
+    <p>© 2026 Elastique Athletics. All rights reserved.</p>
+    <div class="disclaimer">
+      Elastique Athletics products are general wellness items intended to support comfort and cosmetic appearance. They are not medical devices and are not intended to diagnose, treat, cure, or prevent any disease or medical condition. Individual results may vary.
+    </div>
+  </div>
+
+  <!-- STICKY CTA (Mobile Only) -->
+  <div class="sticky-cta-bar">
+    <a href="/collections/all" class="cta-primary" data-cta="sticky-shop-all">Shop The Collection</a>
+  </div>
+
+  <!-- Local JS -->
+  
+
+<!-- ============================================
+     JAVASCRIPT — INLINE
+     ============================================ -->
+<script>
+/**
+ * Elastique - Brand Intro JS
+ * Handles animations, sticky CTA visibility, and FAQ toggles
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* 
+   * 1. Scroll Fade-up Observer
+   */
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Once animated, unobserve
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-up').forEach(el => {
+    observer.observe(el);
+  });
+
+  /*
+   * 2. FAQ Accordion (Single-open)
+   */
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close all other items
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active');
+      });
+
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  /*
+   * 3. Sticky CTA Toggle
+   * Hidden when user is near the top (hero section contains main CTA)
+   * Hidden when user reaches footer (avoid double CTA)
+   */
+  const stickyCta = document.querySelector('.sticky-cta-bar');
+  const heroSection = document.querySelector('.hero');
+  const footerSection = document.querySelector('.el-footer');
+  
+  if (stickyCta && heroSection) {
+    window.addEventListener('scroll', () => {
+      // Only run logic on mobile/tablet widths
+      if (window.innerWidth <= 768) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        const footerTop = footerSection ? footerSection.getBoundingClientRect().top : window.innerHeight + 1000;
+        
+        // Show sticky CTA if we've scrolled past hero AND haven't reached footer
+        if (heroBottom < 0 && footerTop > window.innerHeight) {
+          stickyCta.classList.add('visible');
+        } else {
+          stickyCta.classList.remove('visible');
+        }
+      }
+    }, { passive: true });
+  }
+
+  /*
+   * 4. UTM Passthrough & Tracking setup
+   * Appends URL search params to all clickable Shop links that go outside the page
+   */
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramString = urlParams.toString();
+  
+  if (paramString) {
+    document.querySelectorAll('a[href]').forEach(link => {
+      try {
+        const url = new URL(link.href);
+        // Exclude anchor links on the same page
+        if (url.origin === window.location.origin && link.getAttribute('href').startsWith('#')) {
+          return;
+        }
+        
+        // Add existing params to destination
+        for (const [key, value] of urlParams) {
+          if (!url.searchParams.has(key)) {
+            url.searchParams.append(key, value);
+          }
+        }
+        link.href = url.toString();
+      } catch (e) {
+        // Ignore invalid URLs
+      }
+    });
+  }
+});
+
+</script>
