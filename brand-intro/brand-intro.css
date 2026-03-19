@@ -184,7 +184,7 @@ p { margin-bottom: 1.5rem; }
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding-top: 120px;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -192,31 +192,33 @@ p { margin-bottom: 1.5rem; }
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 68% center;
+  object-position: 60% center;
   z-index: 0;
-  opacity: 0.88;
+  opacity: 0.85;
 }
 
-/* Gradient overlay — dark on left (text), clear on right (woman) */
+/* Subtle full-cover veil so quote reads anywhere on photo */
 .hero-overlay {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(10, 10, 30, 0.72) 0%,
-    rgba(10, 10, 30, 0.55) 30%,
-    rgba(10, 10, 30, 0.15) 55%,
-    rgba(10, 10, 30, 0) 70%
-  );
+  background: rgba(10, 10, 30, 0.48);
   z-index: 0;
+}
+
+/* Logo: absolute top-left */
+.hero-logo-lockup {
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  z-index: 2;
 }
 
 .hero .container {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: 800px;
   width: 100%;
-  text-align: left;
+  text-align: center;
 }
 
 .hero-sub {
@@ -226,6 +228,38 @@ p { margin-bottom: 1.5rem; }
   color: var(--cream);
 }
 
+/* Proof bar: pinned across the bottom */
+.hero-proof-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  padding: 1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.04em;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  background: rgba(10,10,30,0.25);
+  backdrop-filter: blur(4px);
+}
+
+.hero-proof-bar span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.hero-proof-divider {
+  opacity: 0.35;
+}
+
+/* Legacy hero-proof (kept for other pages) */
 .hero-proof {
   margin-top: 3rem;
   display: flex;
@@ -729,9 +763,9 @@ p { margin-bottom: 1.5rem; }
 }
 
 
-/* Hero quote-led layout — constrained to left half so woman is unobscured */
+/* Hero quote-led layout — centered, quote is the star */
 .hero-quote-layout {
-  max-width: 520px;
+  max-width: 720px;
 }
 
 .hero-blockquote {
@@ -740,20 +774,42 @@ p { margin-bottom: 1.5rem; }
   font-style: italic;
   line-height: 1.3;
   color: #fff;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.25rem;
   quotes: none;
   letter-spacing: -0.01em;
 }
 
 .hero-whisper {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
   margin-bottom: 0;
 }
 
+/* Smaller ghost CTA — quote stays the star */
+.cta-secondary {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.85);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  background: transparent;
+  border-radius: 2px;
+}
+
+.cta-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.8);
+  color: #fff;
+}
+
 .hero-cta {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .hero h1 { font-size: 4rem; }
@@ -768,9 +824,15 @@ p { margin-bottom: 1.5rem; }
 @media (max-width: 768px) {
   .hero h1 { font-size: 2.5rem; }
   .hero-sub { font-size: 1.125rem; }
-  .hero-blockquote { font-size: 2rem; }
+  .hero-blockquote { font-size: 1.9rem; }
   /* Focus mobile crop on her legs */
   .hero-bg { object-position: 55% 75%; }
+  /* Logo smaller on mobile */
+  .hero-logo-lockup { top: 1.25rem; left: 1.25rem; }
+  .hero-logo-lockup img { width: 90px; }
+  /* Proof bar wraps gracefully on mobile */
+  .hero-proof-bar { gap: 0.75rem; flex-wrap: wrap; padding: 0.75rem 1.25rem; font-size: 0.72rem; }
+  .hero-proof-divider { display: none; }
   .hero-proof { flex-direction: column; gap: 1rem; align-items: center; text-align: center; }
   
   .problem-editorial { grid-template-columns: 1fr; gap: 2.5rem; }
