@@ -421,6 +421,8 @@ h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
 /* ============================================
    PRODUCT REVEAL — GRID
    ============================================ */
+.product.section { padding-top: 16px; }
+.proof-wall.section { padding-bottom: 24px; }
 .product h2 { margin-bottom: 8px; }
 .product__sub {
   font-size: 15px;
