@@ -66,6 +66,67 @@
     });
   });
 
+  /* --- Product Carousel --- */
+  var carousel = document.getElementById('product-carousel');
+  if (carousel) {
+    var track = carousel.querySelector('.carousel__track');
+    var slides = carousel.querySelectorAll('.carousel__slide');
+    var dots = carousel.querySelectorAll('.carousel__dot');
+    var prevBtn = carousel.querySelector('.carousel__arrow--prev');
+    var nextBtn = carousel.querySelector('.carousel__arrow--next');
+    var current = 0;
+    var total = slides.length;
+    var startX = 0;
+    var deltaX = 0;
+    var isDragging = false;
+    var autoTimer;
+
+    function goTo(idx) {
+      current = ((idx % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function(d, i) {
+        d.classList.toggle('is-active', i === current);
+      });
+    }
+
+    prevBtn.addEventListener('click', function() { goTo(current - 1); resetAuto(); });
+    nextBtn.addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() { goTo(parseInt(dot.dataset.slide)); resetAuto(); });
+    });
+
+    // Swipe / drag
+    carousel.addEventListener('pointerdown', function(e) {
+      if (e.target.closest('.btn') || e.target.closest('a')) return;
+      isDragging = true;
+      startX = e.clientX;
+      track.style.transition = 'none';
+      carousel.setPointerCapture(e.pointerId);
+    });
+    carousel.addEventListener('pointermove', function(e) {
+      if (!isDragging) return;
+      deltaX = e.clientX - startX;
+      track.style.transform = 'translateX(calc(-' + (current * 100) + '% + ' + deltaX + 'px))';
+    });
+    carousel.addEventListener('pointerup', function() {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.transition = '';
+      if (Math.abs(deltaX) > 50) {
+        goTo(deltaX > 0 ? current - 1 : current + 1);
+      } else {
+        goTo(current);
+      }
+      deltaX = 0;
+      resetAuto();
+    });
+
+    // Auto-advance every 6s
+    function startAuto() { autoTimer = setInterval(function() { goTo(current + 1); }, 6000); }
+    function resetAuto() { clearInterval(autoTimer); startAuto(); }
+    startAuto();
+  }
+
   /* --- Sticky CTA Visibility --- */
   var stickyCta = document.getElementById('sticky-cta');
   if (stickyCta) {
