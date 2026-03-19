@@ -846,23 +846,25 @@ footer a:hover { color: var(--accent-dark); }
   .section { padding: 80px 32px; }
   :root { --max: 700px; }
 
-  .hero { min-height: 100svh; flex-direction: row; }
-  .hero__img-wrap { flex: 1; min-height: auto; }
+  .hero { min-height: 90vh; flex-direction: row; align-items: stretch; }
+  .hero__img-wrap { flex: 0 0 55%; min-height: auto; max-height: 90vh; }
+  .hero__img { object-position: center center; }
   .hero__overlay {
     background: linear-gradient(to right,
-      rgba(17,17,16,0) 20%,
-      rgba(17,17,16,0.7) 60%,
+      rgba(17,17,16,0) 40%,
+      rgba(17,17,16,0.85) 85%,
       rgba(17,17,16,1) 100%
     );
   }
   .hero__content {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 50%;
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 48px 48px 56px;
-    background: transparent;
+    background: var(--black);
   }
+  .hero__content h1 { font-size: clamp(2rem, 3.5vw, 3rem); }
 
   .btn { width: auto; min-width: 240px; }
   .hero__ctas { display: flex; flex-direction: column; align-items: flex-start; }
