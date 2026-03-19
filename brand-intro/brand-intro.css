@@ -501,25 +501,167 @@ p { margin-bottom: 1.5rem; }
   padding-bottom: 1.5rem;
 }
 
-/* Footer Placeholder */
+/* Footer */
 .el-footer {
-  background: #000;
-  color: #fff;
-  padding: 40px 24px;
-  text-align: center;
+  background: var(--midnight);
+  color: rgba(255,255,255,0.7);
+  padding: 60px 24px 40px;
   font-size: 0.875rem;
 }
 
-.el-footer nav { margin-bottom: 20px; }
-.el-footer a { color: #fff; margin: 0 10px; }
-.el-footer .disclaimer {
-  max-width: 800px;
-  margin: 20px auto 0;
-  color: #888;
-  font-size: 0.75rem;
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* Typography Overrides for specific themes */
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover { color: var(--chartreuse); }
+
+.footer-social {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-social a {
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+
+.footer-social a:hover { color: var(--chartreuse); }
+
+.footer-bottom {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-bottom p { margin-bottom: 0.75rem; color: rgba(255,255,255,0.5); }
+
+.footer-bottom .disclaimer {
+  max-width: 800px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Hero scroll hint */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Review card grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.review-card {
+  background: var(--cream);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1.75rem;
+  text-align: left;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--midnight);
+  color: var(--chartreuse);
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+.review-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--midnight);
+  margin: 0;
+}
+
+.review-verified {
+  font-size: 0.75rem;
+  color: #888;
+  margin: 0;
+}
+
+.review-stars {
+  margin-left: auto;
+  color: var(--chartreuse-dark);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.review-body {
+  color: #444;
+  font-size: 0.925rem;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* Final CTA section */
+.final-cta {
+  background: var(--midnight);
+  padding: 120px 24px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 0;
+}
+
+
 .hero h1 { font-size: 4rem; }
 
 /* Responsive break points */
@@ -546,7 +688,16 @@ p { margin-bottom: 1.5rem; }
   .price-card.featured { transform: scale(1); padding: 3rem 2rem; }
   
   .section { padding: 60px 0; }
+
+  .reviews-grid { grid-template-columns: 1fr; }
+
+  .final-cta { padding: 80px 24px; }
+  .final-cta h2 { font-size: 2.5rem; }
+
+  .footer-top { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .footer-nav { gap: 1.25rem; }
 }
+
 
 @media (max-width: 480px) {
   .hero h1 { font-size: 2rem; }
