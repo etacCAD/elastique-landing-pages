@@ -59,15 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroSection = document.querySelector('.hero');
   const footerSection = document.querySelector('.el-footer');
   
-  if (stickyCta && heroSection) {
+  if (stickyCta) {
     window.addEventListener('scroll', () => {
       // Only run logic on mobile/tablet widths
       if (window.innerWidth <= 768) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        const footerTop = footerSection ? footerSection.getBoundingClientRect().top : window.innerHeight + 1000;
+        // Show after scrolling past 400px
+        const shouldShow = window.scrollY > 400;
         
-        // Show sticky CTA if we've scrolled past hero AND haven't reached footer
-        if (heroBottom < 0 && footerTop > window.innerHeight) {
+        // Hide if we've reached the footer (approx distance)
+        const footerTop = footerSection ? footerSection.getBoundingClientRect().top : window.innerHeight + 1000;
+        const reachedFooter = footerTop < window.innerHeight;
+        
+        if (shouldShow && !reachedFooter) {
           stickyCta.classList.add('visible');
         } else {
           stickyCta.classList.remove('visible');

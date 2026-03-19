@@ -472,8 +472,8 @@ p { margin-bottom: 1.5rem; }
 
 <!-- HERO SECTION -->
   <section class="hero section-dark">
-    <!-- Image will fall back to CDN or placeholder -->
-    <img src="https://cdn.shopify.com/s/files/1/1886/2193/files/hero-bg-dark.jpg?v=1710000000" alt="Elastique Wearable Wellness" class="hero-bg" onerror="this.src='https://placehold.co/1920x1080/1D1E3C/E0F771?text=Elastique+Editorial+Hero';">
+    <!-- Image will fall back to premium Unsplash image -->
+    <img src="https://cdn.shopify.com/s/files/1/1886/2193/files/hero-bg-dark.jpg?v=1710000000" alt="Elastique Wearable Wellness" class="hero-bg" onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1920&auto=format&fit=crop';">
     
     <div class="container fade-up">
       <img src="https://cdn.shopify.com/s/files/1/1886/2193/files/elastique_logo.svg?v=1756493562" alt="Elastique" width="180" style="margin: 0 auto 2rem; display: block;">
@@ -527,7 +527,7 @@ p { margin-bottom: 1.5rem; }
       
       <div class="solution-content">
         <div class="solution-visual fade-up">
-          <img src="https://cdn.shopify.com/s/files/1/1886/2193/files/microperle-diagram.jpg?v=1710000000" alt="MicroPerle Technology Diagram" onerror="this.src='https://placehold.co/600x800/2a2b4a/E0F771?text=MicroPerle+Diagram';">
+          <img src="https://cdn.shopify.com/s/files/1/1886/2193/files/microperle-diagram.jpg?v=1710000000" alt="MicroPerle Technology Diagram" onerror="this.src='https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=600&auto=format&fit=crop';" style="border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
         </div>
         
         <div class="solution-text">
@@ -592,7 +592,7 @@ p { margin-bottom: 1.5rem; }
       <div class="showcase-grid">
         <div class="feature-card fade-up">
           <div class="feature-image">
-            <img src="https://placehold.co/600x450/2a2b4a/E0F771?text=L%27Original+Legging" alt="L'Original Legging">
+            <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=600&auto=format&fit=crop" alt="L'Original Legging">
           </div>
           <h3>L'Original Legging</h3>
           <p style="color: var(--text-muted);">Our iconic foundation. Precision-engineered MicroPerle technology in a premium, opaque knit that supports comfort from morning to night.</p>
@@ -601,7 +601,7 @@ p { margin-bottom: 1.5rem; }
         
         <div class="feature-card fade-up" style="transition-delay: 0.1s;">
           <div class="feature-image">
-            <img src="https://placehold.co/600x450/2a2b4a/E0F771?text=Le+Short" alt="Le Short">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" alt="Le Short">
           </div>
           <h3>Le Short</h3>
           <p style="color: var(--text-muted);">Focused micro-massage. Designed to help reduce the sensation of abdominal puffiness and smooth your silhouette underneath any outfit.</p>
@@ -758,15 +758,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroSection = document.querySelector('.hero');
   const footerSection = document.querySelector('.el-footer');
   
-  if (stickyCta && heroSection) {
+  if (stickyCta) {
     window.addEventListener('scroll', () => {
       // Only run logic on mobile/tablet widths
       if (window.innerWidth <= 768) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        const footerTop = footerSection ? footerSection.getBoundingClientRect().top : window.innerHeight + 1000;
+        // Show after scrolling past 400px
+        const shouldShow = window.scrollY > 400;
         
-        // Show sticky CTA if we've scrolled past hero AND haven't reached footer
-        if (heroBottom < 0 && footerTop > window.innerHeight) {
+        // Hide if we've reached the footer (approx distance)
+        const footerTop = footerSection ? footerSection.getBoundingClientRect().top : window.innerHeight + 1000;
+        const reachedFooter = footerTop < window.innerHeight;
+        
+        if (shouldShow && !reachedFooter) {
           stickyCta.classList.add('visible');
         } else {
           stickyCta.classList.remove('visible');
