@@ -567,7 +567,72 @@ p { margin-bottom: 1.5rem; }
   line-height: 1.6;
 }
 
+/* Trust Strip — pull quote immediately below hero */
+.trust-strip {
+  background: var(--cream);
+  padding: 60px 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.trust-quote {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.quote-mark {
+  display: block;
+  margin: 0 auto 1.5rem;
+}
+
+.trust-quote blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--midnight);
+  margin: 0 0 2rem;
+  quotes: none;
+}
+
+.trust-attribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.trust-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--midnight);
+  color: var(--chartreuse);
+  font-weight: 700;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.trust-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--midnight);
+  margin: 0 0 0.2rem;
+}
+
+.trust-meta {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+}
+
 /* Hero scroll hint */
+
 .hero-scroll-hint {
   position: absolute;
   bottom: 2rem;
