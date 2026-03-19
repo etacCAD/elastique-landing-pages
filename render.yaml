@@ -76,3 +76,16 @@ services:
       - type: rewrite
         source: /*
         destination: /index.html
+
+  - type: web
+    name: elastique-brand-intro
+    env: static
+    staticPublishPath: ./brand-intro
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
