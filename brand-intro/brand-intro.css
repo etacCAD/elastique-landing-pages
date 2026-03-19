@@ -192,8 +192,22 @@ p { margin-bottom: 1.5rem; }
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center top;
   z-index: 0;
-  opacity: 0.6; /* Darken for text readability */
+  opacity: 0.75;
+}
+
+/* Dark gradient overlay for legibility */
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 30, 0.55) 0%,
+    rgba(10, 10, 30, 0.35) 50%,
+    rgba(10, 10, 30, 0.65) 100%
+  );
+  z-index: 0;
 }
 
 .hero .container {
@@ -522,6 +536,8 @@ p { margin-bottom: 1.5rem; }
   .problem-editorial { grid-template-columns: 1fr; gap: 2.5rem; }
   .problem-left { position: static; }
   .problem-right { padding-top: 0; }
+  /* Keep product image visible on mobile — just smaller */
+  .problem-img-wrap { aspect-ratio: 4/3; }
   .showcase-grid { grid-template-columns: 1fr; }
 
   .solution-content { grid-template-columns: 1fr; }
