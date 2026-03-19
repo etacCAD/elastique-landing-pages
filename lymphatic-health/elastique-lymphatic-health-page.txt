@@ -1,0 +1,1046 @@
+<!-- ============================================
+     ELASTIQUE LYMPHATIC HEALTH LANDING PAGE
+     ============================================ -->
+<style>
+/* ============================================
+   FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+/* ============================================
+   ELASTIQUE — LYMPHATIC HEALTH CSS
+   Accent: Cool sage / wellness green
+   ============================================ */
+
+:root {
+  --black: #1A1F1B;
+  --deep: #141918;
+  --white: #ffffff;
+  --cream: #EEF2EE;
+  --text: #2a302b;
+  --text-light: #5f6b60;
+  --accent: #7BBFA0;
+  --accent-dark: #5aa080;
+  --accent-light: #b0d9c8;
+  --success: #3a6e52;
+  --r: 10px;
+  --rl: 18px;
+  --t: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max: 520px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 6vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+.section { padding: 56px 20px; }
+.section--alt { background: var(--cream); }
+.inner { max-width: var(--max); margin: 0 auto; }
+.label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }
+
+.trust-bar { position: sticky; top: 0; z-index: 200; background: var(--black); padding: 10px 16px; text-align: center; }
+.trust-bar p { font-size: 12px; color: rgba(255,255,255,0.65); letter-spacing: 0.07em; }
+.trust-bar span { color: var(--accent-light); font-weight: 600; }
+
+.hero { background: var(--black); position: relative; overflow: hidden; min-height: 100svh; display: flex; flex-direction: column; }
+.hero__img-wrap { position: relative; width: 100%; flex: 1; min-height: 300px; }
+.hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; opacity: 0.8; }
+.hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,19,15,0) 20%, rgba(14,19,15,0.85) 65%, rgba(14,19,15,1) 100%); }
+.hero__content { position: relative; z-index: 2; padding: 0 24px 48px; background: var(--black); }
+.hero__eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.hero h1 { color: var(--white); margin-bottom: 16px; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero__sub { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 28px; max-width: 420px; }
+.hero__ctas { display: flex; flex-direction: column; gap: 12px; }
+.hero__badges { margin-top: 24px; font-size: 11px; color: rgba(255,255,255,0.4); display: flex; align-items: center; flex-wrap: wrap; gap: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 17px 28px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; border: none; border-radius: 50px; cursor: pointer; transition: var(--t); }
+.btn--primary { background: var(--accent); color: var(--black); box-shadow: 0 4px 20px rgba(123,191,160,0.35); }
+.btn--primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.btn--ghost { background: transparent; color: rgba(255,255,255,0.7); border: 1.5px solid rgba(255,255,255,0.2); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn--dark { background: var(--white); color: var(--black); box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+.btn--dark:hover { background: var(--cream); transform: translateY(-2px); }
+
+.problem h2 { margin-bottom: 12px; }
+.problem__intro { font-size: 15px; color: var(--text-light); margin-bottom: 32px; line-height: 1.6; }
+.symptom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.symptom-card { background: var(--cream); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--rl); padding: 20px 16px; transition: var(--t); }
+.symptom-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+.symptom-card__icon { font-size: 24px; margin-bottom: 10px; }
+.symptom-card h3 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+.symptom-card p { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+.how-it-works h2 { margin-bottom: 10px; }
+.how__intro { font-size: 15px; color: var(--text-light); margin-bottom: 32px; line-height: 1.6; }
+.steps { display: flex; flex-direction: column; gap: 24px; margin-bottom: 28px; }
+.step { display: flex; gap: 20px; align-items: flex-start; }
+.step__num { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: rgba(123,191,160,0.4); line-height: 1; flex-shrink: 0; width: 48px; }
+.step__title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.step__text { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+.research-callout { display: flex; gap: 14px; align-items: flex-start; background: rgba(123,191,160,0.12); border: 1px solid rgba(123,191,160,0.35); border-radius: var(--r); padding: 18px 20px; }
+.research-callout__icon { font-size: 22px; flex-shrink: 0; }
+.research-callout__text { font-size: 14px; color: var(--text); line-height: 1.6; }
+
+.therapist-badge { display: flex; gap: 14px; align-items: center; background: var(--cream); border: 1px solid rgba(0,0,0,0.07); border-radius: var(--r); padding: 16px 20px; margin-bottom: 24px; }
+.therapist-badge__icon { font-size: 28px; flex-shrink: 0; }
+.therapist-badge__text { font-size: 14px; color: var(--text); line-height: 1.5; }
+
+.proof-wall .section-header { margin-bottom: 24px; }
+.review-stack { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+.review-card { background: var(--white); border: 1px solid rgba(0,0,0,0.07); border-radius: var(--rl); padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: var(--t); }
+.review-card--featured { background: #f0f8f4; border-color: rgba(123,191,160,0.4); }
+.review-card:hover { transform: translateY(-2px); box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+.review-card__stars { color: var(--accent-dark); font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
+.review-card__quote { font-size: 15px; font-style: italic; line-height: 1.6; margin-bottom: 10px; }
+.review-card__author { font-size: 12px; font-weight: 700; color: var(--text-light); }
+.review-card__tag { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 400; background: rgba(123,191,160,0.2); padding: 2px 8px; border-radius: 50px; }
+
+/* 24-HOUR PASSIVE RECOVERY TIMELINE */
+.timeline-module {
+  background: #F2F1EA;
+}
+.timeline-module h2 {
+  margin-bottom: 8px;
+}
+.timeline__intro {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.timeline-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.timeline-grid::before {
+  content: '';
+  position: absolute;
+  left: 42px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(123,191,160,0.2), rgba(123,191,160,0.5));
+}
+.timeline-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 14px 0;
+  position: relative;
+}
+.timeline-block__time {
+  flex-shrink: 0;
+  width: 84px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+  text-align: right;
+  padding-top: 4px;
+  position: relative;
+}
+.timeline-block__time::after {
+  content: '';
+  position: absolute;
+  right: -14px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #F2F1EA;
+  box-shadow: 0 0 0 2px rgba(123,191,160,0.3);
+}
+.timeline-block--highlight .timeline-block__time {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+.timeline-block--highlight .timeline-block__time::after {
+  width: 12px;
+  height: 12px;
+  right: -16px;
+  top: 6px;
+  background: #9784F6;
+  box-shadow: 0 0 0 3px rgba(151,132,246,0.3);
+}
+.timeline-block__body {
+  flex: 1;
+  background: var(--white);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.timeline-block--highlight .timeline-block__body {
+  background: rgba(151,132,246,0.06);
+  border-color: rgba(151,132,246,0.25);
+}
+.timeline-block__body h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.timeline-block__body p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.55;
+}
+
+/* SENSATION GUIDE */
+.sensation-guide {
+  background: var(--white);
+}
+.sensation-guide h2 {
+  margin-bottom: 24px;
+}
+.sensation-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.sensation-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: rgba(151,132,246,0.06);
+  border: 1px solid rgba(151,132,246,0.15);
+  border-radius: var(--rl);
+  padding: 18px 20px;
+}
+.sensation-card__day {
+  flex-shrink: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #9784F6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 2px;
+  width: 48px;
+}
+.sensation-card__body p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.sensation-card__body strong {
+  color: var(--text);
+}
+.sensation__disclaimer {
+  font-size: 11px;
+  color: var(--text-light);
+  opacity: 0.6;
+  text-align: center;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.product { background: var(--cream); }
+.product h2 { margin-bottom: 8px; }
+.product__sub { font-size: 15px; color: var(--text-light); margin-bottom: 24px; }
+.product-card { background: var(--white); border-radius: var(--rl); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+.product-card__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center top; }
+.product-card__body { padding: 24px 20px; }
+.product-card__name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.product-card__rating { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-light); margin-bottom: 18px; }
+.product-card__rating .stars { color: var(--accent); letter-spacing: 1px; }
+.benefits { list-style: none; margin-bottom: 22px; }
+.benefits li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; padding: 9px 0; border-bottom: 1px solid rgba(0,0,0,0.05); line-height: 1.4; }
+.benefits li:last-child { border-bottom: none; }
+.benefits .check { color: var(--success); flex-shrink: 0; font-size: 16px; }
+
+.anchor { background: var(--deep); }
+.anchor h2 { color: var(--white); margin-bottom: 10px; }
+.anchor__intro { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 28px; line-height: 1.6; }
+.anchor-compare { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.anchor-row { display: flex; flex-direction: column; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r); padding: 20px 22px; }
+.anchor-row--highlight { background: rgba(123,191,160,0.1); border-color: var(--accent); }
+.anchor-row__annual { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: rgba(255,255,255,0.45); line-height: 1; margin-bottom: 6px; }
+.anchor-row__annual span { font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.3); }
+.anchor-row--highlight .anchor-row__annual { color: var(--accent); }
+.anchor-row__label { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 4px; }
+.anchor-row--highlight .anchor-row__label { color: var(--white); }
+.anchor-row__math { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+.anchor-row__time { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.55); border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px; margin-top: 4px; }
+.anchor-row__time--free { color: var(--accent); }
+.anchor-note { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; line-height: 1.6; }
+
+/* --- HSA/FSA Toggle --- */
+.hsa-toggle-wrap {
+  margin-bottom: 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--rl);
+  padding: 18px 20px;
+}
+.hsa-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+}
+.hsa-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+.hsa-icon { font-size: 18px; }
+.toggle-switch {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.toggle-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+.toggle-slider {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.15);
+  border-radius: 26px;
+  transition: var(--t);
+}
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 3px;
+  background: var(--white);
+  border-radius: 50%;
+  transition: var(--t);
+}
+.toggle-switch input:checked + .toggle-slider {
+  background: var(--accent);
+}
+.toggle-switch input:checked + .toggle-slider::before {
+  left: 25px;
+}
+.hsa-bracket-row {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hsa-bracket-row.is-active {
+  display: flex;
+  animation: hsaReveal 0.3s ease both;
+}
+.hsa-bracket-row label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  white-space: nowrap;
+}
+.tax-select {
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  color: var(--white);
+  cursor: pointer;
+}
+.tax-select option { background: var(--deep); color: var(--white); }
+.hsa-savings {
+  display: none;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: rgba(123,191,160,0.1);
+  border: 1px solid rgba(123,191,160,0.25);
+  border-radius: var(--r);
+}
+.hsa-savings.is-active {
+  display: flex;
+  animation: hsaReveal 0.3s ease both;
+}
+.hsa-savings__icon { font-size: 18px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.hsa-savings__text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.55; }
+.hsa-savings__text strong { color: var(--accent); }
+.hsa-savings__sub { display: block; margin-top: 4px; font-size: 13px; color: rgba(255,255,255,0.5); }
+.hsa-savings__sub strong { color: var(--accent); }
+@keyframes hsaReveal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anchor-row--highlight.hsa-active {
+  background: rgba(123,191,160,0.18);
+  box-shadow: 0 0 0 2px var(--accent);
+  transition: all 0.3s ease;
+}
+.hsa-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--black);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item { background: var(--white); border-radius: var(--r); border: 1px solid rgba(0,0,0,0.07); overflow: hidden; }
+.faq-item.is-open { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.faq-q { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 16px 18px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); background: none; border: none; cursor: pointer; text-align: left; gap: 12px; }
+.faq-icon { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; transition: var(--t); }
+.faq-item.is-open .faq-icon { background: var(--accent); color: var(--black); transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-a__inner { padding: 0 18px 18px; font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+.final { background: var(--black); text-align: center; }
+.final h2 { color: var(--white); margin-bottom: 12px; }
+.final h2 em { font-style: italic; color: var(--accent); }
+.final__sub { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 28px; max-width: 380px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+.final__guarantee { margin-top: 18px; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; font-size: 12px; color: rgba(255,255,255,0.4); }
+
+.el-footer { background: #0d0c0b; color: rgba(255,255,255,0.25); padding: 24px 20px; text-align: center; font-size: 12px; }
+
+.sticky-cta { position: fixed; bottom: 0; left: 0; width: 100%; padding: 12px 20px; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); box-shadow: 0 -4px 16px rgba(0,0,0,0.08); z-index: 100; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; justify-content: center; }
+.sticky-cta.is-visible { transform: translateY(0); }
+.sticky-cta__inner { width: 100%; max-width: var(--max); }
+.sticky-cta .btn { padding: 14px 24px; font-size: 15px; }
+@media (min-width: 768px) { .sticky-cta { display: none; } }
+
+
+
+
+.fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-up.is-visible { opacity: 1; transform: translateY(0); }
+
+/* MOBILE (≤600px) */
+@media (max-width: 600px) {
+  .trust-bar { padding: 8px 12px; }
+  .trust-bar p { font-size: 10px; letter-spacing: 0.03em; white-space: normal; line-height: 1.5; }
+}
+
+@media (min-width: 768px) {
+  .section { padding: 80px 32px; }
+  :root { --max: 660px; }
+  .hero { min-height: 100svh; flex-direction: row; }
+  .hero__img-wrap { flex: 1; min-height: auto; }
+  .hero__overlay { background: linear-gradient(to right, rgba(14,19,15,0) 20%, rgba(14,19,15,0.7) 60%, rgba(14,19,15,1) 100%); }
+  .hero__content { position: absolute; right: 0; bottom: 0; width: 50%; padding: 48px 48px 56px; background: transparent; }
+  .btn { width: auto; min-width: 240px; }
+  .hero__ctas { flex-direction: column; align-items: flex-start; }
+  .review-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .review-card--featured { grid-column: 1 / -1; }
+  .anchor-compare { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+}
+
+</style>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <p>
+    <span>500+ Therapist Recommended</span>
+    &nbsp;·&nbsp;
+    <span>Clinically-Informed Technology</span>
+    &nbsp;·&nbsp;
+    <span>30-Day Guarantee</span>
+  </p>
+</div>
+
+<!-- ============================================
+     SECTION 1 — HERO
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="hero__img-wrap">
+    <img
+      src="assets/hero.webp"
+      alt="Close-up of legs wearing Elastique compression leggings on marble surface"
+      class="hero__img"
+      width="800"
+      height="800"
+      loading="eager"
+    >
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__eyebrow">Wellness · Comfort · Daily Support</div>
+    <h1>What If Better Wellness Was As Simple As <em>Getting Dressed?</em></h1>
+    <p class="hero__sub">
+      Most people don't think about daily comfort — until heaviness, fatigue, and puffiness become a daily reality. MicroPerle® changes that without appointments, clinics, or lifestyle disruption.
+    </p>
+    <div class="hero__ctas">
+      <a href="#how" class="btn btn--primary" data-cta="hero-primary">See How It Works →</a>
+      <a href="#proof" class="btn btn--ghost" data-cta="hero-reviews">Read the Research</a>
+    </div>
+    <div class="hero__badges">
+      <span>As seen in Healthline</span>
+      <span>OEKO-TEX Certified</span>
+      <span>500+ therapists trust this</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 2 — THE PROBLEM
+     ============================================ -->
+<section class="section problem" id="problem">
+  <div class="inner fade-up">
+    <span class="label">The Problem</span>
+    <h2>Your body's comfort system doesn't get enough credit.</h2>
+    <p class="problem__intro">
+      Your body has a natural internal comfort network that helps maintain balance and well-being. When daily demands overwhelm it — from sitting too long, flying, or everyday stress — you feel it and you see it.
+    </p>
+
+    <div class="symptom-grid">
+      <div class="symptom-card">
+        <div class="symptom-card__icon">🦵</div>
+        <h3>Heavy, uncomfortable legs</h3>
+        <p>Legs can feel heavy and uncomfortable — especially after long sits, flights, or days on your feet.</p>
+      </div>
+      <div class="symptom-card">
+        <div class="symptom-card__icon">😴</div>
+        <h3>Unexplained fatigue</h3>
+        <p>When your body's comfort system is overwhelmed, you can feel drained by midday — even when you've slept well.</p>
+      </div>
+      <div class="symptom-card">
+        <div class="symptom-card__icon">🫧</div>
+        <h3>Skin puffiness &amp; texture</h3>
+        <p>Stagnant fluid in subcutaneous tissue creates the puffiness and texture changes you see on your skin's surface.</p>
+      </div>
+      <div class="symptom-card">
+        <div class="symptom-card__icon">🔄</div>
+        <h3>Slow recovery</h3>
+        <p>Whether from exercise, surgery, or daily stress — an overwhelmed body means it takes longer to bounce back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 3 — HOW IT WORKS
+     ============================================ -->
+<section class="section section--alt how-it-works" id="how">
+  <div class="inner fade-up">
+    <span class="label">The Solution</span>
+    <h2>Daily micro-massage support. No appointments needed.</h2>
+    <p class="how__intro">
+      MicroPerle® technology brings the gentle sensation of a professional wellness massage into a pair of leggings you simply get dressed in.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">01</div>
+        <div class="step__body">
+          <h3 class="step__title">Hundreds of micro-beads strategically positioned for comfort</h3>
+          <p class="step__text">Unlike random compression, MicroPerle® beads are strategically positioned to provide targeted micro-massage comfort — from the ankle upward.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step__num">02</div>
+        <div class="step__body">
+          <h3 class="step__title">Gradient compression supports comfort, not just squeezes</h3>
+          <p class="step__text">The Laplace-engineered 8–13 mmHg compression gradient creates graduated pressure that provides a gentle micro-massage sensation — inspired by the Vodder Method of professional massage.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step__num">03</div>
+        <div class="step__body">
+          <h3 class="step__title">Your body feels supported while you live your life</h3>
+          <p class="step__text">No appointment. No clinic. No schedule. You put on your leggings for the day and your body is gently supported every single minute you wear them.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-callout">
+      <div class="research-callout__icon">🧬</div>
+      <div class="research-callout__text">
+        <strong>Informed by clinical research:</strong> Customers report that consistent daily wear produces noticeable improvements in comfort and feelings of lightness. Individual results may vary.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4 — SOCIAL PROOF
+     ============================================ -->
+<section class="section proof-wall" id="proof">
+  <div class="inner fade-up">
+    <div class="section-header">
+      <span class="label">Real People. Real Results.</span>
+      <h2>Therapists Recommend It. Customers Feel It.</h2>
+    </div>
+
+    <div class="therapist-badge">
+      <div class="therapist-badge__icon">👩‍⚕️</div>
+      <div class="therapist-badge__text">
+        <strong>500+ licensed therapists</strong> recommend Elastique to their clients as a between-session support tool for daily wellness.
+      </div>
+    </div>
+
+    <div class="review-stack">
+      <div class="review-card review-card--featured">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"Seriously my favorite leggings of all time! I am a Pilates & Gyrotonic instructor and I teach in these all day. They truly do support your lymph system. I'm 55 and I need all the help I can get to boost my immune system and detox."</p>
+        <p class="review-card__author">Debbie M. <span class="review-card__tag">Verified Buyer · Pilates Instructor</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★☆</div>
+        <p class="review-card__quote">"Works as a swimsuit or bodysuit under leggings. Great way to sneak in lymphatic support no matter what you're doing — even under your everyday clothing."</p>
+        <p class="review-card__author">Sally Ann M. <span class="review-card__tag">Verified Buyer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I have a rare autoimmune disease that impacts my circulation and I feel these leggings definitely help with my lymphatic symptoms when traveling. Highly recommend these leggings!"</p>
+        <p class="review-card__author">Lyndsey <span class="review-card__tag">Verified Buyer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"When I say I can't live without Elastique compression wear, I am not being overdramatic. I wear the compression wear at least 3–4 times a week. This allows me to keep my inflammation to a minimum. Don't let the price scare you away!"</p>
+        <p class="review-card__author">Catherine F. <span class="review-card__tag">Verified Buyer</span></p>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="proof-cta">Try Them Risk Free →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     24-HOUR PASSIVE RECOVERY TIMELINE
+     ============================================ -->
+<section class="section timeline-module" id="timeline">
+  <div class="inner fade-up">
+    <span class="label">Daily Infrastructure</span>
+    <h2>Your 24-Hour Passive Recovery System</h2>
+    <p class="timeline__intro">MicroPerle® micro-massage technology works continuously with every micro-movement. Here's what a typical day of passive lymphatic support looks like.</p>
+
+    <div class="timeline-grid">
+      <div class="timeline-block">
+        <div class="timeline-block__time">6:00 AM</div>
+        <div class="timeline-block__body">
+          <h3>☀️ Morning Routine</h3>
+          <p>Slip on Elastique like any legging. 600+ MicroPerle® beads begin gentle micro-massage with your first steps of the day.</p>
+        </div>
+      </div>
+      <div class="timeline-block">
+        <div class="timeline-block__time">9:00 AM</div>
+        <div class="timeline-block__body">
+          <h3>💻 At Your Desk</h3>
+          <p>Even micro-movements — shifting in your chair, walking to the kitchen — activate the beads. Graduated compression supports comfort during sedentary hours.</p>
+        </div>
+      </div>
+      <div class="timeline-block">
+        <div class="timeline-block__time">12:00 PM</div>
+        <div class="timeline-block__body">
+          <h3>🏃‍♀️ Midday Movement</h3>
+          <p>Errands, walks, workouts — increased movement intensifies the micro-massage sensation. The 8–15 mmHg graduated compression adapts to your activity.</p>
+        </div>
+      </div>
+      <div class="timeline-block">
+        <div class="timeline-block__time">3:00 PM</div>
+        <div class="timeline-block__body">
+          <h3>☕ Afternoon Reset</h3>
+          <p>While others' legs feel heavy, yours stay energized. The continuous micro-massage helps maintain that morning freshness.</p>
+        </div>
+      </div>
+      <div class="timeline-block">
+        <div class="timeline-block__time">6:00 PM</div>
+        <div class="timeline-block__body">
+          <h3>🍽️ Evening Wind-Down</h3>
+          <p>Cook dinner, relax on the couch, head to a social event — the subtle support keeps working. Comfortable enough that you forget you're wearing wellness technology.</p>
+        </div>
+      </div>
+      <div class="timeline-block timeline-block--highlight">
+        <div class="timeline-block__time">10:00 PM</div>
+        <div class="timeline-block__body">
+          <h3>🌙 After Removal</h3>
+          <p>Remove Elastique and feel the difference: lighter, more comfortable legs. The gentle bead impressions on your skin fade within minutes — a sign the technology was at work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     WHAT THE FIRST WEEK FEELS LIKE
+     ============================================ -->
+<section class="section sensation-guide" id="sensation">
+  <div class="inner fade-up">
+    <span class="label">The Experience</span>
+    <h2>What the First Week Feels Like</h2>
+
+    <div class="sensation-cards">
+      <div class="sensation-card">
+        <div class="sensation-card__day">Day 1</div>
+        <div class="sensation-card__body">
+          <p><strong>The "Oh, Interesting" moment.</strong> You'll notice the gentle micro-massage sensation immediately — a pleasant tingling as the MicroPerle® beads engage with every movement. It's subtle, like a light fingertip massage.</p>
+        </div>
+      </div>
+      <div class="sensation-card">
+        <div class="sensation-card__day">Day 3</div>
+        <div class="sensation-card__body">
+          <p><strong>The "I feel lighter" phase.</strong> Most wearers report noticeably lighter-feeling legs by day 3. The graduated compression feels familiar, like a second skin. You stop thinking about them — which means they're working.</p>
+        </div>
+      </div>
+      <div class="sensation-card">
+        <div class="sensation-card__day">Day 7</div>
+        <div class="sensation-card__body">
+          <p><strong>The "I don't want to take them off" phase.</strong> A full week in and you start to look forward to putting them on. The comfort becomes part of your daily routine — that's when you know the micro-massage technology is designed for you.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="sensation__disclaimer">Individual experiences vary. Elastique products are general wellness items designed to support comfort and cosmetic appearance.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5 — PRODUCT REVEAL
+     ============================================ -->
+<section class="section product" id="shop">
+  <div class="inner fade-up">
+    <span class="label">Shop</span>
+    <h2>L'Original Leggings</h2>
+    <p class="product__sub">Daily wellness support. Premium activewear feel. The one that started it all.</p>
+
+    <div class="product-card">
+
+      <div class="product-card__body">
+        <h3 class="product-card__name">L'Original — MicroPerle® Leggings</h3>
+        <div class="product-card__rating">
+          <span class="stars">★★★★★</span>
+          <span>4.84 · 2,400+ verified reviews</span>
+        </div>
+        <ul class="benefits">
+          <li><span class="check">✓</span> Daily micro-massage support without appointments</li>
+          <li><span class="check">✓</span> 8–13 mmHg gradient (Laplace-engineered)</li>
+          <li><span class="check">✓</span> Designed to support comfort with consistent daily wear</li>
+          <li><span class="check">✓</span> Helps reduce feelings of heaviness, puffiness &amp; leg fatigue</li>
+          <li><span class="check">✓</span> Recommended by 500+ licensed therapists</li>
+        </ul>
+        <a href="https://elastiqueathletics.com/collections/leggings" class="btn btn--primary" data-cta="product-primary">Start Your Wellness Routine →</a>
+      </div>
+    </div>
+
+    <div class="product-card" style="margin-top: 20px;">
+      <div class="product-card__body">
+        <h3 class="product-card__name">Lisse — Graduated Compression Add-On</h3>
+
+        <p style="font-size: 15px; color: var(--text-light); margin-bottom: 20px;">A great add-on when graduated compression is what you need. Pure graduated support — light, comfortable, and the perfect complement to your MicroPerle® wellness routine.</p>
+        <a href="https://elastiqueathletics.com/collections/leggings" class="btn btn--ghost" style="color: var(--black); border-color: rgba(0,0,0,0.2); width: 100%; display: block;" data-cta="product-lisse">Shop Lisse →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 6 — PRICE ANCHOR
+     ============================================ -->
+<section class="section anchor" id="value">
+  <div class="inner fade-up">
+    <span class="label">The Math</span>
+    <h2>What does wellness support actually cost per year?</h2>
+    <p class="anchor__intro">
+      Most people paying for ongoing treatments never add up the annual number.
+    </p>
+
+    <div class="anchor-compare">
+      <div class="anchor-row">
+        <div class="anchor-row__annual">$1,920<span>/yr</span></div>
+        <div class="anchor-row__label">Lymphatic massage</div>
+        <div class="anchor-row__math">$160/session × 12 sessions</div>
+        <div class="anchor-row__time">⏱ ~18 hrs/yr in appointments &amp; travel</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-row__annual">$1,380<span>/yr</span></div>
+        <div class="anchor-row__label">Compression therapy clinic</div>
+        <div class="anchor-row__math">$115/visit × 12 visits</div>
+        <div class="anchor-row__time">⏱ ~12 hrs/yr scheduling &amp; waiting</div>
+      </div>
+      <div class="anchor-row anchor-row--highlight" id="anchor-elastique">
+        <div class="anchor-row__annual" id="anchor-price">$235<span> once</span></div>
+        <div class="anchor-row__label">Elastique MicroPerle®</div>
+        <div class="anchor-row__math" id="anchor-math">One pair · 365 days of daily support</div>
+        <div class="anchor-row__time anchor-row__time--free">⏱ 0 hrs — support works while you live</div>
+      </div>
+    </div>
+
+    <!-- HSA/FSA Toggle -->
+    <div class="hsa-toggle-wrap">
+      <div class="hsa-toggle-row">
+        <div class="hsa-toggle-label">
+          <span class="hsa-icon">💳</span>
+          <span>Paying with HSA / FSA?</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="hsa-toggle">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="hsa-bracket-row" id="hsa-bracket-row">
+        <label for="tax-bracket">Your tax bracket</label>
+        <select id="tax-bracket" class="tax-select">
+          <option value="0.22">22%</option>
+          <option value="0.24">24%</option>
+          <option value="0.30" selected>30% (most common)</option>
+          <option value="0.32">32%</option>
+          <option value="0.35">35%</option>
+          <option value="0.37">37%</option>
+        </select>
+      </div>
+      <div class="hsa-savings" id="hsa-savings">
+        <div class="hsa-savings__icon">✦</div>
+        <div class="hsa-savings__text">
+          <strong>With HSA/FSA:</strong> Your effective price is <strong id="hsa-effective">$165</strong> — you save <strong id="hsa-saved">$70</strong> in pre-tax dollars.
+          <span class="hsa-savings__sub">That's <strong id="hsa-total-saved">$1,755</strong> less than annual massage sessions — and zero time in waiting rooms.</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="anchor-note">92% of customers report noticeable relief. Backed by a 30-day guarantee — if you don't feel a difference, you don't pay.</p>
+
+    <br>
+    <a href="#shop" class="btn btn--dark" data-cta="anchor-cta">Start Your Wellness Routine →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7 — FAQ
+     ============================================ -->
+<section class="section section--alt" id="faq">
+  <div class="inner fade-up">
+    <span class="label">Questions</span>
+    <h2>The ones people actually ask</h2>
+    <br>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What exactly is the lymphatic system and why does it matter?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Your body has a natural internal comfort and balance network. When it's overwhelmed — from sitting all day, travel, or everyday stress — things like heaviness, fatigue, and puffiness can result. Unlike your heart, which pumps blood automatically, this network relies on movement and gentle external support to stay active. MicroPerle® provides that gentle micro-massage support while you go about your day.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>How is this different from regular compression leggings?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Standard compression applies uniform pressure — the same squeeze from ankle to waist. MicroPerle® uses patented bead technology strategically positioned for targeted comfort, combined with a clinically-calibrated gradient (8–13 mmHg, Laplace formula) that creates graduated pressure. The result is a gentle micro-massage sensation — inspired by the Vodder Method — delivered continuously while you wear it.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Can I wear these every day?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Yes, and that's exactly how the results build. Daily wear produces cumulative benefit — the longer you wear them consistently, the more pronounced the improvement in comfort and appearance. Most customers wear them as their standard everyday legging. They look like premium activewear, not medical garments.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Are these safe for specific medical conditions?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Many customers with various comfort concerns use these daily — often with the recommendation of their physical therapists. However, if you have a specific medical diagnosis, we always recommend consulting your physician before starting any new compression garment regimen.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What if they don't work for me?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Every pair is backed by a 30-day satisfaction guarantee. Wear them daily for 30 days — if you don't feel a meaningful difference in your legs and body, return them for a full refund. No questions, no hoops. 92% of customers stay and many go on to purchase multiple pairs.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 8 — FINAL CTA
+     ============================================ -->
+<section class="section final" id="final">
+  <div class="inner fade-up">
+    <h2>Your daily wellness improves every day you wear them. <em>Start with zero risk.</em></h2>
+    <p class="final__sub">
+      365 days a year of comfort support. Starting with your next morning routine.
+    </p>
+    <a href="#shop" class="btn btn--primary" style="min-width: 280px;" data-cta="final-cta">Start Feeling Better →</a>
+    <div class="final__guarantee">
+      <span>🛡 30-Day Guarantee</span>
+      <span>🚚 Free Shipping</span>
+      <span>👩‍⚕️ 500+ Therapist Recommended</span>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY CTA (MOBILE) -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta__inner">
+    <a href="#shop" class="btn btn--primary" data-cta="sticky-cta">Start Feeling Better → Free Shipping + 30-Day Guarantee</a>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="el-footer">
+  <p>© 2026 Elastique Athletics. All rights reserved. &nbsp;<a href="https://www.elastiqueathletics.com/policies/privacy-policy">Privacy</a> &nbsp;·&nbsp; <a href="https://www.elastiqueathletics.com/policies/terms-of-service">Terms</a> &nbsp;·&nbsp; <a href="https://www.elastiqueathletics.com/pages/contact">Contact</a></p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.5;">Elastique Athletics products are general wellness items intended to support comfort and cosmetic appearance. They are not medical devices and are not intended to diagnose, treat, cure, or prevent any disease or medical condition. Individual results may vary.</p>
+</div>
+
+
+
+<!-- ============================================
+     JAVASCRIPT — INLINE
+     ============================================ -->
+<script>
+// Elastique — Lymphatic Health Page JS
+(function () {
+  'use strict';
+
+  // ── FAQ ──────────────────────────────────────────────────────────────────
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var btn = item.querySelector('.faq-q');
+    var ans = item.querySelector('.faq-a');
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item.is-open').forEach(function (open) {
+        open.classList.remove('is-open');
+        open.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ── STICKY CTA (mobile) ───────────────────────────────────────────────────
+  var stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta) {
+    var hero = document.getElementById('hero');
+    var final = document.getElementById('final');
+    if (hero) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) stickyCta.classList.add('is-visible');
+        });
+      }, { threshold: 0.1 });
+      io.observe(hero);
+    }
+    if (final) {
+      var hideIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) stickyCta.classList.remove('is-visible');
+          else stickyCta.classList.add('is-visible');
+        });
+      }, { threshold: 0.5 });
+      hideIO.observe(final);
+    }
+  }
+
+
+
+
+  // ── SCROLL FADE-UPS ───────────────────────────────────────────────────────
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window && fadeEls.length) {
+    var fadeIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); fadeIO.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(function (el) { fadeIO.observe(el); });
+  } else {
+    fadeEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  // ── CTA TRACKING ─────────────────────────────────────────────────────────
+  document.querySelectorAll('[data-cta]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var label = btn.getAttribute('data-cta');
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', { event_label: label, page: 'lymphatic-health' });
+      }
+    });
+  });
+
+  // ── HSA/FSA Toggle ────────────────────────────────────────────────────────
+  var hsaToggle     = document.getElementById('hsa-toggle');
+  var taxBracket    = document.getElementById('tax-bracket');
+  var bracketRow    = document.getElementById('hsa-bracket-row');
+  var hsaSavingsEl  = document.getElementById('hsa-savings');
+  var hsaEffective  = document.getElementById('hsa-effective');
+  var hsaSaved      = document.getElementById('hsa-saved');
+  var hsaTotalSaved = document.getElementById('hsa-total-saved');
+  var anchorPrice   = document.getElementById('anchor-price');
+  var anchorMath    = document.getElementById('anchor-math');
+  var anchorCard    = document.getElementById('anchor-elastique');
+  var BASE_PRICE    = 235;
+  var MASSAGE_COST  = 1920;
+
+  function updateHSA() {
+    var isActive = hsaToggle && hsaToggle.checked;
+    var rate = parseFloat(taxBracket.value) || 0.30;
+
+    if (isActive) {
+      bracketRow.classList.add('is-active');
+    } else {
+      bracketRow.classList.remove('is-active');
+      hsaSavingsEl.classList.remove('is-active');
+      if (anchorCard) anchorCard.classList.remove('hsa-active');
+      anchorPrice.innerHTML = '$' + BASE_PRICE + '<span> once</span>';
+      anchorMath.textContent = 'One pair · 365 days of daily support';
+      return;
+    }
+
+    var saved = Math.round(BASE_PRICE * rate);
+    var effective = BASE_PRICE - saved;
+    var totalSaved = MASSAGE_COST - effective;
+
+    // Update anchor row
+    anchorPrice.innerHTML = '$' + effective + '<span> effective</span>';
+    anchorMath.innerHTML = 'Effective price with HSA/FSA <span class="hsa-badge">HSA/FSA</span>';
+    if (anchorCard) anchorCard.classList.add('hsa-active');
+
+    // Update savings callout
+    hsaEffective.textContent = '$' + effective;
+    hsaSaved.textContent = '$' + saved;
+    hsaTotalSaved.textContent = '$' + totalSaved.toLocaleString();
+    hsaSavingsEl.classList.add('is-active');
+  }
+
+  if (hsaToggle) {
+    hsaToggle.addEventListener('change', updateHSA);
+    taxBracket.addEventListener('change', updateHSA);
+  }
+
+})();
+
+</script>

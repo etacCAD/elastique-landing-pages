@@ -811,14 +811,14 @@ h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
 /* ============================================
    FOOTER
    ============================================ */
-footer {
+.el-footer {
   background: #0d0c0b;
   color: rgba(255,255,255,0.25);
   padding: 24px 20px;
   text-align: center;
   font-size: 12px;
 }
-footer a { color: var(--accent); }
+.el-footer a { color: var(--accent); }
 
 /* ============================================
    ANIMATIONS

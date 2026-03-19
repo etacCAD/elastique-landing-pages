@@ -1,0 +1,860 @@
+<!-- ============================================
+     ELASTIQUE LAST LEGGINGS LANDING PAGE
+     ============================================ -->
+<style>
+/* ============================================
+   FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+/* ============================================
+   ELASTIQUE — LAST LEGGINGS CSS
+   Accent: Warm gold / quality/craftsmanship
+   ============================================ */
+
+:root {
+  --black: #1C1A17;
+  --deep: #151310;
+  --white: #ffffff;
+  --cream: #F4F0E8;
+  --text: #2d2a24;
+  --text-light: #706c62;
+  --accent: #C9A96E;
+  --accent-dark: #a88748;
+  --accent-light: #e0c99a;
+  --success: #4a7a5a;
+  --r: 10px;
+  --rl: 18px;
+  --t: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max: 520px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 6vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+.section { padding: 56px 20px; }
+.section--alt { background: var(--cream); }
+.inner { max-width: var(--max); margin: 0 auto; }
+.label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }
+
+.trust-bar { position: sticky; top: 0; z-index: 200; background: var(--black); padding: 10px 16px; text-align: center; }
+.trust-bar p { font-size: 12px; color: rgba(255,255,255,0.65); letter-spacing: 0.07em; }
+.trust-bar span { color: var(--accent-light); font-weight: 600; }
+
+/* HERO */
+.hero { background: var(--black); position: relative; overflow: hidden; min-height: 100svh; display: flex; flex-direction: column; }
+.hero__img-wrap { position: relative; width: 100%; flex: 1; min-height: 320px; }
+.hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; opacity: 0.75; }
+.hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,16,12,0.2) 20%, rgba(20,16,12,0.88) 65%, rgba(20,16,12,1) 100%); }
+.hero__content { position: relative; z-index: 2; padding: 0 24px 48px; background: var(--black); }
+.hero__pull-quote { border-left: 3px solid var(--accent); padding: 14px 18px; margin-bottom: 24px; background: rgba(201,169,110,0.07); border-radius: 0 var(--r) var(--r) 0; }
+.hero__quote-mark { font-family: 'Playfair Display', serif; font-size: 40px; line-height: 0.6; color: var(--accent); margin-bottom: 10px; }
+.hero__pull-quote p { font-style: italic; font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.55; }
+.hero__quote-attr { margin-top: 10px; font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.05em; }
+.hero h1 { color: var(--white); margin-bottom: 16px; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero__sub { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 28px; max-width: 420px; }
+.hero__ctas { display: flex; flex-direction: column; gap: 12px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 17px 28px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; border: none; border-radius: 50px; cursor: pointer; transition: var(--t); }
+.btn--primary { background: var(--accent); color: var(--black); box-shadow: 0 4px 20px rgba(201,169,110,0.35); }
+.btn--primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.btn--ghost { background: transparent; color: rgba(255,255,255,0.7); border: 1.5px solid rgba(255,255,255,0.2); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn--dark { background: var(--white); color: var(--black); box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+.btn--dark:hover { background: var(--cream); transform: translateY(-2px); }
+
+/* MIRROR */
+.mirror { background: var(--deep); }
+.mirror__intro { font-size: 15px; color: rgba(255,255,255,0.55); margin-bottom: 28px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+.mirror__item { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.mirror__item:last-child { border-bottom: none; }
+.mirror__lead { font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: rgba(255,255,255,0.92); margin-bottom: 6px; line-height: 1.35; }
+.mirror__detail { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.55; }
+
+/* CALCULATOR — MIDNIGHT DASHBOARD */
+.calculator-section { background: var(--black); }
+.calculator-section h2 { margin-bottom: 10px; color: var(--white); }
+.calc__intro { font-size: 15px; color: rgba(255,255,255,0.55); margin-bottom: 28px; line-height: 1.6; }
+.calculator { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--rl); padding: 24px 20px; box-shadow: 0 4px 32px rgba(0,0,0,0.3); }
+.calc-inputs { display: flex; flex-direction: column; gap: 20px; margin-bottom: 28px; }
+.calc-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 10px; color: rgba(255,255,255,0.85); }
+.calc-slider-wrap { display: flex; align-items: center; gap: 14px; }
+.calc-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.12); outline: none; cursor: pointer; }
+.calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #E4F685; cursor: pointer; box-shadow: 0 0 0 3px rgba(228,246,133,0.2); }
+.calc-slider-val { font-size: 14px; font-weight: 700; color: #E4F685; flex-shrink: 0; min-width: 80px; text-align: right; }
+.calc-result { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--r); padding: 20px; }
+.calc-result__row { display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; align-items: stretch; }
+.calc-result__divider { text-align: center; font-size: 13px; color: rgba(255,255,255,0.35); font-weight: 600; }
+.calc-result__item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r); padding: 16px; }
+.calc-result__item--elastique { border-color: #E4F685; background: rgba(228,246,133,0.06); }
+.calc-result__label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+.calc-result__item--elastique .calc-result__label { color: rgba(228,246,133,0.7); }
+.calc-result__value { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: rgba(255,255,255,0.85); line-height: 1; margin-bottom: 4px; }
+.calc-result__item--elastique .calc-result__value { color: #E4F685; }
+.calc-result__sub { font-size: 12px; color: rgba(255,255,255,0.35); }
+.calc-note { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+/* HSA/FSA Toggle */
+.hsa-toggle-wrap {
+  margin-top: 4px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hsa-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+}
+.hsa-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+.hsa-icon { font-size: 18px; line-height: 1; }
+
+/* Toggle Switch — custom checkbox */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.toggle-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.toggle-slider {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.15);
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  top: 3px;
+  background: var(--white);
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+}
+.toggle-switch input:checked + .toggle-slider {
+  background: #E4F685;
+  box-shadow: 0 0 0 3px rgba(228,246,133,0.18);
+}
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(22px);
+}
+
+/* Tax bracket row — slides in */
+.hsa-bracket-row {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: rgba(228,246,133,0.06);
+  border: 1px solid rgba(228,246,133,0.2);
+  border-radius: var(--r);
+}
+.hsa-bracket-row.is-active {
+  display: flex;
+  animation: hsaReveal 0.3s ease forwards;
+}
+.hsa-bracket-row label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  white-space: nowrap;
+}
+.tax-select {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #E4F685;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(228,246,133,0.35);
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: auto;
+  appearance: auto;
+}
+.tax-select:focus {
+  border-color: #E4F685;
+  box-shadow: 0 0 0 3px rgba(228,246,133,0.15);
+}
+
+/* HSA Savings Callout */
+.hsa-savings {
+  display: none;
+  gap: 14px;
+  align-items: flex-start;
+  margin-top: 18px;
+  padding: 18px 16px;
+  background: rgba(228,246,133,0.06);
+  border: 1.5px solid rgba(228,246,133,0.25);
+  border-radius: var(--r);
+}
+.hsa-savings.is-active {
+  display: flex;
+  animation: hsaReveal 0.35s ease forwards;
+}
+.hsa-savings__icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  color: #E4F685;
+  line-height: 1;
+}
+.hsa-savings__text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+.hsa-savings__text strong { color: #E4F685; }
+.hsa-savings__sub {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+.hsa-savings__sub strong { color: #E4F685; font-size: 15px; }
+
+@keyframes hsaReveal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* HSA active card state */
+.calc-result__item--elastique.hsa-active {
+  border-color: #E4F685;
+  background: rgba(228,246,133,0.1);
+  box-shadow: 0 0 0 3px rgba(228,246,133,0.12);
+  transition: all 0.3s ease;
+}
+.hsa-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent-dark);
+  color: var(--white);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* PROOF WALL */
+.proof-wall .section-header { margin-bottom: 24px; }
+.proof-wall h2 { margin-bottom: 6px; }
+.proof-wall .sh-sub { font-size: 14px; color: var(--text-light); }
+.review-stack { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+.review-card { background: var(--white); border: 1px solid rgba(0,0,0,0.07); border-radius: var(--rl); padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: var(--t); }
+.review-card--featured { background: #fdf8ef; border-color: rgba(201,169,110,0.45); }
+.review-card:hover { transform: translateY(-2px); box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+.review-card__stars { color: var(--accent-dark); font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
+.review-card__quote { font-size: 15px; font-style: italic; line-height: 1.6; margin-bottom: 10px; }
+.review-card__author { font-size: 12px; font-weight: 700; color: var(--text-light); }
+.review-card__tag { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 400; background: rgba(201,169,110,0.2); padding: 2px 8px; border-radius: 50px; }
+
+.product { background: var(--cream); }
+.product h2 { margin-bottom: 8px; }
+.product__sub { font-size: 15px; color: var(--text-light); margin-bottom: 24px; }
+.product-card { background: var(--white); border-radius: var(--rl); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+.product-card__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center top; }
+.product-card__body { padding: 24px 20px; }
+.product-card__name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.product-card__rating { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-light); margin-bottom: 18px; }
+.product-card__rating .stars { color: var(--accent); letter-spacing: 1px; }
+.product-card__price { font-weight: 700; font-size: 18px; }
+.product-card__price span { font-size: 14px; font-weight: 400; color: var(--text-light); }
+.benefits { list-style: none; margin-bottom: 22px; }
+.benefits li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; padding: 9px 0; border-bottom: 1px solid rgba(0,0,0,0.05); line-height: 1.4; }
+.benefits li:last-child { border-bottom: none; }
+.benefits .check { color: var(--success); flex-shrink: 0; font-size: 16px; }
+
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item { background: var(--white); border-radius: var(--r); border: 1px solid rgba(0,0,0,0.07); overflow: hidden; }
+.faq-item.is-open { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.faq-q { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 16px 18px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); background: none; border: none; cursor: pointer; text-align: left; gap: 12px; }
+.faq-icon { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; transition: var(--t); }
+.faq-item.is-open .faq-icon { background: var(--accent); color: var(--black); transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-a__inner { padding: 0 18px 18px; font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+.final { background: var(--black); text-align: center; }
+.final h2 { color: var(--white); margin-bottom: 12px; }
+.final h2 em { font-style: italic; color: var(--accent); }
+.final__sub { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 28px; max-width: 380px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+.final__guarantee { margin-top: 18px; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; font-size: 12px; color: rgba(255,255,255,0.4); }
+
+.el-footer { background: #0d0c0b; color: rgba(255,255,255,0.25); padding: 24px 20px; text-align: center; font-size: 12px; }
+
+.sticky-cta { position: fixed; bottom: 0; left: 0; width: 100%; padding: 12px 20px; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); box-shadow: 0 -4px 16px rgba(0,0,0,0.08); z-index: 100; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; justify-content: center; }
+.sticky-cta.is-visible { transform: translateY(0); }
+.sticky-cta__inner { width: 100%; max-width: var(--max); }
+.sticky-cta .btn { padding: 14px 24px; font-size: 15px; }
+@media (min-width: 768px) { .sticky-cta { display: none; } }
+
+
+
+
+.fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-up.is-visible { opacity: 1; transform: translateY(0); }
+
+/* MOBILE (≤600px) */
+@media (max-width: 600px) {
+  .trust-bar { padding: 8px 12px; }
+  .trust-bar p { font-size: 10px; letter-spacing: 0.03em; white-space: normal; line-height: 1.5; }
+}
+
+@media (min-width: 768px) {
+  .section { padding: 80px 32px; }
+  :root { --max: 660px; }
+  .hero { min-height: 100svh; flex-direction: row; }
+  .hero__img-wrap { flex: 1; min-height: auto; }
+  .hero__overlay { background: linear-gradient(to right, rgba(20,16,12,0.1) 15%, rgba(20,16,12,0.7) 55%, rgba(20,16,12,1) 100%); }
+  .hero__content { position: absolute; right: 0; bottom: 0; width: 52%; padding: 48px 48px 56px; background: transparent; }
+  .btn { width: auto; min-width: 240px; }
+  .hero__ctas { flex-direction: column; align-items: flex-start; }
+  .calc-result__row { flex-direction: row; align-items: center; }
+  .calc-result__item { flex: 1; }
+  .calc-result__divider { flex-shrink: 0; }
+  .review-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .review-card--featured { grid-column: 1 / -1; }
+}
+
+</style>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <p>
+    <span>Thousands of Repeat Customers</span>
+    &nbsp;·&nbsp;
+    <span>3–5x Longer Lasting Compression</span>
+    &nbsp;·&nbsp;
+    <span>30-Day Guarantee</span>
+  </p>
+</div>
+
+<!-- ============================================
+     SECTION 1 — HERO (FEATURED TESTIMONIAL)
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="hero__img-wrap">
+    <img
+      src="assets/hero.webp"
+      alt="Woman running on coastal trail wearing Elastique leggings"
+      class="hero__img"
+      width="800"
+      height="800"
+      loading="eager"
+    >
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__pull-quote">
+      <div class="hero__quote-mark">"</div>
+      <p>This is my third pair of L'Original 27" leggings. I wear them constantly and have not purchased another brand since trying them. The long term effects, particularly how smooth my upper legs have become, is testimony in itself.</p>
+      <div class="hero__quote-attr">— Leslie O., Verified Customer</div>
+    </div>
+    <h1>Why She Just Bought Her <em>Third Pair.</em></h1>
+    <p class="hero__sub">
+      Most leggings disappoint by month two. These get better. Customers don't just return — they replace every pair they own.
+    </p>
+    <div class="hero__ctas">
+      <a href="#shop" class="btn btn--primary" data-cta="hero-primary">Find Your First Pair →</a>
+      <a href="#proof" class="btn btn--ghost" data-cta="hero-reviews">Read Their Stories</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 2 — IDENTITY MIRROR
+     ============================================ -->
+<section class="section mirror" id="mirror">
+  <div class="inner fade-up">
+    <p class="mirror__intro">We've heard this before.</p>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"I've bought expensive leggings before and they always disappoint."</p>
+      <p class="mirror__detail">Most premium leggings are priced for style — not engineered for performance. MicroPerle® is patented technology, not a markup on fabric. There is no other legging that does what this does.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"The compression wears out after a few months."</p>
+      <p class="mirror__detail">Standard elastane loses tension fast. Elastique's Laplace-formula gradient compression maintains 3–5x longer than conventional compression wear — because it's engineered to last, not just impress on first wear.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"I don't want to spend $235 on leggings I might not love."</p>
+      <p class="mirror__detail">That's why there's a 30-day guarantee. We know you'll feel the difference — so we remove the risk entirely. Either it works or you get every dollar back.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 3 — COST-PER-WEAR CALCULATOR
+     ============================================ -->
+<section class="section calculator-section" id="calculator">
+  <div class="inner fade-up">
+    <span class="label">The Math</span>
+    <h2>Calculate your real cost per wear.</h2>
+    <p class="calc__intro">
+      Most people who skip $235 leggings end up spending more on cheap pairs that wear out every 3 months. Here's what 12 months actually costs.
+    </p>
+
+    <div class="calculator">
+      <div class="calc-inputs">
+        <div class="calc-group">
+          <label for="wears-per-week">Days/week you'd wear them</label>
+          <div class="calc-slider-wrap">
+            <input type="range" id="wears-per-week" min="1" max="7" value="5" class="calc-slider">
+            <span class="calc-slider-val" id="wears-per-week-val">5 days</span>
+          </div>
+        </div>
+
+        <!-- HSA/FSA Toggle -->
+        <div class="hsa-toggle-wrap">
+          <div class="hsa-toggle-row">
+            <div class="hsa-toggle-label">
+              <span class="hsa-icon">💳</span>
+              <span>Paying with HSA / FSA?</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="hsa-toggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="hsa-bracket-row" id="hsa-bracket-row">
+            <label for="tax-bracket">Your tax bracket</label>
+            <select id="tax-bracket" class="tax-select">
+              <option value="0.22">22%</option>
+              <option value="0.24">24%</option>
+              <option value="0.30" selected>30% (most common)</option>
+              <option value="0.32">32%</option>
+              <option value="0.35">35%</option>
+              <option value="0.37">37%</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result__row">
+          <div class="calc-result__item calc-result__item--compare">
+            <div class="calc-result__label">Typical $80 leggings</div>
+            <div class="calc-result__value" id="cheap-cost">$0.22</div>
+            <div class="calc-result__sub">/wear (replace every 4 months)</div>
+          </div>
+          <div class="calc-result__divider">vs</div>
+          <div class="calc-result__item calc-result__item--elastique" id="elastique-card">
+            <div class="calc-result__label" id="elastique-label">Elastique L'Original</div>
+            <div class="calc-result__value" id="elastique-cost">$0.45</div>
+            <div class="calc-result__sub" id="elastique-sub">/wear · + wellness benefits every day</div>
+          </div>
+        </div>
+        <p class="calc-note" id="calc-note">Over 24 months you'd spend <strong id="cheap-total">$240</strong> replacing cheap leggings vs <strong>$235 once</strong> on Elastique.</p>
+
+        <!-- HSA Savings Callout -->
+        <div class="hsa-savings" id="hsa-savings">
+          <div class="hsa-savings__icon">✦</div>
+          <div class="hsa-savings__text">
+            <strong>With HSA/FSA:</strong> Your effective price is <strong id="hsa-effective">$165</strong> — you save <strong id="hsa-saved">$70</strong> in pre-tax dollars.
+            <span class="hsa-savings__sub">That's just <strong id="hsa-cpw">$0.32</strong>/wear with tax-free health funds.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4 — SOCIAL PROOF (LOYALTY ANGLE)
+     ============================================ -->
+<section class="section proof-wall" id="proof">
+  <div class="inner fade-up">
+    <div class="section-header">
+      <span class="label">Repeat Customers</span>
+      <h2>They Came Back. Here's Why.</h2>
+      <p class="sh-sub">These aren't first-time raves. These are people who own 2, 3, and 4 pairs.</p>
+    </div>
+
+    <div class="review-stack">
+      <div class="review-card review-card--featured">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"This is my third pair of L'Original leggings. I wear them constantly and have not purchased another brand since trying them. The long term effects, particularly how smooth my upper legs have become, is testimony in itself."</p>
+        <p class="review-card__author">Leslie O. <span class="review-card__tag">Verified Buyer · 3rd pair</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"This is my second pair of the original leggings. I just found that I was wearing them so often that I needed a second pair. I wanted to feel some sense of safety on a regular basis because of the compression. Worth every penny!"</p>
+        <p class="review-card__author">Melissa S. <span class="review-card__tag">Verified Buyer · 2nd pair</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I absolutely love these leggings! These are the only leggings I really like to workout in now. They fit great and are so comfortable! I bought another pair because I wore my first pair so often!"</p>
+        <p class="review-card__author">Meredith <span class="review-card__tag">Verified Buyer · 2nd pair</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I wasn't sure if I liked the bumps until I traveled in my new leggings — but now I get the lymphatic benefit. SO good — I want to order another pair so I always have one to walk and travel in!"</p>
+        <p class="review-card__author">Wendy B. <span class="review-card__tag">Verified Buyer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I LOVE these so much that I feel like I'm washing them at least twice a week. They're definitely my favorite leggings!!! The support is next level."</p>
+        <p class="review-card__author">Michelle <span class="review-card__tag">Verified Buyer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I had to squeeze these babies on but once I did they held me in perfectly and look better than any tight I've ever owned. I need another pair!"</p>
+        <p class="review-card__author">Dana A. <span class="review-card__tag">Verified Buyer</span></p>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="proof-cta">Join the Repeat Customers →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5 — PRODUCT REVEAL
+     ============================================ -->
+<section class="section product" id="shop">
+  <div class="inner fade-up">
+    <span class="label">Shop</span>
+    <h2>L'Original Leggings</h2>
+    <p class="product__sub">Built to last. Engineered to perform. Worth every penny — as thousands of repeat buyers will confirm.</p>
+
+    <div class="product-card">
+
+      <div class="product-card__body">
+        <h3 class="product-card__name">L'Original — MicroPerle® Leggings</h3>
+        <div class="product-card__rating">
+          <span class="stars">★★★★★</span>
+          <span>4.84 · 2,400+ verified reviews</span>
+        </div>
+        <ul class="benefits">
+          <li><span class="check">✓</span> 3–5x longer-lasting compression than standard leggings</li>
+          <li><span class="check">✓</span> MicroPerle® bead technology (patented)</li>
+          <li><span class="check">✓</span> Visibly smoother skin with daily wear</li>
+          <li><span class="check">✓</span> Helps reduce feelings of heaviness &amp; leg fatigue</li>
+          <li><span class="check">✓</span> OEKO-TEX certified — premium materials, premium longevity</li>
+        </ul>
+        <a href="https://elastiqueathletics.com/collections/leggings" class="btn btn--primary" data-cta="product-primary">Find Your First Pair →</a>
+      </div>
+    </div>
+
+    <div class="product-card" style="margin-top: 20px;">
+      <div class="product-card__body">
+        <h3 class="product-card__name">Lisse — Your Graduated Compression Staple</h3>
+
+        <p style="font-size: 15px; color: var(--text-light); margin-bottom: 20px;">Every wardrobe needs a graduated compression go-to. Lisse is that pair — light, versatile, and the ideal complement to your L'Original collection.</p>
+        <a href="https://elastiqueathletics.com/collections/leggings" class="btn btn--ghost" style="color: var(--black); border-color: rgba(0,0,0,0.2); width: 100%; display: block;" data-cta="product-lisse">Shop Lisse →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 6 — FAQ
+     ============================================ -->
+<section class="section section--alt" id="faq">
+  <div class="inner fade-up">
+    <span class="label">Questions</span>
+    <h2>Before you commit to your first pair.</h2>
+    <br>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>How long will the compression actually last?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Elastique uses Laplace-formula gradient compression engineered for longevity. Standard compression fabrics lose elasticity in 3–6 months. Customers regularly report their Elastique leggings maintaining full compression at the 1-year, 18-month, and even 2-year mark. The difference is fabric quality and construction — not marketing.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What makes repeat customers come back for a second or third pair?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Two reasons: First, the accumulative skin and comfort results get better the longer they wear them — so they want more wearing hours. Second, once customers rotate two or three pairs they notice the difference on days they don't wear Elastique. The comparison to other leggings becomes unflattering very quickly.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Are these worth it if I'm already buying expensive leggings?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Premium leggings from other brands are priced for aesthetics and brand equity. Elastique is priced for patented micro-massage technology. No other activewear brand applies MicroPerle® bead technology strategically positioned for comfort — this isn't a marketing angle, it's a different category of product. The results after 4–8 weeks speak louder than any comparison chart we could show you.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What's your return policy?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">30-day satisfaction guarantee, full stop. Wear them daily for a month. If you're not impressed by the quality, longevity, and how your legs feel — return them for a complete refund. We back this offer confidently because the vast majority of customers become repeat buyers.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7 — FINAL CTA
+     ============================================ -->
+<section class="section final" id="final">
+  <div class="inner fade-up">
+    <h2>The last leggings you'll ever need to buy. <em>Guaranteed.</em></h2>
+    <p class="final__sub">
+      Stop replacing disappointing pairs. One investment. Results that compound with every wear.
+    </p>
+    <a href="#shop" class="btn btn--primary" style="min-width: 280px;" data-cta="final-cta">Find Your First Pair →</a>
+    <div class="final__guarantee">
+      <span>🛡 30-Day Guarantee</span>
+      <span>🚚 Free Shipping</span>
+      <span>↩ Easy Returns</span>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY CTA (MOBILE) -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta__inner">
+    <a href="#shop" class="btn btn--primary" data-cta="sticky-cta">Find Your First Pair → Free Shipping + 30-Day Guarantee</a>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="el-footer">
+  <p>© 2026 Elastique Athletics. All rights reserved. &nbsp;<a href="https://www.elastiqueathletics.com/policies/privacy-policy">Privacy</a> &nbsp;·&nbsp; <a href="https://www.elastiqueathletics.com/policies/terms-of-service">Terms</a> &nbsp;·&nbsp; <a href="https://www.elastiqueathletics.com/pages/contact">Contact</a></p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.5;">Elastique Athletics products are general wellness items intended to support comfort and cosmetic appearance. They are not medical devices and are not intended to diagnose, treat, cure, or prevent any disease or medical condition. Individual results may vary.</p>
+</div>
+
+
+
+<!-- ============================================
+     JAVASCRIPT — INLINE
+     ============================================ -->
+<script>
+// Elastique — Last Leggings Page JS
+(function () {
+  'use strict';
+
+  // ── COST-PER-WEAR CALCULATOR ───────────────────────────────────────────────
+  var wearsSlider = document.getElementById('wears-per-week');
+  var wearsVal = document.getElementById('wears-per-week-val');
+  var cheapCost = document.getElementById('cheap-cost');
+  var elastiqueCost = document.getElementById('elastique-cost');
+  var cheapTotal = document.getElementById('cheap-total');
+  var calcNote = document.getElementById('calc-note');
+
+  // HSA/FSA elements
+  var hsaToggle = document.getElementById('hsa-toggle');
+  var hsaBracketRow = document.getElementById('hsa-bracket-row');
+  var taxBracket = document.getElementById('tax-bracket');
+  var hsaSavingsEl = document.getElementById('hsa-savings');
+  var hsaEffective = document.getElementById('hsa-effective');
+  var hsaSaved = document.getElementById('hsa-saved');
+  var hsaCpw = document.getElementById('hsa-cpw');
+
+  var ELASTIQUE_PRICE = 235;
+  var MONTHS = 12;
+
+  // Elastique card elements
+  var elastiqueLabel = document.getElementById('elastique-label');
+  var elastiqueSub = document.getElementById('elastique-sub');
+  var elastiqueCard = document.getElementById('elastique-card');
+
+  function updateHSA(totalWears) {
+    var isActive = hsaToggle && hsaToggle.checked;
+
+    if (!isActive) {
+      if (hsaSavingsEl) hsaSavingsEl.classList.remove('is-active');
+      // Reset card to default
+      elastiqueCost.textContent = '$' + (ELASTIQUE_PRICE / totalWears).toFixed(2);
+      if (elastiqueLabel) elastiqueLabel.textContent = 'Elastique L\'Original';
+      if (elastiqueSub) elastiqueSub.textContent = '/wear · + lymphatic health benefits every day';
+      if (elastiqueCard) elastiqueCard.classList.remove('hsa-active');
+      return;
+    }
+
+    var rate = parseFloat(taxBracket.value) || 0.30;
+    var saved = Math.round(ELASTIQUE_PRICE * rate);
+    var effective = ELASTIQUE_PRICE - saved;
+    var perWear = effective / totalWears;
+
+    // Update the Elastique card directly
+    elastiqueCost.textContent = '$' + perWear.toFixed(2);
+    if (elastiqueLabel) elastiqueLabel.innerHTML = 'Elastique L\'Original <span class="hsa-badge">HSA/FSA</span>';
+    if (elastiqueSub) elastiqueSub.innerHTML = '/wear · effective price <strong>$' + effective + '</strong> (save $' + saved + ' pre-tax)';
+    if (elastiqueCard) elastiqueCard.classList.add('hsa-active');
+
+    // Update savings callout
+    hsaEffective.textContent = '$' + effective;
+    hsaSaved.textContent = '$' + saved;
+    hsaCpw.textContent = '$' + perWear.toFixed(2);
+    hsaSavingsEl.classList.add('is-active');
+  }
+
+  function calcCPW() {
+    if (!wearsSlider) return;
+    var wk = parseInt(wearsSlider.value, 10);
+
+    // Update label
+    wearsVal.textContent = wk + (wk === 1 ? ' day' : ' days');
+
+    var totalWears = wk * 4.33 * MONTHS;
+
+    // Cheap leggings: replace every 4 months, $80 each
+    var cheapReplacements = Math.ceil(MONTHS / 4);
+    var cheapSpend = cheapReplacements * 80;
+    var cheapPerWear = cheapSpend / totalWears;
+
+    // Elastique: $235 once (HSA may adjust display)
+    var elastiquePerWear = ELASTIQUE_PRICE / totalWears;
+
+    cheapCost.textContent = '$' + cheapPerWear.toFixed(2);
+    if (!(hsaToggle && hsaToggle.checked)) {
+      elastiqueCost.textContent = '$' + elastiquePerWear.toFixed(2);
+    }
+    cheapTotal.textContent = '$' + cheapSpend;
+
+    // Update note
+    calcNote.innerHTML = 'Over 12 months you\'d spend <strong>$' + cheapSpend + '</strong> replacing cheap leggings vs <strong>$' + ELASTIQUE_PRICE + ' once</strong> on Elastique — and Elastique supports your health every single wear.';
+
+    // HSA/FSA calculation
+    updateHSA(totalWears);
+  }
+
+  // HSA toggle handler
+  if (hsaToggle) {
+    hsaToggle.addEventListener('change', function () {
+      if (hsaToggle.checked) {
+        hsaBracketRow.classList.add('is-active');
+      } else {
+        hsaBracketRow.classList.remove('is-active');
+        if (hsaSavingsEl) hsaSavingsEl.classList.remove('is-active');
+      }
+      calcCPW();
+    });
+  }
+  if (taxBracket) {
+    taxBracket.addEventListener('change', calcCPW);
+  }
+
+  if (wearsSlider) {
+    wearsSlider.addEventListener('input', calcCPW);
+    calcCPW();
+  }
+
+  // ── FAQ ──────────────────────────────────────────────────────────────────
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var btn = item.querySelector('.faq-q');
+    var ans = item.querySelector('.faq-a');
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item.is-open').forEach(function (open) {
+        open.classList.remove('is-open');
+        open.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ── STICKY CTA (mobile) ───────────────────────────────────────────────────
+  var stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta) {
+    var hero = document.getElementById('hero');
+    var final = document.getElementById('final');
+    if (hero) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) stickyCta.classList.add('is-visible');
+        });
+      }, { threshold: 0.1 });
+      io.observe(hero);
+    }
+    if (final) {
+      var hideIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) stickyCta.classList.remove('is-visible');
+          else stickyCta.classList.add('is-visible');
+        });
+      }, { threshold: 0.5 });
+      hideIO.observe(final);
+    }
+  }
+
+
+
+
+  // ── SCROLL FADE-UPS ───────────────────────────────────────────────────────
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window && fadeEls.length) {
+    var fadeIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); fadeIO.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(function (el) { fadeIO.observe(el); });
+  } else {
+    fadeEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  // ── CTA TRACKING ─────────────────────────────────────────────────────────
+  document.querySelectorAll('[data-cta]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var label = btn.getAttribute('data-cta');
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', { event_label: label, page: 'last-leggings' });
+      }
+    });
+  });
+
+})();
+
+</script>

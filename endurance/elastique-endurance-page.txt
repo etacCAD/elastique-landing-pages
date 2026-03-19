@@ -1,0 +1,1092 @@
+<!-- ============================================
+     ELASTIQUE ENDURANCE LANDING PAGE
+     ============================================ -->
+<style>
+/* ============================================
+   FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+/* ============================================
+   ELASTIQUE — ENDURANCE LANDING PAGE CSS
+   ============================================ */
+
+:root {
+  --black: #231B1E;
+  --deep: #1a1318;
+  --charcoal: #2d2530;
+  --white: #ffffff;
+  --cream: #EFEAE6;
+  --warm-gray: #DDD8D4;
+  --text: #2d2530;
+  --text-light: #6b6470;
+  --accent: #E4F685;
+  --accent-dark: #c8da60;
+  --accent-light: #eef8a0;
+  --accent-purple: #9784F6;
+  --success: #4a7a5a;
+  --r: 10px;
+  --rl: 18px;
+  --t: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max: 520px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* --- Typography --- */
+h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 6vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+
+/* --- Layout --- */
+.section { padding: 56px 20px; }
+.section--alt { background: var(--cream); }
+.section--dark { background: var(--deep); color: var(--white); }
+.inner { max-width: var(--max); margin: 0 auto; }
+.label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #839618;
+  margin-bottom: 10px;
+}
+
+/* ============================================
+   TRUST BAR (sticky top)
+   ============================================ */
+.trust-bar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--black);
+  padding: 10px 16px;
+  text-align: center;
+}
+.trust-bar p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.07em;
+}
+.trust-bar span { color: var(--accent-light); font-weight: 600; }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__img-wrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 300px;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  opacity: 0.75;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(17,17,16,0) 30%,
+    rgba(17,17,16,0.9) 75%,
+    rgba(17,17,16,1) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px 48px;
+  background: var(--black);
+}
+
+.hero__proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+.hero__proof-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+
+.hero h1 {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.hero__sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 420px;
+}
+
+.hero__logos {
+  margin-top: 24px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 17px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--t);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+.btn--primary {
+  background: var(--accent);
+  color: var(--black);
+  box-shadow: 0 4px 20px rgba(228,246,133,0.35);
+}
+.btn--primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(228,246,133,0.45);
+}
+.btn--ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  margin-top: 12px;
+}
+.btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn--dark {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.btn--dark:hover {
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   IDENTITY MIRROR
+   ============================================ */
+.mirror { background: var(--deep); }
+.mirror__intro {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.mirror__item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.mirror__item:last-child { border-bottom: none; }
+.mirror__lead {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.mirror__detail {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.55;
+}
+
+/* ============================================
+   SOCIAL PROOF WALL
+   ============================================ */
+.proof-wall .section-header {
+  margin-bottom: 24px;
+}
+.proof-wall h2 { margin-bottom: 6px; }
+.proof-wall .sh-sub {
+  font-size: 14px;
+  color: var(--text-light);
+}
+.review-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.review-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: var(--rl);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: var(--t);
+}
+.review-card:hover { transform: translateY(-2px); box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+.review-card__stars { color: var(--accent-dark); font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
+.review-card__quote {
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.review-card__author { font-size: 12px; font-weight: 700; color: var(--text-light); }
+.review-card__tag {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--charcoal);
+  background: rgba(228,246,133,0.25);
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+
+/* ============================================
+   COMPARISON HOOK
+   ============================================ */
+.comparison h2 { margin-bottom: 10px; }
+.comparison__intro {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.comp-img {
+  width: 100%;
+  border-radius: var(--r);
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+.comp-table {
+  border-radius: var(--rl);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+}
+.comp-table__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.comp-header-cell {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+.comp-header-cell--regular { background: #f0ece7; color: var(--text-light); }
+.comp-header-cell--mp { background: var(--accent); color: var(--black); }
+.comp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.comp-cell {
+  padding: 10px 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.comp-cell--regular { background: #faf8f5; color: var(--text-light); }
+.comp-cell--mp { background: #fff; color: var(--text); font-weight: 500; }
+.comp-check { color: var(--success); flex-shrink: 0; }
+.comp-x { color: #b07070; flex-shrink: 0; }
+
+/* ============================================
+   PRODUCT REVEAL
+   ============================================ */
+.product { background: var(--cream); }
+.product h2 { margin-bottom: 8px; }
+.product__sub {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+.product-card {
+  background: var(--white);
+  border-radius: var(--rl);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.product-card__img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center top;
+}
+.product-card__body { padding: 24px 20px; }
+.product-card__name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 18px;
+}
+.product-card__rating .stars { color: var(--accent); letter-spacing: 1px; }
+.benefits {
+  list-style: none;
+  margin-bottom: 22px;
+}
+.benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  line-height: 1.4;
+}
+.benefits li:last-child { border-bottom: none; }
+.benefits .check { color: var(--success); flex-shrink: 0; font-size: 16px; }
+
+/* ============================================
+   PRICE ANCHOR
+   ============================================ */
+.anchor { background: var(--deep); }
+.anchor h2 { color: var(--white); margin-bottom: 10px; }
+.anchor__intro { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 28px; line-height: 1.6; }
+.anchor-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.anchor-row {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r);
+  padding: 20px 22px;
+}
+.anchor-row--highlight {
+  background: rgba(228,246,133,0.1);
+  border-color: var(--accent);
+}
+.anchor-row__annual {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.anchor-row__annual span {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.3);
+}
+.anchor-row--highlight .anchor-row__annual { color: var(--accent); }
+.anchor-row--highlight .anchor-row__annual span { color: rgba(228,246,133,0.6); }
+.anchor-row__label {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 4px;
+}
+.anchor-row--highlight .anchor-row__label { color: var(--white); }
+.anchor-row__math {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+.anchor-row__time {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.01em;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 8px;
+  margin-top: 4px;
+}
+.anchor-row__time--free {
+  color: var(--accent);
+  border-top-color: rgba(228,246,133,0.2);
+}
+.anchor-note { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; line-height: 1.6; }
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item {
+  background: var(--white);
+  border-radius: var(--r);
+  border: 1px solid rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.faq-item.is-open { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+}
+.faq-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--accent);
+  font-weight: 700;
+  transition: var(--t);
+}
+.faq-item.is-open .faq-icon { background: var(--accent); color: var(--black); transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-a__inner { padding: 0 18px 18px; font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+/* ============================================
+   FINAL CTA
+   ============================================ */
+.final { background: var(--black); text-align: center; }
+.final h2 { color: var(--white); margin-bottom: 12px; }
+.final h2 em { font-style: italic; color: var(--accent); }
+.final__sub { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 28px; max-width: 380px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+.final__guarantee {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+.final__guarantee span { display: flex; align-items: center; gap: 5px; }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.el-footer {
+  background: #0d0c0b;
+  color: rgba(255,255,255,0.25);
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ============================================
+   STICKY CTA (MOBILE)
+   ============================================ */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  justify-content: center;
+}
+.sticky-cta.is-visible {
+  transform: translateY(0);
+}
+.sticky-cta__inner {
+  width: 100%;
+  max-width: var(--max);
+}
+.sticky-cta .btn {
+  padding: 14px 24px;
+  font-size: 15px;
+}
+@media (min-width: 768px) {
+  .sticky-cta { display: none; }
+}
+
+
+
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+.el-footer a:hover { color: var(--accent-dark); }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================
+   MOBILE (≤600px)
+   ============================================ */
+@media (max-width: 600px) {
+  .trust-bar { padding: 8px 12px; }
+  .trust-bar p { font-size: 10px; letter-spacing: 0.03em; white-space: normal; line-height: 1.5; }
+  .comp-cell { font-size: 12px; padding: 8px 10px; }
+  .comp-header-cell { font-size: 10px; padding: 10px 8px; }
+}
+
+/* ============================================
+   DESKTOP (768px+)
+   ============================================ */
+@media (min-width: 768px) {
+  .section { padding: 80px 32px; }
+  :root { --max: 660px; }
+
+  .hero { min-height: 100svh; flex-direction: row; }
+  .hero__img-wrap { flex: 1; min-height: auto; }
+  .hero__overlay {
+    background: linear-gradient(to right,
+      rgba(17,17,16,0) 20%,
+      rgba(17,17,16,0.7) 60%,
+      rgba(17,17,16,1) 100%
+    );
+  }
+  .hero__content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 48px 48px 56px;
+    background: transparent;
+  }
+
+  .btn { width: auto; min-width: 240px; }
+  .hero__ctas { display: flex; flex-direction: column; align-items: flex-start; }
+  .btn--ghost { width: auto; }
+
+  .review-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .anchor-compare { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+}
+
+</style>
+
+<!-- ============================================
+     TRUST BAR (sticky)
+     ============================================ -->
+<div class="trust-bar">
+  <p>
+    <span>15,847 athletes</span>
+    &nbsp;·&nbsp;
+    <span>Recommended by 500+ therapists</span>
+    &nbsp;·&nbsp;
+    <span>30-Day Guarantee</span>
+  </p>
+</div>
+
+<!-- ============================================
+     SECTION 1 — HERO
+     ============================================ -->
+<section class="hero" id="hero">
+  <div class="hero__img-wrap">
+    <img
+      src="assets/hero-endurance.webp"
+      alt="Endurance runner sitting at the finish line, post-race recovery moment"
+      class="hero__img"
+      width="800"
+      height="800"
+      loading="eager"
+    >
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__proof">
+      <span class="hero__proof-num">15,847</span>
+      <span>athletes changed how they recover</span>
+    </div>
+    <h1>Stop Recovering. Start <em>Performing.</em></h1>
+    <p class="hero__sub">
+      Your legs gave everything on race day. Now let MicroPerle® technology recover them passively — no ice baths, no foam rollers, no appointments.
+    </p>
+    <div class="hero__ctas">
+      <a href="#shop" class="btn btn--primary" data-cta="hero-primary">Shop Recovery Gear →</a>
+      <a href="#proof" class="btn btn--ghost" data-cta="hero-reviews">See What Athletes Say</a>
+    </div>
+    <div class="hero__logos">
+      <span>As seen in Travel + Leisure</span>
+      <span>Recommended by 500+ therapists</span>
+      <span>OEKO-TEX Certified</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 2 — IDENTITY MIRROR
+     ============================================ -->
+<section class="section mirror" id="mirror">
+  <div class="inner fade-up">
+    <p class="mirror__intro">Sound familiar?</p>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"My legs are wrecked for two days after a long run."</p>
+      <p class="mirror__detail">You push through 20-mile training runs only to spend the next 48 hours shuffling around like you aged a decade. Your recovery window dictates your entire training schedule.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"I spend more time recovering than I spend training."</p>
+      <p class="mirror__detail">Ice baths, foam rolling, massage guns, compression sleeves — you've built a full-time job around undoing what training does to your body. There has to be a better way.</p>
+    </div>
+
+    <div class="mirror__item">
+      <p class="mirror__lead">"Standard compression doesn't actually do anything."</p>
+      <p class="mirror__detail">You've tried every compression sleeve and recovery sock on the market. They squeeze, sure — but you don't feel any different. Because uniform pressure isn't targeted support.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 3 — SOCIAL PROOF WALL
+     ============================================ -->
+<section class="section section--alt proof-wall" id="proof">
+  <div class="inner fade-up">
+    <div class="section-header">
+      <span class="label">Real Reviews</span>
+      <h2>What Endurance Athletes Are Saying</h2>
+      <p class="sh-sub">280+ verified 5-star reviews. Here are the ones from people who push their limits.</p>
+    </div>
+
+    <div class="review-stack">
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"I have been exercising strenuously and my legs were aching. I put on my leggings and within 2 hours they felt good because of the compression and the microperles. I highly recommend these leggings."</p>
+        <p class="review-card__author">Laura G. <span class="review-card__tag">Verified Buyer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"Love the compression and the customer service was great. Seems to be helping with my recovery post runs with less soreness at night."</p>
+        <p class="review-card__author">Elizabeth H. <span class="review-card__tag">Verified Buyer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"This is my second pair. I originally bought these in black and exclusively wear them for Pilates. I refuse to wear anything else. I also love to travel in them and have worn them to fly overnight all over Europe. They are an investment worth making!"</p>
+        <p class="review-card__author">Erin N. <span class="review-card__tag">Verified Buyer</span></p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__quote">"There is literally not another pair of leggings on the market that compare with the benefits you receive with this compression technology. My legs have never looked or felt so good!"</p>
+        <p class="review-card__author">Leslie O. <span class="review-card__tag">Verified Buyer · 7 pairs</span></p>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="proof-cta">Try Them Risk Free →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4 — COMPARISON HOOK
+     ============================================ -->
+<section class="section comparison" id="comparison">
+  <div class="inner fade-up">
+    <span class="label">The Difference</span>
+    <h2>Not compression. Something smarter.</h2>
+    <p class="comparison__intro">
+      Standard compression just squeezes uniformly. MicroPerle® technology does something fundamentally different — hundreds of micro-beads provide a gentle massage sensation, delivering targeted comfort support with every movement. It's the difference between pressure and precision.
+    </p>
+
+
+
+    <div class="comp-table">
+      <div class="comp-table__header">
+        <div class="comp-header-cell comp-header-cell--regular">Standard Recovery</div>
+        <div class="comp-header-cell comp-header-cell--mp">MicroPerle®</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Uniform squeeze, no targeted support</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Gentle micro-massage sensation</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Only works while you're doing it</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Passive support — works while you live</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Feels tight, restrictive</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Feels like support, not restriction</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Loses effectiveness after a few washes</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> 3–5x longer lasting compression</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell comp-cell--regular"><span class="comp-x">—</span> Looks like medical gear</div>
+        <div class="comp-cell comp-cell--mp"><span class="comp-check">✓</span> Looks like premium activewear</div>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn--primary" data-cta="comparison-cta">Experience MicroPerle® →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5 — PRODUCT REVEAL
+     ============================================ -->
+<section class="section product" id="shop">
+  <div class="inner fade-up">
+    <span class="label">Recovery Gear</span>
+    <h2>L'Original Leggings</h2>
+    <p class="product__sub">The recovery tool elite endurance athletes are switching to. MicroPerle® technology in everyday-wear leggings.</p>
+
+    <div class="product-card">
+
+      <div class="product-card__body">
+        <h3 class="product-card__name">L'Original — MicroPerle® Leggings</h3>
+        <div class="product-card__rating">
+          <span class="stars">★★★★★</span>
+          <span>4.9 · 280+ verified reviews</span>
+        </div>
+        <ul class="benefits">
+          <li><span class="check">✓</span> Continuous micro-massage support — works while you recover</li>
+          <li><span class="check">✓</span> 8–13 mmHg gradient compression (Laplace-engineered)</li>
+          <li><span class="check">✓</span> Helps reduce post-training feelings of heaviness &amp; fatigue</li>
+          <li><span class="check">✓</span> Designed for all-day wear between training sessions</li>
+          <li><span class="check">✓</span> Looks and moves like premium activewear — not medical gear</li>
+        </ul>
+        <a href="https://www.elastiqueathletics.com/products/loriginal-leggings" class="btn btn--primary" data-cta="product-primary" target="_blank" rel="noopener">Shop L'Original →</a>
+      </div>
+    </div>
+
+    <!-- Secondary Product -->
+    <div class="product-card" style="margin-top: 20px;">
+      <div class="product-card__body">
+        <h3 class="product-card__name">Lisse — Graduated Compression</h3>
+
+        <p style="font-size: 15px; color: var(--text-light); margin-bottom: 20px;">Add Lisse for easy run days and active recovery — pure graduated compression, light and comfortable. The perfect complement to your MicroPerle® race-day gear.</p>
+        <a href="https://www.elastiqueathletics.com/products/lisse-leggings" class="btn btn--ghost" style="color: var(--black); border-color: rgba(0,0,0,0.2); width: 100%; display: block;" data-cta="product-lisse" target="_blank" rel="noopener">Shop Lisse →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 6 — PRICE ANCHOR
+     ============================================ -->
+<section class="section anchor" id="value">
+  <div class="inner fade-up">
+    <span class="label">The Value</span>
+    <h2>What does recovery actually cost you per year?</h2>
+    <p class="anchor__intro">
+      Endurance athletes spend thousands on recovery tools and appointments. Here's the annual math nobody does.
+    </p>
+
+    <div class="anchor-compare">
+      <div class="anchor-row">
+        <div class="anchor-row__annual">$3,120<span>/yr</span></div>
+        <div class="anchor-row__label">Cryotherapy sessions</div>
+        <div class="anchor-row__math">$65/session × 48 weeks</div>
+        <div class="anchor-row__time">⏱ ~48 hrs/yr in travel &amp; appointments</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-row__annual">$2,400<span>/yr</span></div>
+        <div class="anchor-row__label">Sports massage</div>
+        <div class="anchor-row__math">$100/session × 2/month</div>
+        <div class="anchor-row__time">⏱ ~36 hrs/yr scheduling &amp; waiting</div>
+      </div>
+      <div class="anchor-row anchor-row--highlight">
+        <div class="anchor-row__annual">$220<span> once</span></div>
+        <div class="anchor-row__label">Elastique MicroPerle®</div>
+        <div class="anchor-row__math">One pair · wear every rest day · no appointments</div>
+        <div class="anchor-row__time anchor-row__time--free">⏱ 0 hrs — recovers you while you live your life</div>
+      </div>
+    </div>
+    <p class="anchor-note">92% of customers report noticeable comfort improvement. Backed by a 30-day guarantee — if it doesn't work, you don't pay.</p>
+
+    <br>
+    <a href="#shop" class="btn btn--dark" data-cta="anchor-cta">Shop Now — Free Shipping →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7 — FAQ
+     ============================================ -->
+<section class="section section--alt" id="faq">
+  <div class="inner fade-up">
+    <span class="label">Questions</span>
+    <h2>The ones endurance athletes actually ask</h2>
+
+    <br>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Can I wear these during training or just for recovery?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Both. Many athletes wear them during easy runs and cross-training for ongoing support, then continue wearing them post-session for passive recovery. They're designed to move like premium activewear — no restriction, no overheating.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>How is this different from the compression sleeves I already own?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Standard compression applies uniform squeeze — the same pressure everywhere. MicroPerle® uses patented bead technology paired with gradient compression engineered using the Laplace formula. It provides a gentle micro-massage sensation continuously while you wear it — targeted support, not just pressure.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Will these actually help with post-marathon recovery?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Most customers notice reduced feelings of heaviness within the first day of wear. For post-race recovery, wearing them consistently during the recovery window provides ongoing passive support. 92% of customers report noticeable comfort improvement — and it's backed by a 30-day guarantee.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Are these comfortable enough to sleep in?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Many athletes do exactly that — especially after race day. They feel like premium leggings, not medical garments. You'll forget you're wearing them. The only reminder is the gentle micro-bead impressions on your skin when you take them off.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>I've never heard of Elastique — is this legit?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">Yes. We've been featured in Travel + Leisure, Vogue, and Healthline. Over 15,847 customers rely on our garments, and they are recommended by 500+ therapists. Our products are OEKO-TEX certified and informed by clinical research.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>What if they don't work for me?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a__inner">We back every pair with a 30-day satisfaction guarantee. If you don't feel a real difference in your recovery comfort, send them back for a full refund — no questions, no hassle. We're confident enough to offer that because 92% of customers stay.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 8 — FINAL CTA
+     ============================================ -->
+<section class="section final" id="final">
+  <div class="inner fade-up">
+    <h2>Your legs gave everything. <em>Give them something back.</em></h2>
+    <p class="final__sub">
+      15,847 athletes chose to stop settling for ice baths and foam rollers.
+      Join them — with a 30-day guarantee protecting every order.
+    </p>
+    <a href="#shop" class="btn btn--primary" style="min-width: 280px;" data-cta="final-cta">Shop Recovery Gear →</a>
+    <div class="final__guarantee">
+      <span>🛡 30-Day Guarantee</span>
+      <span>🚚 Free Shipping</span>
+      <span>↩ Easy Returns</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STICKY CTA (MOBILE)
+     ============================================ -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta__inner">
+    <a href="#shop" class="btn btn--primary" data-cta="sticky-cta">Shop Recovery Gear → Free Shipping + 30-Day Guarantee</a>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="el-footer">
+  <p>© 2026 Elastique Athletics. All rights reserved. &nbsp;<a href="https://www.elastiqueathletics.com/policies/privacy-policy">Privacy</a> &nbsp;·&nbsp; <a href="https://www.elastiqueathletics.com/policies/terms-of-service">Terms</a> &nbsp;·&nbsp; <a href="https://www.elastiqueathletics.com/pages/contact">Contact</a></p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.5;">Elastique Athletics products are general wellness items intended to support comfort and cosmetic appearance. They are not medical devices and are not intended to diagnose, treat, cure, or prevent any disease or medical condition. Individual results may vary.</p>
+</div>
+
+
+
+<!-- ============================================
+     JAVASCRIPT — INLINE
+     ============================================ -->
+<script>
+/* ============================================
+   ELASTIQUE — ENDURANCE LANDING PAGE JS
+   ============================================ */
+(function() {
+
+  /* --- UTM passthrough --- */
+  var utmParams = {};
+  var searchParams = new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','ref','aff'].forEach(function(k) {
+    var v = searchParams.get(k);
+    if (v) utmParams[k] = v;
+  });
+
+  /* --- FAQ Accordion --- */
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-a');
+    btn.addEventListener('click', function() {
+      var isOpen = item.classList.contains('is-open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(function(other) {
+        other.classList.remove('is-open');
+        other.querySelector('.faq-a').style.maxHeight = '0';
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('is-open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* --- Dynamic Headline (endurance traffic sources) --- */
+  var source = searchParams.get('utm_source');
+  var heroHead = document.querySelector('.hero h1');
+  if (heroHead && source) {
+    var s = source.toLowerCase();
+    if (s === 'strava') {
+      heroHead.innerHTML = 'The Recovery Hack Strava Athletes Swear By';
+    } else if (s === 'garmin') {
+      heroHead.innerHTML = 'The Missing Metric: <em>Recovery.</em>';
+    } else if (s === 'running' || s === 'runnersworld') {
+      heroHead.innerHTML = 'Why Serious Runners Are Ditching Ice Baths';
+    } else if (s === 'triathlon' || s === 'tri') {
+      heroHead.innerHTML = 'Swim. Bike. Run. <em>Recover.</em>';
+    } else if (s === 'instagram' || s === 'ig') {
+      heroHead.innerHTML = 'The Recovery Tool Going Viral With Athletes';
+    } else if (s === 'tiktok') {
+      heroHead.innerHTML = 'The Legging Endurance Athletes Can\'t Stop Talking About';
+    } else if (s === 'facebook' || s === 'fb') {
+      heroHead.innerHTML = 'Stop Recovering. Start <em>Performing.</em>';
+    }
+  }
+
+  /* --- Sticky CTA Visibility --- */
+  var stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta && 'IntersectionObserver' in window) {
+    var hero = document.getElementById('hero');
+    var observerSticky = new IntersectionObserver(function(entries) {
+      if (!entries[0].isIntersecting) {
+        stickyCta.classList.add('is-visible');
+      } else {
+        stickyCta.classList.remove('is-visible');
+      }
+    }, { threshold: 0 });
+    if (hero) observerSticky.observe(hero);
+  }
+
+
+
+
+  /* --- Scroll Fade-in --- */
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('is-visible'); });
+  }
+
+  /* --- CTA tracking --- */
+  document.querySelectorAll('[data-cta]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var qs = new URLSearchParams(utmParams).toString();
+      var dest = 'https://elastiqueathletics.com/shop' + (qs ? '?' + qs : '');
+      console.log('[Elastique CTA]', el.dataset.cta, '→', dest);
+    });
+  });
+
+})();
+
+</script>
