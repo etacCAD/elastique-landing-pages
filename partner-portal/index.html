@@ -92,11 +92,18 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 64px 48px 48px;
+      padding: 56px 48px 48px;
       border-bottom: 1px solid var(--border);
       position: relative;
       overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
     }
+
+    .hero-left { position: relative; z-index: 1; }
+    .hero-right { position: relative; z-index: 1; }
 
     .hero::before {
       content: '';
@@ -779,25 +786,67 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-eyebrow">Welcome to Your Partner Portal</div>
-    <h1>Everything your practice needs to recommend with confidence.</h1>
-    <p>Clinical training, patient scripts, protocol cards, marketing assets, and your revenue dashboard — all in one place.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <strong>100%</strong>
-        <span>Study Completion Rate, No Adverse Events</span>
+    <!-- Left: identity + stats -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">Welcome to Your Partner Portal</div>
+      <h1>Everything your practice needs to recommend with confidence.</h1>
+      <p>Clinical training, patient scripts, protocol cards, marketing assets, and your revenue dashboard — all in one place.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>100%</strong>
+          <span>Study Completion Rate, No Adverse Events</span>
+        </div>
+        <div class="hero-stat">
+          <strong>8–13</strong>
+          <span>mmHg · Lymphatic Optimization Range</span>
+        </div>
+        <div class="hero-stat">
+          <strong>US 11,849,777</strong>
+          <span>Utility Patent · MicroPerle® Technology</span>
+        </div>
+        <div class="hero-stat">
+          <strong>~45 min</strong>
+          <span>To Complete Clinical Onboarding</span>
+        </div>
       </div>
-      <div class="hero-stat">
-        <strong>8–13</strong>
-        <span>mmHg · Lymphatic Optimization Range</span>
-      </div>
-      <div class="hero-stat">
-        <strong>US 11,849,777</strong>
-        <span>Utility Patent · MicroPerle® Technology</span>
-      </div>
-      <div class="hero-stat">
-        <strong>~45 min</strong>
-        <span>To Complete Clinical Onboarding</span>
+    </div>
+
+    <!-- Right: inline revenue calculator -->
+    <div class="hero-right">
+      <div class="inline-calc">
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--chartreuse);margin-bottom:14px;">Revenue Calculator</div>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label>Monthly Body Patients</label>
+            <input type="number" id="calcPatients" value="50" min="1" max="500" oninput="calcRevenue()">
+          </div>
+          <div class="calc-field calc-attach">
+            <label>% Who Take a Garment — <span class="attach-val" id="attachVal">20%</span></label>
+            <input type="range" id="calcAttach" min="5" max="60" value="20" step="5" oninput="updateAttach(); calcRevenue()">
+          </div>
+          <div class="calc-field">
+            <label>Your Partnership Tier</label>
+            <div class="calc-tier-toggle">
+              <button class="tier-btn selected" id="btnAffiliate" onclick="selectTier('affiliate')">Affiliate — 20%</button>
+              <button class="tier-btn" id="btnPartner" onclick="selectTier('partner')">Wholesale — 50%</button>
+            </div>
+          </div>
+        </div>
+        <div class="calc-results">
+          <div class="calc-result-item">
+            <div class="calc-result-label">Units You Move / Month</div>
+            <div class="calc-result-value" id="resUnits">10</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-result-label">You Earn / Month</div>
+            <div class="calc-result-value large" id="resMo">$596</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-result-label">Your Annual Take-Home</div>
+            <div class="calc-result-value large" id="resAnn">$7,152</div>
+          </div>
+        </div>
+        <p class="calc-disclaimer">Affiliate: 20% per sale ($59.60/unit). Wholesale Partner: buy at 50% off MSRP, keep $149/unit. Based on $298 blended retail. Results illustrative.</p>
       </div>
     </div>
   </div>
@@ -985,49 +1034,10 @@
         </div>
       </div>
 
-      <!-- REVENUE SECTION -->
-      <div id="revenue" class="reveal">
-        <div class="section-header">
-          <h2>How Much Will You Make?</h2>
-        </div>
-        <div class="inline-calc">
-          <div class="calc-grid">
-            <div class="calc-field">
-              <label>Monthly Body Patients</label>
-              <input type="number" id="calcPatients" value="50" min="1" max="500" oninput="calcRevenue()">
-            </div>
-            <div class="calc-field calc-attach">
-              <label>% Who Take a Garment — <span class="attach-val" id="attachVal">20%</span></label>
-              <input type="range" id="calcAttach" min="5" max="60" value="20" step="5" oninput="updateAttach(); calcRevenue()">
-            </div>
-            <div class="calc-field">
-              <label>Your Partnership Tier</label>
-              <div class="calc-tier-toggle">
-                <button class="tier-btn selected" id="btnAffiliate" onclick="selectTier('affiliate')">Affiliate — 20%</button>
-                <button class="tier-btn" id="btnPartner" onclick="selectTier('partner')">Wholesale — 50%</button>
-              </div>
-            </div>
-          </div>
-          <div class="calc-results">
-            <div class="calc-result-item">
-              <div class="calc-result-label">Units You Move / Month</div>
-              <div class="calc-result-value" id="resUnits">10</div>
-            </div>
-            <div class="calc-result-item">
-              <div class="calc-result-label">You Earn / Month</div>
-              <div class="calc-result-value large" id="resMo">$596</div>
-            </div>
-            <div class="calc-result-item">
-              <div class="calc-result-label">Your Annual Take-Home</div>
-              <div class="calc-result-value large" id="resAnn">$7,152</div>
-            </div>
-          </div>
-          <p class="calc-disclaimer">Affiliate: 20% per sale ($59.60/unit). Wholesale Partner: buy at 50% off MSRP, keep $149/unit. Based on $298 blended retail. Results illustrative.</p>
-        </div>
-      </div>
 
       <!-- spacer -->
       <div style="height:48px"></div>
+
 
       <!-- CONTACT -->
       <div id="contact" class="contact-box reveal">
