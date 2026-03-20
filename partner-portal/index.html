@@ -456,7 +456,17 @@
       background: var(--cream);
     }
 
-    /* ── MODAL OVERLAY ── */
+    /* ── INLINE CALCULATOR ── */
+    .inline-calc {
+      background: var(--midnight-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--chartreuse);
+      padding: 32px;
+      border-radius: 4px;
+      margin-bottom: 48px;
+    }
+
+    /* ── MODAL OVERLAY (kept for future use) ── */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -957,12 +967,42 @@
 
       <!-- REVENUE SECTION -->
       <div id="revenue">
-        <div class="revenue-banner">
-          <div class="revenue-banner-text">
-            <strong>How Much Will You Make?</strong>
-            <p>Enter your monthly patient volume and attach rate — see your earnings as an Affiliate (20% per sale) or Practice Partner (50% margin on wholesale inventory).</p>
+        <div class="section-header">
+          <h2>How Much Will You Make?</h2>
+        </div>
+        <div class="inline-calc">
+          <div class="calc-grid">
+            <div class="calc-field">
+              <label>Monthly Body Patients</label>
+              <input type="number" id="calcPatients" value="50" min="1" max="500" oninput="calcRevenue()">
+            </div>
+            <div class="calc-field calc-attach">
+              <label>% Who Take a Garment — <span class="attach-val" id="attachVal">20%</span></label>
+              <input type="range" id="calcAttach" min="5" max="60" value="20" step="5" oninput="updateAttach(); calcRevenue()">
+            </div>
+            <div class="calc-field">
+              <label>Your Partnership Tier</label>
+              <div class="calc-tier-toggle">
+                <button class="tier-btn selected" id="btnAffiliate" onclick="selectTier('affiliate')">Affiliate — 20%</button>
+                <button class="tier-btn" id="btnPartner" onclick="selectTier('partner')">Wholesale — 50%</button>
+              </div>
+            </div>
           </div>
-          <button class="revenue-banner-cta" id="calcToggle" onclick="openCalc()">Calculate My Earnings →</button>
+          <div class="calc-results">
+            <div class="calc-result-item">
+              <div class="calc-result-label">Units You Move / Month</div>
+              <div class="calc-result-value" id="resUnits">10</div>
+            </div>
+            <div class="calc-result-item">
+              <div class="calc-result-label">You Earn / Month</div>
+              <div class="calc-result-value large" id="resMo">$596</div>
+            </div>
+            <div class="calc-result-item">
+              <div class="calc-result-label">Your Annual Take-Home</div>
+              <div class="calc-result-value large" id="resAnn">$7,152</div>
+            </div>
+          </div>
+          <p class="calc-disclaimer">Affiliate: 20% per sale ($59.60/unit). Wholesale Partner: buy at 50% off MSRP, keep $149/unit. Based on $298 blended retail. Results illustrative.</p>
         </div>
       </div>
 
@@ -986,69 +1026,10 @@
 
 </body>
 
-<!-- CALCULATOR MODAL -->
-<div class="modal-overlay" id="calcModal" onclick="handleOverlayClick(event)">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeCalc()">&times;</button>
-    <div class="modal-eyebrow">Revenue Calculator</div>
-    <h2>How much will you make?</h2>
-    <p>Adjust your patient volume, attach rate, and tier — your earnings update instantly.</p>
 
-    <div class="calc-grid">
-      <div class="calc-field">
-        <label>Monthly Body Patients</label>
-        <input type="number" id="calcPatients" value="50" min="1" max="500" oninput="calcRevenue()">
-      </div>
-      <div class="calc-field calc-attach">
-        <label>% Who Take a Garment — <span class="attach-val" id="attachVal">20%</span></label>
-        <input type="range" id="calcAttach" min="5" max="60" value="20" step="5" oninput="updateAttach(); calcRevenue()">
-      </div>
-      <div class="calc-field">
-        <label>Your Partnership Tier</label>
-        <div class="calc-tier-toggle">
-          <button class="tier-btn selected" id="btnAffiliate" onclick="selectTier('affiliate')">Affiliate — 20%</button>
-          <button class="tier-btn" id="btnPartner" onclick="selectTier('partner')">Wholesale — 50%</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="calc-results">
-      <div class="calc-result-item">
-        <div class="calc-result-label">Units You Move / Month</div>
-        <div class="calc-result-value" id="resUnits">10</div>
-      </div>
-      <div class="calc-result-item">
-        <div class="calc-result-label">You Earn / Month</div>
-        <div class="calc-result-value large" id="resMo">$596</div>
-      </div>
-      <div class="calc-result-item">
-        <div class="calc-result-label">Your Annual Take-Home</div>
-        <div class="calc-result-value large" id="resAnn">$7,152</div>
-      </div>
-    </div>
-    <p class="calc-disclaimer">Affiliate: you earn 20% per sale ($59.60/unit at $298 retail) — zero inventory, zero upfront cost. Wholesale (Practice Partner): you stock at 50% off MSRP and sell at full retail — you keep $149/unit. Based on blended $298 retail average. Results illustrative.</p>
-  </div>
-</div>
 
 <script>
   let currentTier = 'affiliate';
-
-  function openCalc() {
-    document.getElementById('calcModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    calcRevenue();
-  }
-
-  function closeCalc() {
-    document.getElementById('calcModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function handleOverlayClick(e) {
-    if (e.target === document.getElementById('calcModal')) closeCalc();
-  }
-
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCalc(); });
 
   function updateAttach() {
     document.getElementById('attachVal').textContent = document.getElementById('calcAttach').value + '%';
