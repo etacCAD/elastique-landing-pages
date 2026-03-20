@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Portal | Elastique Athletics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --chartreuse: #E0F771;
+      --midnight: #1D1E3C;
+      --midnight-light: #2a2b4a;
+      --midnight-card: #22233f;
+      --cream: #F8F6F0;
+      --blush: #F4C7C3;
+      --text-muted: rgba(248,246,240,0.5);
+      --border: rgba(255,255,255,0.07);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--midnight);
+      color: var(--cream);
+      min-height: 100vh;
+    }
+
+    /* ── TOP NAV ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(29,30,60,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 50;
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-brand span { color: var(--chartreuse); }
+
+    .nav-badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--midnight);
+      background: var(--chartreuse);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-partner-name {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 64px 48px 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(224,247,113,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--chartreuse);
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      line-height: 1.15;
+      max-width: 560px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+
+    /* Quick stats strip */
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--chartreuse);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat span {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── MAIN GRID ── */
+    .main {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: calc(100vh - 180px);
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      padding: 40px 24px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-section {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      margin-top: 12px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-size: 0.84rem;
+      color: rgba(248,246,240,0.75);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(224,247,113,0.06);
+      color: var(--cream);
+      border-color: rgba(224,247,113,0.12);
+    }
+
+    .sidebar-link.active {
+      background: rgba(224,247,113,0.08);
+      color: var(--chartreuse);
+      border-color: rgba(224,247,113,0.15);
+      font-weight: 500;
+    }
+
+    .sidebar-icon { font-size: 0.95rem; width: 18px; text-align: center; }
+
+    .sidebar-new {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--blush);
+      color: var(--midnight);
+      padding: 2px 6px;
+      border-radius: 2px;
+      margin-left: auto;
+    }
+
+    /* ── CONTENT AREA ── */
+    .content-area {
+      padding: 40px 48px;
+      overflow-y: auto;
+    }
+
+    /* Section titles */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    .section-header a {
+      font-size: 0.75rem;
+      color: var(--chartreuse);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    /* Asset cards grid */
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .asset-card {
+      background: var(--midnight-card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: block;
+    }
+
+    .asset-card:hover {
+      border-color: rgba(224,247,113,0.25);
+      background: rgba(224,247,113,0.04);
+      transform: translateY(-2px);
+    }
+
+    .asset-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .asset-tag {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--chartreuse);
+      margin-bottom: 8px;
+    }
+
+    .asset-card h3 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .asset-card p {
+      font-size: 0.75rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    .asset-footer {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .asset-format {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .asset-action {
+      font-size: 0.72rem;
+      color: var(--chartreuse);
+      font-weight: 500;
+    }
+
+    /* Protocol cards */
+    .protocol-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .protocol-card {
+      background: var(--midnight-card);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 4px;
+    }
+
+    .protocol-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: rgba(224,247,113,0.2);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .protocol-card h3 {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .protocol-card p {
+      font-size: 0.74rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    .protocol-badge {
+      display: inline-block;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-top: 12px;
+    }
+
+    .badge-body { background: rgba(224,247,113,0.12); color: var(--chartreuse); }
+    .badge-longevity { background: rgba(244,199,195,0.12); color: var(--blush); }
+    .badge-bbl { background: rgba(255,255,255,0.06); color: rgba(248,246,240,0.6); }
+
+    /* Script box */
+    .script-section { margin-bottom: 48px; }
+
+    .script-card {
+      background: var(--midnight-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .script-card-header {
+      padding: 14px 20px;
+      background: rgba(224,247,113,0.05);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .script-context {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--chartreuse);
+    }
+
+    .script-who {
+      font-size: 0.8rem;
+      color: rgba(248,246,240,0.65);
+    }
+
+    .script-body {
+      padding: 18px 20px;
+      font-size: 0.84rem;
+      line-height: 1.7;
+      color: rgba(248,246,240,0.8);
+      font-style: italic;
+      border-left: 3px solid var(--chartreuse);
+      margin: 0 20px 18px;
+      background: rgba(224,247,113,0.02);
+    }
+
+    /* Revenue calculator teaser */
+    .revenue-banner {
+      background: linear-gradient(135deg, var(--midnight-light) 0%, var(--midnight-card) 100%);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--chartreuse);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      border-radius: 4px;
+    }
+
+    .revenue-banner-text strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .revenue-banner-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .revenue-banner-cta {
+      background: var(--chartreuse);
+      color: var(--midnight);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 24px;
+    }
+
+    .revenue-banner-cta:hover {
+      background: var(--cream);
+    }
+
+    /* ── MODAL OVERLAY ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 25, 0.82);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .modal-box {
+      background: var(--midnight-card);
+      border: 1px solid rgba(224,247,113,0.18);
+      border-radius: 6px;
+      width: 100%;
+      max-width: 720px;
+      padding: 40px;
+      position: relative;
+      animation: scaleIn 0.22s ease;
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--cream); }
+
+    .modal-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--chartreuse);
+      margin-bottom: 10px;
+    }
+
+    .modal-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .modal-box > p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.55;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .calc-field label {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .calc-field input[type="number"],
+    .calc-field select {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 12px 14px;
+      border-radius: 0;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .calc-field input[type="number"]:focus,
+    .calc-field select:focus {
+      border-color: var(--chartreuse);
+      background: rgba(224,247,113,0.04);
+    }
+
+    .calc-field select option { background: var(--midnight-card); color: var(--cream); }
+
+    .calc-attach {
+      grid-column: span 1;
+    }
+
+    .calc-attach .attach-val {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--chartreuse);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .calc-field input[type="range"] {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      outline: none;
+      margin-top: 8px;
+    }
+
+    .calc-field input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--chartreuse);
+      cursor: pointer;
+      box-shadow: 0 0 0 3px rgba(224,247,113,0.2);
+    }
+
+    .calc-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 24px;
+      background: rgba(224,247,113,0.04);
+      border: 1px solid rgba(224,247,113,0.12);
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .calc-result-item { display: flex; flex-direction: column; }
+
+    .calc-result-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .calc-result-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--chartreuse);
+      line-height: 1;
+    }
+
+    .calc-result-value.large {
+      font-size: 2.2rem;
+    }
+
+    .calc-disclaimer {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .calc-tier-toggle {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+    }
+
+    .tier-btn {
+      flex: 1;
+      padding: 11px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .tier-btn:first-child { border-right: none; border-radius: 0; }
+    .tier-btn:last-child { border-radius: 0; }
+
+    .tier-btn.selected {
+      background: rgba(224,247,113,0.1);
+      border-color: rgba(224,247,113,0.3);
+      color: var(--chartreuse);
+    }
+
+    /* Contact box */
+    .contact-box {
+      background: var(--midnight-card);
+      border: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 4px;
+    }
+
+    .contact-box-text strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contact-box-text p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .contact-box-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .contact-box-links a {
+      font-size: 0.8rem;
+      color: var(--chartreuse);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-box-links a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .main { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .nav { padding: 16px 24px; }
+      .hero { padding: 40px 24px 32px; }
+      .hero h1 { font-size: 2rem; }
+      .content-area { padding: 32px 24px; }
+      .asset-grid, .protocol-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .asset-grid, .protocol-grid { grid-template-columns: 1fr; }
+      .revenue-banner { flex-direction: column; gap: 18px; }
+      .revenue-banner-cta { margin-left: 0; width: 100%; }
+      .contact-box { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .contact-box-links { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-brand">Elastique <span>Athletics</span></div>
+    <div class="nav-right">
+      <span class="nav-partner-name">Partner Portal</span>
+      <span class="nav-badge">Austin · Practice Partner</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Welcome to Your Partner Portal</div>
+    <h1>Everything your practice needs to recommend with confidence.</h1>
+    <p>Clinical training, patient scripts, protocol cards, marketing assets, and your revenue dashboard — all in one place.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>100%</strong>
+        <span>Study Completion Rate, No Adverse Events</span>
+      </div>
+      <div class="hero-stat">
+        <strong>8–13</strong>
+        <span>mmHg · Lymphatic Optimization Range</span>
+      </div>
+      <div class="hero-stat">
+        <strong>US 11,849,777</strong>
+        <span>Utility Patent · MicroPerle® Technology</span>
+      </div>
+      <div class="hero-stat">
+        <strong>~45 min</strong>
+        <span>To Complete Clinical Onboarding</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <span class="sidebar-section">Overview</span>
+      <a href="#assets" class="sidebar-link active">
+        <span class="sidebar-icon">◈</span> Marketing Assets
+        <span class="sidebar-new">New</span>
+      </a>
+      <a href="#protocols" class="sidebar-link">
+        <span class="sidebar-icon">⊕</span> Procedure Protocols
+      </a>
+      <a href="#scripts" class="sidebar-link">
+        <span class="sidebar-icon">◎</span> Patient Scripting
+      </a>
+
+      <span class="sidebar-section">Clinical</span>
+      <a href="#" class="sidebar-link">
+        <span class="sidebar-icon">◐</span> Science Overview
+      </a>
+      <a href="#" class="sidebar-link">
+        <span class="sidebar-icon">◑</span> Compression Data
+      </a>
+      <a href="#" class="sidebar-link">
+        <span class="sidebar-icon">◒</span> Contraindications
+      </a>
+
+      <span class="sidebar-section">Business</span>
+      <a href="#revenue" class="sidebar-link">
+        <span class="sidebar-icon">◇</span> Revenue Model
+      </a>
+      <a href="#" class="sidebar-link">
+        <span class="sidebar-icon">◈</span> Sizing Guide
+      </a>
+      <a href="#" class="sidebar-link">
+        <span class="sidebar-icon">◉</span> Reorder
+      </a>
+
+      <span class="sidebar-section">Support</span>
+      <a href="#contact" class="sidebar-link">
+        <span class="sidebar-icon">◌</span> Contact Your Rep
+      </a>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="content-area">
+
+      <!-- ASSETS -->
+      <div id="assets">
+        <div class="section-header">
+          <h2>Marketing Assets</h2>
+          <a href="#">View all →</a>
+        </div>
+        <div class="asset-grid">
+          <a href="../austin-partner-onepager/index.html" class="asset-card" target="_blank">
+            <span class="asset-icon">◈</span>
+            <div class="asset-tag">Leave-Behind</div>
+            <h3>Austin Provider One-Pager</h3>
+            <p>Print-ready overview of the partner program with revenue model and Dr. Sharkey endorsement.</p>
+            <div class="asset-footer">
+              <span class="asset-format">PDF · Print-Ready</span>
+              <span class="asset-action">Open →</span>
+            </div>
+          </a>
+          <a href="#" class="asset-card">
+            <span class="asset-icon">◐</span>
+            <div class="asset-tag">Digital · Waitroom</div>
+            <h3>Digital Display Assets</h3>
+            <p>Branded slides optimized for waiting room and exam room screens. Updated quarterly.</p>
+            <div class="asset-footer">
+              <span class="asset-format">PNG · 1920×1080</span>
+              <span class="asset-action">Download →</span>
+            </div>
+          </a>
+          <a href="#" class="asset-card">
+            <span class="asset-icon">◒</span>
+            <div class="asset-tag">Social · IG / TikTok</div>
+            <h3>Social Media Template Library</h3>
+            <p>Co-brandable Instagram and TikTok templates. Customize with your practice handle.</p>
+            <div class="asset-footer">
+              <span class="asset-format">Canva · Editable</span>
+              <span class="asset-action">Open →</span>
+            </div>
+          </a>
+          <a href="#" class="asset-card">
+            <span class="asset-icon">◑</span>
+            <div class="asset-tag">Clinical</div>
+            <h3>Clinical Rationale One-Pager</h3>
+            <p>Mechanotransduction and lymphatic science explained for physician-to-physician context.</p>
+            <div class="asset-footer">
+              <span class="asset-format">PDF · 1 page</span>
+              <span class="asset-action">Download →</span>
+            </div>
+          </a>
+          <a href="#" class="asset-card">
+            <span class="asset-icon">◎</span>
+            <div class="asset-tag">Physical</div>
+            <h3>Educational Counter Display</h3>
+            <p>Printed counter card for reception and checkout — with QR code linking to your affiliate code.</p>
+            <div class="asset-footer">
+              <span class="asset-format">Print · 5×7 in</span>
+              <span class="asset-action">Request →</span>
+            </div>
+          </a>
+          <a href="#" class="asset-card">
+            <span class="asset-icon">◇</span>
+            <div class="asset-tag">Physical</div>
+            <h3>Provider Recommendation Pad</h3>
+            <p>Branded tear-off pads for providers to hand patients at checkout with your practice code pre-printed.</p>
+            <div class="asset-footer">
+              <span class="asset-format">Print · 50 sheets</span>
+              <span class="asset-action">Request →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- PROTOCOLS -->
+      <div id="protocols">
+        <div class="section-header">
+          <h2>Procedure Protocols</h2>
+          <a href="#">Download all →</a>
+        </div>
+        <div class="protocol-grid">
+          <div class="protocol-card">
+            <div class="protocol-num">01</div>
+            <h3>Optimal Body Reset</h3>
+            <p>Lymphatic drainage · Cellulite · Body sculpting. 8–10 day wear protocol with clinical rationale card.</p>
+            <span class="protocol-badge badge-body">Bundle 1</span>
+          </div>
+          <div class="protocol-card">
+            <div class="protocol-num">02</div>
+            <h3>Non-Surgical BBL Protocol</h3>
+            <p>RF · Emsculpt · Sculptra · Vacuum therapy. 4-week progressive wear protocol with outcomes tracking card.</p>
+            <span class="protocol-badge badge-bbl">Bundle 2 · Signature</span>
+          </div>
+          <div class="protocol-card">
+            <div class="protocol-num">03</div>
+            <h3>Cellular Optimization</h3>
+            <p>IV therapy · Longevity · Regenerative protocols. Lymphatic health education booklet + lifestyle protocol card.</p>
+            <span class="protocol-badge badge-longevity">Bundle 3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCRIPTS -->
+      <div id="scripts" class="script-section">
+        <div class="section-header">
+          <h2>Patient Scripting</h2>
+        </div>
+
+        <div class="script-card">
+          <div class="script-card-header">
+            <span class="script-context">Post-Procedure</span>
+            <span class="script-who">Injector or Body Contouring Specialist</span>
+          </div>
+          <blockquote class="script-body">
+            "The results from today will continue to develop over the next few weeks. One thing I always recommend is supporting that process with a garment that's actually designed for this — not just compression, but something that works with your lymphatic pathways to help clear the inflammation and let the result show through cleanly. We use Elastique. I'll have [name] put together the protocol card for you."
+          </blockquote>
+        </div>
+
+        <div class="script-card">
+          <div class="script-card-header">
+            <span class="script-context">Consultation</span>
+            <span class="script-who">Patient Coordinator or Front Desk</span>
+          </div>
+          <blockquote class="script-body">
+            "When you come in for [procedure], we'll also include a recovery protocol. One part of that is a compression garment that Dr. [name] recommends for most of our body patients — it's been shown to support lymphatic drainage and improve the final result. We'll walk you through exactly how to wear it."
+          </blockquote>
+        </div>
+
+        <div class="script-card">
+          <div class="script-card-header">
+            <span class="script-context">Follow-Up Call</span>
+            <span class="script-who">Day 3 Post-Procedure</span>
+          </div>
+          <blockquote class="script-body">
+            "How are you feeling? Any swelling is completely normal at this stage. Are you wearing the Elastique daily? The next 10 to 14 days are really the window where the garment does its best work — it's helping your body clear the fluid and let the contour settle."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- REVENUE SECTION -->
+      <div id="revenue">
+        <div class="revenue-banner">
+          <div class="revenue-banner-text">
+            <strong>How Much Will You Make?</strong>
+            <p>Enter your monthly patient volume and attach rate — see your earnings as an Affiliate (20% per sale) or Practice Partner (50% margin on wholesale inventory).</p>
+          </div>
+          <button class="revenue-banner-cta" id="calcToggle" onclick="openCalc()">Calculate My Earnings →</button>
+        </div>
+      </div>
+
+      <!-- spacer -->
+      <div style="height:48px"></div>
+
+      <!-- CONTACT -->
+      <div id="contact" class="contact-box">
+        <div class="contact-box-text">
+          <strong>Your Elastique Partner Rep</strong>
+          <p>Questions about clinical protocols, reorders, marketing assets, or your affiliate code? We're here.</p>
+        </div>
+        <div class="contact-box-links">
+          <a href="mailto:partnerships@elastiqueathletics.com">partnerships@elastiqueathletics.com</a>
+          <a href="https://elastiqueathletics.com/partners" target="_blank">elastiqueathletics.com/partners →</a>
+        </div>
+      </div>
+
+    </div><!-- /content-area -->
+  </div><!-- /main -->
+
+</body>
+
+<!-- CALCULATOR MODAL -->
+<div class="modal-overlay" id="calcModal" onclick="handleOverlayClick(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCalc()">&times;</button>
+    <div class="modal-eyebrow">Revenue Calculator</div>
+    <h2>How much will you make?</h2>
+    <p>Adjust your patient volume, attach rate, and tier — your earnings update instantly.</p>
+
+    <div class="calc-grid">
+      <div class="calc-field">
+        <label>Monthly Body Patients</label>
+        <input type="number" id="calcPatients" value="50" min="1" max="500" oninput="calcRevenue()">
+      </div>
+      <div class="calc-field calc-attach">
+        <label>% Who Take a Garment — <span class="attach-val" id="attachVal">20%</span></label>
+        <input type="range" id="calcAttach" min="5" max="60" value="20" step="5" oninput="updateAttach(); calcRevenue()">
+      </div>
+      <div class="calc-field">
+        <label>Your Partnership Tier</label>
+        <div class="calc-tier-toggle">
+          <button class="tier-btn selected" id="btnAffiliate" onclick="selectTier('affiliate')">Affiliate — 20%</button>
+          <button class="tier-btn" id="btnPartner" onclick="selectTier('partner')">Wholesale — 50%</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-results">
+      <div class="calc-result-item">
+        <div class="calc-result-label">Units You Move / Month</div>
+        <div class="calc-result-value" id="resUnits">10</div>
+      </div>
+      <div class="calc-result-item">
+        <div class="calc-result-label">You Earn / Month</div>
+        <div class="calc-result-value large" id="resMo">$596</div>
+      </div>
+      <div class="calc-result-item">
+        <div class="calc-result-label">Your Annual Take-Home</div>
+        <div class="calc-result-value large" id="resAnn">$7,152</div>
+      </div>
+    </div>
+    <p class="calc-disclaimer">Affiliate: you earn 20% per sale ($59.60/unit at $298 retail) — zero inventory, zero upfront cost. Wholesale (Practice Partner): you stock at 50% off MSRP and sell at full retail — you keep $149/unit. Based on blended $298 retail average. Results illustrative.</p>
+  </div>
+</div>
+
+<script>
+  let currentTier = 'affiliate';
+
+  function openCalc() {
+    document.getElementById('calcModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    calcRevenue();
+  }
+
+  function closeCalc() {
+    document.getElementById('calcModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('calcModal')) closeCalc();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCalc(); });
+
+  function updateAttach() {
+    document.getElementById('attachVal').textContent = document.getElementById('calcAttach').value + '%';
+  }
+
+  function selectTier(tier) {
+    currentTier = tier;
+    document.getElementById('btnAffiliate').classList.toggle('selected', tier === 'affiliate');
+    document.getElementById('btnPartner').classList.toggle('selected', tier === 'partner');
+    calcRevenue();
+  }
+
+  function calcRevenue() {
+    const patients  = parseInt(document.getElementById('calcPatients').value) || 0;
+    const attachPct = parseInt(document.getElementById('calcAttach').value) / 100;
+    const retail    = 298;
+    const units     = Math.round(patients * attachPct);
+    const perUnit   = currentTier === 'affiliate' ? retail * 0.20 : retail * 0.50;
+    const monthly   = units * perUnit;
+    const annual    = monthly * 12;
+    document.getElementById('resUnits').textContent = units.toLocaleString();
+    document.getElementById('resMo').textContent    = '$' + Math.round(monthly).toLocaleString();
+    document.getElementById('resAnn').textContent   = '$' + Math.round(annual).toLocaleString();
+  }
+
+  calcRevenue();
+</script>
+
+</html>

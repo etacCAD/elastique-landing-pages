@@ -89,3 +89,29 @@ services:
       - type: rewrite
         source: /*
         destination: /index.html
+
+  - type: web
+    name: elastique-partner-portal
+    env: static
+    staticPublishPath: ./partner-portal
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: elastique-austin-onepager
+    env: static
+    staticPublishPath: ./austin-partner-onepager
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
