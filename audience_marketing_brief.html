@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        var pw = prompt("This document is password protected. Enter password:");
+        if (pw !== "adauditmar21") {
+            document.write("<div style='text-align:center; padding: 100px; font-family: sans-serif; background:#1D1E3C; color:#F8F6F0; height:100vh;'><h1>Access Denied</h1><p>Incorrect password. Refresh the page to try again.</p></div>");
+            window.stop();
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Brief | Meta Audiences</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --chartreuse: #E0F771;
+          --midnight: #1D1E3C;
+          --cream: #F8F6F0;
+          --blush: #F4C7C3;
+          --text-primary: #1D1E3C;
+          --text-light: #F8F6F0;
+          --text-muted: #6b6d8a;
+        }
+        
+        body {
+          font-family: 'Inter', sans-serif;
+          font-weight: 400;
+          line-height: 1.6;
+          color: var(--midnight);
+          background-color: var(--cream);
+          margin: 0;
+          padding: 0;
+        }
+
+        h1, h2, h3 { 
+          font-family: 'Playfair Display', serif;
+          font-weight: 500;
+          line-height: 1.2;
+          color: var(--midnight);
+        }
+
+        .header {
+            background-color: var(--midnight);
+            color: var(--text-light);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--chartreuse);
+            margin-bottom: 16px;
+        }
+
+        .tag { 
+          font-family: 'Inter', sans-serif;
+          text-transform: uppercase;
+          font-size: 0.75rem;
+          letter-spacing: 0.1em;
+          color: var(--blush);
+        }
+
+        .container { 
+          max-width: 1000px; 
+          margin: 0 auto; 
+          padding: 60px 24px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px rgba(29,30,60,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card-header {
+            border-bottom: 1px solid #ebebeb;
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .card-header-left {
+            flex: 1;
+        }
+
+        .card-header h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.8rem;
+            color: var(--midnight);
+        }
+        
+        .segment {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            background: rgba(29,30,60,0.05);
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--midnight);
+        }
+
+        .recommendation {
+            background-color: #fcfcfc;
+            padding: 20px;
+            border-left: 4px solid var(--chartreuse);
+            margin-bottom: 32px;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95rem;
+        }
+
+        .recommendation strong {
+            color: var(--midnight);
+            display: block;
+            margin-bottom: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .ad-ideas {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        .ad-ideas li {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (max-width: 768px) {
+            .ad-ideas {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .funnel-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+            align-self: flex-start;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tag-tof { background: #e3f2fd; color: #1565c0; }
+        .tag-mof { background: #fff3e0; color: #ef6c00; }
+        .tag-bof { background: #e8f5e9; color: #2e7d32; }
+
+        .hook {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--midnight);
+            font-size: 1rem;
+        }
+
+        .body-text {
+            color: #555;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <span class="tag">INTERNAL REVIEW &bull; FOR CEO</span>
+        <h1>Meta Audience Strategy Brief</h1>
+        <p style="max-width: 600px; margin: 0 auto; opacity: 0.9;">Strategic recommendations for ad creative and landing page alignment based on our 17 active Meta audience segments. Adhering strictly to Elastique brand guidelines and compliance constraints.</p>
+    </div>
+
+    <div class="container">
+
+        <!-- 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>MOMS</h2>
+                    <span class="segment">Target Segment: Everyday Wellness</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Everyday Wellness Page</strong>
+                Focus on "Zero-Routine Wellness." Moms don't have time for 60-minute lymphatic massages or complex rituals. Differentiate by showing that Elastique provides passive, continuous recovery while they move through their day.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"You don't need another routine."</div>
+                    <div class="body-text">Your body is a high-performance machine. It deserves recovery that requires zero extra minutes of your day.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"The 0-minute wellness habit."</div>
+                    <div class="body-text">Hundreds of health-conscious mothers rely on patented MicroPerle technology to keep circulation flowing seamlessly.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Put it on and forget it."</div>
+                    <div class="body-text">Clinically proven circulation technology. Free shipping on your first order. 30-day risk-free trial.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>WOMEN IN BUSINESS</h2>
+                    <span class="segment">Target Segment: Everyday Wellness</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Everyday Wellness Page</strong>
+                Leverage the "Your legs shouldn't feel heavy by 3pm" narrative. Address desk-bound circulation issues and clearly link sluggish circulation to afternoon energy crashes.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"Sitting is the new smoking—but only if your circulation suffers."</div>
+                    <div class="body-text">Every hour at your desk, fluid pools in your legs. Here's what that means for your cognitive energy.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"That 3pm slump isn't caffeine withdrawal."</div>
+                    <div class="body-text">It's circulation. MicroPerle beads create targeted pressure points to enhance drainage while you work.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Invest in your body's infrastructure."</div>
+                    <div class="body-text">The only luxury wellness technology with clinical benefits. Experience passive longevity today.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 3 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>SPORTSWEAR</h2>
+                    <span class="segment">Target Segment: Peak Performer</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Recovery Page</strong>
+                Position Elastique firmly against traditional activewear. Hero messaging: "Recovery that looks as good as it feels." The goal is to educate that typical activewear is physiologically inert, whereas Elastique is active wellness technology.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"Your activewear is physiologically inert."</div>
+                    <div class="body-text">Elastique is the only brand with a clinically validated lymphatic activation system built into every fiber.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"Accelerate your recovery."</div>
+                    <div class="body-text">Our patented MicroPerle technology reduces swelling and accelerates workout recovery so you can train harder.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"The science is proven. The routine is zero."</div>
+                    <div class="body-text">Upgrade your performance wear with medical-grade science. Try Elastique risk-free for 30 days.</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- 4 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>RUNNING & SPORTS</h2>
+                    <span class="segment">Target Segment: Peak Performer</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Recovery Page</strong>
+                Focus strictly on biomechanical advantages of enhanced circulation. "The only wearable with a clinically validated lymphatic activation system." Use thermography visual evidence.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"How do you recover between miles?"</div>
+                    <div class="body-text">Traditional compression is static. MicroPerle technology stimulates lymphatic flow with every step you take.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"Data-backed recovery."</div>
+                    <div class="body-text">Thermography-validated results show improved circulation and faster recovery times for endurance athletes.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Train harder. Recover passively."</div>
+                    <div class="body-text">Clinically proven circulation technology for those who push their limits. Shop the collection.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 5 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>GOLF, TENNIS, PICKLEBALL</h2>
+                    <span class="segment">Target Segment: Peak Performer / Everyday Wellness</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Everyday Wellness Page</strong>
+                Bridge the gap between country club aesthetic and sports recovery. Leverage the repetitive motion of these sports as the perfect trigger for the continuous MicroPerle massage effect.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"The best recovery happens on the court."</div>
+                    <div class="body-text">Our proprietary micro-knit compression technology activates lymphatic flow while you volley.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"Don't let heavy legs ruin your game."</div>
+                    <div class="body-text">Elastique's targeted pressure points reduce swelling and improve circulation continuously through all 18 holes.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Elegant functionality."</div>
+                    <div class="body-text">Luxury design meets medical-grade science. Arrive to the club in style. Free shipping on your first order.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 6 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>VEGAN & SUSTAINABLE</h2>
+                    <span class="segment">Target Segment: Modern Wellness Investor</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Longevity Page</strong>
+                Position Elastique as the ultimate sustainable investment: investing in one's own biological infrastructure. Highlight "Couture-Science Design Standard" and conscious creation.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"The most sustainable investment is your biology."</div>
+                    <div class="body-text">Optimal circulation is the foundation of long-term health and vitality. Invest in your body's infrastructure.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"Conscious design. Clinical results."</div>
+                    <div class="body-text">We refuse to choose between biology and beauty. Experience the DIN SPEC 4868 certified compression.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Wellness technology you can feel good about."</div>
+                    <div class="body-text">Patented. Proven. Premium. Start your 30-day trial with Elastique today.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 7 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>ANTI-AGING & WELLNESS</h2>
+                    <span class="segment">Target Segment: Longevity Seeker / Beauty</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Longevity Page</strong>
+                Lead with "The longevity protocol you just put on." Focus heavily on lymphatic fluid clearance, reduced inflammation, and skin texture smoothing as a byproduct of elite circulation.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"Lymphatic drainage isn't just for spa days."</div>
+                    <div class="body-text">Discover how optimal circulation impacts cellular aging, sustained energy, and cognitive function.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"Smooths skin texture from the inside out."</div>
+                    <div class="body-text">The bead you can't see is doing the work you can feel. Real, passive results through improved lymphatic flow.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Your daily longevity practice."</div>
+                    <div class="body-text">The best health interventions are the ones you don't think about. Add Elastique to your wellness stack.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>ART & ENTERTAINMENT</h2>
+                    <span class="segment">Target Segment: Beauty Enthusiast</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Everyday Wellness Page</strong>
+                Lean heavily into the Couture-Science Design Standard. Visuals should reflect "Sézane meets Oura" aesthetic. Make the hook "Technology disguised as fashion."
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"We refuse to choose between biology and beauty."</div>
+                    <div class="body-text">The only brand that applies rigorous medical science to a high-fashion, premium-aesthetic silhouette.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"It doesn't look like medical compression."</div>
+                    <div class="body-text">But it delivers clinical-grade circulation benefits. Elevate your wardrobe and your wellbeing.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"French pharmacy meets tech startup."</div>
+                    <div class="body-text">The only lymphatic compression brand you'd choose to wear even if it didn't work.</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- 9 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>MAGAZINES & PUBLICATIONS</h2>
+                    <span class="segment">Target Segment: Modern Wellness Investor</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Everyday Wellness Page</strong>
+                Use an "As Seen In" PR angle. Feature Travel + Leisure editorial recognition heavily. The audience responds to established authority and media validation.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"The wellness tech taking over the editorial world."</div>
+                    <div class="body-text">Why top editors are permanently swapping their activewear for MicroPerle technology.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"The science is proven. The routine is zero."</div>
+                    <div class="body-text">Discover why Elastique is the first luxury wellness brand to achieve DIN SPEC 4868 certification.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Read the reviews. Feel the difference."</div>
+                    <div class="body-text">Over 2,400 five-star reviews from readers like you. Experience the Elastique difference risk-free.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 10 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>LOVELAND</h2>
+                    <span class="segment">Target Segment: Modern Wellness Investor</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Everyday Wellness Page</strong>
+                Use a strong, localized (if Loveland geographically) or highly sophisticated generalized approach. Keep the messaging anchored in the broader promise: "Passive Longevity" without friction.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"Wellness that works for you, not the other way around."</div>
+                    <div class="body-text">Eliminate the friction of health with our patented zero-routine compression technology.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"You get the treatment just by getting dressed."</div>
+                    <div class="body-text">Replaces expensive, time-consuming drainage treatments with effortless daily wear.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Invest in your circulation."</div>
+                    <div class="body-text">Try the only wearable with a clinically validated lymphatic activation system. Shop today.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 11 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>RESORTS & TRAVEL</h2>
+                    <span class="segment">Target Segment: Energized Traveler</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Travel Page</strong>
+                Hero message: "Arrive how you left." This audience travels frequently. Tap directly into the pain of DVT risk, severe ankle swelling, and post-flight fatigue (jet lag).
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"What actually happens to your body on a 6-hour flight?"</div>
+                    <div class="body-text">Your lymphatic system doesn't have a pump. Here is why you swell during flights, and how to stop it passively.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"Reduced post-flight ankle swelling by 40%."</div>
+                    <div class="body-text">"I flew 14 hours to Tokyo and my legs felt like I'd been on a walk." — Sarah M., Frequent Flyer.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Never travel without optimizing your circulation."</div>
+                    <div class="body-text">Pack the ultimate travel wellness infrastructure. Shop Elastique's travel-approved collection.</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- 12 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>STACKED RETARGETING</h2>
+                    <span class="segment">Target Segment: Warm/Hot Audience (All Segments)</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Product Validation / BOF Page</strong>
+                Direct straight to specific high-converting PDPs. Lead strongly with the 30-day trial risk reversal and heavy social/clinical proof. Emphasize "DIN SPEC 4868 certified."
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"The science you've been looking for."</div>
+                    <div class="body-text">Review our IRB-approved clinical trial data and thermography-validated results. The proof is in the fabric.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"You've read the reviews. Now is a good time to start."</div>
+                    <div class="body-text">Join thousands of high-performers optimizing their circulation passively every day.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Clinically proven circulation technology."</div>
+                    <div class="body-text">Free shipping on your first order. 30-day risk-free trial. Return it if you don't feel the difference.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 13 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>DYNAMIC LEADS</h2>
+                    <span class="segment">Target Segment: Cold/Warm Audience (Lead Capture)</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Educational Blog / Lead Capture Page</strong>
+                Offer high-value gating (e.g., "The Science of Lymphatic Health" guide). Focus on creating an "I didn't know that" realization before asking for the email.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"Most people don't realize lymphatic congestion is why they feel sluggish."</div>
+                    <div class="body-text">Learn what's actually happening in your body when you sit all day, and how to fix it.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"The link between circulation and afternoon fatigue."</div>
+                    <div class="body-text">Download our free guide to passive longevity from Elastique's wellness experts.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Ready to optimize your body's infrastructure?"</div>
+                    <div class="body-text">Take the first step with Elastique's patented MicroPerle technology. Sign up for exclusive access.</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- 14 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>ASC (Advantage+ Shopping Campaign)</h2>
+                    <span class="segment">Target Segment: Broad / Algorithmic</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Everyday Wellness Page (Universal Control)</strong>
+                Because this relies on algorithmic broad targeting, the landing page must hit the most universal value props: The science is proven, the routine is zero. Don't niche down too much.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"The only medical-grade treatment that requires zero minutes of your day."</div>
+                    <div class="body-text">Activewear is dead. Wearable wellness technology is here to optimize your life.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"The competitive moat: Why Elastique?"</div>
+                    <div class="body-text">The science is proven. The routine is zero. And it looks nothing like medicine.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Your body works. You live."</div>
+                    <div class="body-text">Experience the only activewear with a patented lymphatic activation system. Try it today.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 15 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>COFFEE DRINKERS</h2>
+                    <span class="segment">Target Segment: Everyday Wellness</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Everyday Wellness Page</strong>
+                Draw clever parallels between the ingrained daily habit of coffee and the new "habit-stacked" routine of wearing Elastique. Focus on sustainable, crash-free energy.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"That 3pm slump isn't a caffeine deficiency."</div>
+                    <div class="body-text">It's a circulation problem. When you sit all day, your lymphatic fluid pools. Here is how to fix it.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"Habit-stack your wellness."</div>
+                    <div class="body-text">Get your daily lymphatic drainage just by getting dressed in the morning. No extra time required.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Energize your legs. Passively."</div>
+                    <div class="body-text">Swap your afternoon coffee crash for continuous circulation support. Try Elastique.</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- 16 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>ON FEET ALL DAY</h2>
+                    <span class="segment">Target Segment: Everyday Wellness / Resilient Warrior</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Everyday Wellness Page / Recovery Page</strong>
+                Directly address the physical toll of gravity on the lower body. Talk about immediate, tangible relief from heavy legs and standing fatigue. 
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"Your legs don't have to feel heavy by the end of your shift."</div>
+                    <div class="body-text">Standing all day fights gravity. Elastique's patented compression fights back.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"Support for the hardest working legs."</div>
+                    <div class="body-text">MicroPerle beads create gentle pressure points that stimulate drainage while you stand.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Give your legs the infrastructure they deserve."</div>
+                    <div class="body-text">Real clinical benefits for people who are on their feet all day. Shop the collection.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 17 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <h2>WEIGHTLOSS & DIETING</h2>
+                    <span class="segment">Target Segment: Beauty Enthusiast / Longevity</span>
+                </div>
+            </div>
+            
+            <div class="section-title">Landing Page Recommendation</div>
+            <div class="recommendation">
+                <strong>Longevity Page</strong>
+                <em>CRITICAL COMPLIANCE:</em> Never claim weight loss. Instead, discuss "reducing water retention", "lymphatic fluid clearance", and "smoothing skin texture". Reposition the desire from weight loss to systemic metabolic/circulation health.
+            </div>
+
+            <div class="section-title">Ad Creative Ideas</div>
+            <ul class="ad-ideas">
+                <li>
+                    <span class="funnel-tag tag-tof">TOF</span>
+                    <div class="hook">"You might not be retaining fat. You might be retaining fluid."</div>
+                    <div class="body-text">Discover how sluggish lymphatic circulation causes invisible swelling and texture changes.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-mof">MOF</span>
+                    <div class="hook">"Smooths skin texture through improved lymphatic flow."</div>
+                    <div class="body-text">Patented MicroPerle technology reduces swelling and optimizes your body's natural systems.</div>
+                </li>
+                <li>
+                    <span class="funnel-tag tag-bof">BOF</span>
+                    <div class="hook">"Support your wellness journey passively."</div>
+                    <div class="body-text">The zero-routine way to enhance circulation and reveal your body's best baseline. Shop now.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Glossary -->
+        <div class="card" style="background-color: var(--midnight); color: var(--text-light);">
+            <div class="card-header" style="border-bottom-color: rgba(255,255,255,0.1);">
+                <div class="card-header-left">
+                    <h2 style="color: var(--chartreuse);">Glossary of Terms</h2>
+                    <span class="segment" style="color: var(--text-light); background: rgba(255,255,255,0.1);">Acronyms & Definitions</span>
+                </div>
+            </div>
+            
+            <div class="recommendation" style="background-color: transparent; border-left: none; padding: 0;">
+                <ul style="list-style-type: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 16px;">
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;"><strong style="color: var(--chartreuse);">TOF (Top of Funnel):</strong> Creative intended for cold audiences to drive initial brand and problem awareness.</li>
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;"><strong style="color: var(--chartreuse);">MOF (Middle of Funnel):</strong> Creative intended for warm audiences in the consideration phase, focusing on education, product specifics, and social proof.</li>
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;"><strong style="color: var(--chartreuse);">BOF (Bottom of Funnel):</strong> Creative intended for hot audiences to drive direct conversion, focusing on strong calls-to-action, offers, and risk reversal.</li>
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;"><strong style="color: var(--chartreuse);">ASC (Advantage+ Shopping Campaign):</strong> Meta's automated, machine-learning driven campaign type designed to dynamically test creative across broad audiences.</li>
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;"><strong style="color: var(--chartreuse);">PDP (Product Detail Page):</strong> The specific ecommerce page on the website where a user can view details and purchase a single product.</li>
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;"><strong style="color: var(--chartreuse);">DVT (Deep Vein Thrombosis):</strong> A condition where blood clots form in deep veins, often a risk highlighted for frequent travelers.</li>
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;"><strong style="color: var(--chartreuse);">IRB (Institutional Review Board):</strong> An administrative body established to protect the rights and welfare of human research subjects, reflecting Elastique's clinical validation.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
